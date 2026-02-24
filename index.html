@@ -3,572 +3,598 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MG Lifestyle — สิทธิพิเศษสำหรับคุณ</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>MG Lifestyle — Local Lifestyle & Travel Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B2A4A;--navy-deep:#111D33;--navy-mid:#243657;
+  --white:#FFFFFF;--off:#F8F9FC;--silver:#E8ECF2;--silver-mid:#C5CEDC;
+  --gold:#B8964E;--gold-light:#F5EDD8;--gray:#6B7A94;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Sarabun',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden}
 
-  :root {
-    --navy: #1B2A4A;
-    --navy-deep: #111D33;
-    --navy-mid: #243657;
-    --white: #FFFFFF;
-    --off-white: #F8F9FC;
-    --silver: #E8ECF2;
-    --silver-mid: #C5CEDC;
-    --gold: #B8964E;
-    --text-gray: #6B7A94;
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(--navy-deep);display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid rgba(184,150,78,0.2)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:white;letter-spacing:2px;cursor:pointer}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{padding:7px 14px;font-size:12px;color:rgba(255,255,255,0.55);background:none;border:none;cursor:pointer;letter-spacing:0.5px;border-radius:4px;transition:all 0.2s;font-family:'Sarabun',sans-serif;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:white;background:rgba(255,255,255,0.08)}
+.nav-cta{padding:8px 20px;background:var(--gold);color:white;border:none;border-radius:4px;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;margin-left:8px}
+.nav-cta:hover{background:#9a7a3a}
 
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Sarabun', sans-serif;
-    background: var(--white);
-    color: var(--navy);
-    overflow-x: hidden;
-  }
+/* PAGES */
+.page{display:none;padding-top:64px;min-height:100vh}
+.page.active{display:block}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0 56px;
-    height: 68px;
-    display: flex; justify-content: space-between; align-items: center;
-    background: var(--navy-deep);
-  }
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px; font-weight: 600;
-    color: var(--white);
-    letter-spacing: 2px;
-  }
-  .logo span { color: var(--gold); }
-  .nav-right {
-    display: flex; align-items: center; gap: 32px;
-  }
-  .nav-link {
-    font-size: 13px; color: rgba(255,255,255,0.6);
-    text-decoration: none; letter-spacing: 1px;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: white; }
-  .nav-cta {
-    padding: 9px 22px;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    border-radius: 4px;
-    font-family: 'Sarabun', sans-serif;
-    font-size: 13px; cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 1px;
-  }
-  .nav-cta:hover { background: var(--gold); color: white; }
+/* HERO (HOME) */
+.hero{background:var(--navy-deep);min-height:calc(100vh - 64px);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,150,78,0.1) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-left{animation:fadeUp 0.8s ease both}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.eyebrow-line{width:28px;height:1px;background:var(--gold)}
+.eyebrow-text{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,60px);font-weight:600;line-height:1.15;color:white;margin-bottom:20px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-desc{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.5);max-width:400px;margin-bottom:40px;font-weight:300}
+.hero-btns{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-gold{padding:14px 32px;background:var(--gold);color:white;border:none;border-radius:4px;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.25s;letter-spacing:0.5px}
+.btn-gold:hover{background:#9a7a3a;transform:translateY(-2px);box-shadow:0 8px 20px rgba(184,150,78,0.35)}
+.btn-outline{padding:14px 28px;background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);border-radius:4px;font-family:'Sarabun',sans-serif;font-size:14px;cursor:pointer;transition:all 0.2s}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);color:white}
+.hero-stats{display:flex;gap:0;margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.08)}
+.stat{flex:1;padding-right:24px;border-right:1px solid rgba(255,255,255,0.08);margin-right:24px}
+.stat:last-child{border-right:none;margin-right:0}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:white}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-top:4px}
 
-  /* HERO */
-  .hero {
-    background: var(--navy-deep);
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 68px 56px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,150,78,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
+/* CARDS STACK */
+.hero-right{display:flex;justify-content:center;align-items:center;animation:fadeUp 0.8s 0.2s ease both}
+.cards-wrap{position:relative;width:300px;height:380px}
+.ccard{position:absolute;width:270px;border-radius:12px;padding:24px;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.ccard-1{background:linear-gradient(135deg,#243657,#1B2A4A);border:1px solid rgba(184,150,78,0.3);top:0;left:0;transform:rotate(-4deg);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.ccard-2{background:linear-gradient(135deg,#1e3a6e,#162d58);border:1px solid rgba(184,150,78,0.2);top:32px;left:22px;transform:rotate(1deg);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+.ccard-3{background:linear-gradient(135deg,var(--gold),#8B6B2E);top:64px;left:10px;transform:rotate(-1.5deg);box-shadow:0 20px 50px rgba(184,150,78,0.4)}
+.cards-wrap:hover .ccard-1{transform:rotate(-6deg) translateY(-10px)}
+.cards-wrap:hover .ccard-2{transform:rotate(3deg) translateY(-4px)}
+.cards-wrap:hover .ccard-3{transform:rotate(-2deg) translateY(6px)}
+.cc-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px}
+.cc-val{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:white;line-height:1}
+.cc-val .u{font-size:24px}
+.cc-name{font-size:13px;color:rgba(255,255,255,0.8);margin-top:8px;font-weight:500}
+.cc-bar{height:2px;border-radius:1px;background:rgba(255,255,255,0.08);margin-top:14px;position:relative;overflow:hidden}
+.cc-bar::after{content:'';position:absolute;left:0;top:0;height:100%;width:65%;background:var(--gold)}
+.cc-exp{font-size:9px;color:rgba(255,255,255,0.3);margin-top:10px;letter-spacing:1px}
 
-  .hero-left {
-    padding: 80px 0;
-    animation: fadeUp 0.9s ease both;
-  }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 32px;
-  }
-  .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-  .eyebrow-text {
-    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold);
-  }
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 4.5vw, 64px);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--white);
-    margin-bottom: 24px;
-  }
-  h1 .highlight {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .hero-desc {
-    font-size: 16px; line-height: 1.9;
-    color: rgba(255,255,255,0.55);
-    max-width: 420px;
-    margin-bottom: 48px;
-    font-weight: 300;
-  }
-  .hero-actions { display: flex; align-items: center; gap: 24px; }
-  .btn-primary {
-    padding: 15px 36px;
-    background: var(--gold);
-    color: white;
-    border: none; border-radius: 4px;
-    font-family: 'Sarabun', sans-serif;
-    font-size: 15px; font-weight: 500;
-    cursor: pointer;
-    transition: all 0.25s;
-    letter-spacing: 0.5px;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { background: #A07B38; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,150,78,0.35); }
-  .btn-ghost {
-    font-size: 14px; color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
-    transition: color 0.2s;
-  }
-  .btn-ghost:hover { color: white; }
+/* SECTION COMMONS */
+.section{padding:80px 48px}
+.section-alt{background:var(--off)}
+.sec-header{text-align:center;margin-bottom:52px}
+.sec-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--navy)}
+.sec-sub{font-size:14px;color:var(--gray);margin-top:10px;font-weight:300}
 
-  .hero-stats {
-    display: flex; gap: 0;
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat {
-    flex: 1;
-    padding-right: 32px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    margin-right: 32px;
-  }
-  .stat:last-child { border-right: none; margin-right: 0; }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 600;
-    color: var(--white);
-  }
-  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 4px; }
+/* SERVICE GRID */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.svc-card{background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:28px 22px;cursor:pointer;transition:all 0.3s;text-align:center}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,42,74,0.1);border-color:var(--gold)}
+.svc-icon{font-size:36px;margin-bottom:14px;display:block}
+.svc-name{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.svc-desc{font-size:12px;color:var(--gray);line-height:1.6}
+.svc-badge{display:inline-block;margin-top:12px;padding:3px 10px;background:var(--gold-light);border-radius:20px;font-size:11px;color:var(--navy);font-weight:600}
 
-  /* COUPON STACK */
-  .hero-right {
-    display: flex; justify-content: center; align-items: center;
-    padding: 80px 0;
-    animation: fadeUp 0.9s 0.25s ease both;
-  }
-  .cards-wrap { position: relative; width: 340px; height: 460px; }
+/* COUPON PAGE */
+.cat-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+.cat-tab{padding:9px 20px;border-radius:40px;border:1px solid var(--silver-mid);background:var(--white);color:var(--gray);font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s}
+.cat-tab.active,.cat-tab:hover{background:var(--navy-deep);color:white;border-color:var(--navy-deep)}
+.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.partner-card{background:var(--white);border-radius:14px;border:1px solid var(--silver);padding:28px 24px;transition:all 0.3s}
+.partner-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(27,42,74,0.1)}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.pc-icon{font-size:28px}
+.pc-badge{padding:4px 10px;border-radius:20px;background:var(--off);border:1px solid var(--silver);font-size:11px;font-weight:700;color:var(--navy);font-family:'Cormorant Garamond',serif}
+.pc-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.pc-name{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.pc-detail{font-size:12px;color:var(--gray);line-height:1.6}
+.pc-footer{margin-top:16px;padding-top:14px;border-top:1px solid var(--silver);display:flex;justify-content:space-between;align-items:center}
+.pc-exp{font-size:10px;color:var(--gray)}
+.pc-discount{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--navy-deep)}
 
-  .coupon-card {
-    position: absolute; width: 300px;
-    border-radius: 12px;
-    padding: 28px 28px 24px;
-    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  .card-1 {
-    background: linear-gradient(135deg, #243657 0%, #1B2A4A 100%);
-    border: 1px solid rgba(184,150,78,0.3);
-    top: 0; left: 0;
-    transform: rotate(-4deg);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .card-2 {
-    background: linear-gradient(135deg, #1e3a6e 0%, #162d58 100%);
-    border: 1px solid rgba(184,150,78,0.2);
-    top: 40px; left: 30px;
-    transform: rotate(1deg);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  }
-  .card-3 {
-    background: linear-gradient(135deg, var(--gold) 0%, #8B6B2E 100%);
-    top: 80px; left: 15px;
-    transform: rotate(-1.5deg);
-    box-shadow: 0 20px 60px rgba(184,150,78,0.4);
-  }
-  .cards-wrap:hover .card-1 { transform: rotate(-6deg) translateY(-12px); }
-  .cards-wrap:hover .card-2 { transform: rotate(3deg) translateY(-4px); }
-  .cards-wrap:hover .card-3 { transform: rotate(-2deg) translateY(6px); }
+/* STAY PAGE */
+.stay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.stay-card{background:var(--white);border-radius:14px;border:1px solid var(--silver);overflow:hidden;transition:all 0.3s;cursor:pointer}
+.stay-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(27,42,74,0.12)}
+.stay-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.stay-img.c1{background:linear-gradient(135deg,#243657,#1B2A4A)}
+.stay-img.c2{background:linear-gradient(135deg,#2E4A7A,#1B3060)}
+.stay-img.c3{background:linear-gradient(135deg,#1B4A3A,#0D2E24)}
+.stay-img.c4{background:linear-gradient(135deg,#4A2B1B,#2E1A0E)}
+.stay-img.c5{background:linear-gradient(135deg,#3A1B4A,#220D2E)}
+.stay-img.c6{background:linear-gradient(135deg,#1B3A4A,#0D2232)}
+.stay-tag{position:absolute;top:12px;left:12px;background:var(--gold);color:white;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:1px}
+.stay-body{padding:18px}
+.stay-zone{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.stay-name{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.stay-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--silver)}
+.stay-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--navy)}
+.stay-price span{font-size:12px;font-weight:400;color:var(--gray);font-family:'Sarabun',sans-serif}
+.stay-disc{font-size:11px;color:white;background:var(--gold);padding:3px 8px;border-radius:4px;font-weight:600}
 
-  .c-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
-  .c-discount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 58px; font-weight: 700;
-    color: white; line-height: 1;
-  }
-  .c-discount .unit { font-size: 28px; }
-  .c-name { font-size: 15px; color: rgba(255,255,255,0.85); margin-top: 10px; font-weight: 500; }
-  .c-exp { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 20px; letter-spacing: 1px; }
-  .c-bar {
-    height: 2px; border-radius: 1px;
-    background: rgba(255,255,255,0.08);
-    margin-top: 16px; position: relative; overflow: hidden;
-  }
-  .c-bar::after {
-    content: ''; position: absolute; left: 0; top: 0;
-    height: 100%; width: 60%;
-    background: var(--gold);
-  }
+/* MARKETPLACE */
+.mkt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.mkt-card{background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:24px 18px;text-align:center;cursor:pointer;transition:all 0.3s}
+.mkt-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,42,74,0.1);border-color:var(--navy-mid)}
+.mkt-icon{font-size:32px;margin-bottom:12px}
+.mkt-name{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.mkt-desc{font-size:11px;color:var(--gray);line-height:1.6}
+.mkt-price{margin-top:12px;font-size:12px;color:var(--gold);font-weight:600}
 
-  /* DIVIDER */
-  .divider {
-    text-align: center;
-    padding: 60px 56px;
-    background: var(--off-white);
-    display: flex; justify-content: center; align-items: center; gap: 24px;
-  }
-  .divider-line { flex: 1; max-width: 200px; height: 1px; background: var(--silver-mid); }
-  .divider-text { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-gray); }
+/* PET */
+.pet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.pet-card{background:var(--white);border:1px solid var(--silver);border-radius:14px;padding:28px;text-align:center;transition:all 0.3s}
+.pet-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,42,74,0.1)}
+.pet-icon{font-size:40px;margin-bottom:16px}
+.pet-name{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.pet-desc{font-size:13px;color:var(--gray);line-height:1.7}
+.pet-cta{margin-top:16px;padding:10px 22px;background:var(--navy-deep);color:white;border:none;border-radius:6px;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s;font-weight:500}
+.pet-cta:hover{background:var(--gold)}
 
-  /* BENEFITS */
-  .benefits {
-    padding: 80px 56px;
-    background: var(--off-white);
-  }
-  .benefits-grid {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
-    max-width: 1000px; margin: 0 auto;
-    border: 1px solid var(--silver); border-radius: 12px; overflow: hidden;
-  }
-  .benefit-item {
-    padding: 40px 32px;
-    background: var(--white);
-    transition: background 0.2s;
-    cursor: default;
-  }
-  .benefit-item:hover { background: var(--navy-deep); }
-  .benefit-item:hover .b-title, .benefit-item:hover .b-desc { color: white; }
-  .benefit-item:hover .b-title { color: var(--gold); }
-  .b-icon {
-    font-size: 28px; margin-bottom: 20px; display: block;
-    filter: grayscale(0);
-  }
-  .b-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 10px; transition: color 0.2s; }
-  .b-desc { font-size: 14px; color: var(--text-gray); line-height: 1.75; transition: color 0.2s; }
-  .b-discount {
-    display: inline-block; margin-top: 16px;
-    padding: 4px 12px; border-radius: 20px;
-    background: var(--off-white); font-size: 12px;
-    color: var(--navy); font-weight: 600; letter-spacing: 1px;
-  }
+/* NICHE */
+.niche-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.niche-card{background:var(--white);border:1px solid var(--silver);border-radius:14px;padding:28px;transition:all 0.3s;cursor:pointer}
+.niche-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,42,74,0.1);border-color:var(--gold)}
+.niche-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.niche-icon{font-size:32px}
+.niche-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.niche-name{font-size:15px;font-weight:600;color:var(--navy)}
+.niche-desc{font-size:13px;color:var(--gray);line-height:1.7}
+.niche-note{margin-top:14px;padding:10px;background:var(--off);border-radius:8px;font-size:11px;color:var(--gray)}
 
-  /* REGISTER */
-  .register-section {
-    padding: 100px 56px;
-    background: var(--white);
-  }
-  .register-inner {
-    max-width: 1000px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-  }
-  .reg-left h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(30px, 3vw, 44px); font-weight: 600;
-    color: var(--navy); margin-bottom: 16px; line-height: 1.2;
-  }
-  .reg-left p { font-size: 15px; color: var(--text-gray); line-height: 1.9; margin-bottom: 36px; font-weight: 300; }
+/* B2B */
+.b2b-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;align-items:start}
+.b2b-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.2}
+.b2b-left p{font-size:14px;color:var(--gray);line-height:1.9;margin-bottom:28px}
+.b2b-pkg-list{display:flex;flex-direction:column;gap:12px}
+.b2b-pkg{display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--off);border-radius:10px;border:1px solid var(--silver)}
+.b2b-pkg-icon{font-size:24px;flex-shrink:0}
+.b2b-pkg-name{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.b2b-pkg-desc{font-size:12px;color:var(--gray)}
+.b2b-right{background:var(--navy-deep);border-radius:14px;padding:36px}
+.b2b-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:6px}
+.b2b-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.b2b-field{margin-bottom:16px}
+.b2b-field label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px}
+.b2b-field input,.b2b-field select{width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;color:white;outline:none;transition:border-color 0.2s}
+.b2b-field input::placeholder{color:rgba(255,255,255,0.2)}
+.b2b-field input:focus,.b2b-field select:focus{border-color:var(--gold)}
+.b2b-field select{background-color:#1a2d4a;color:white}
+.b2b-field select option{background:#1a2d4a;color:white}
+.btn-submit{width:100%;margin-top:8px;padding:14px;background:var(--gold);border:none;border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;color:white;cursor:pointer;transition:all 0.25s}
+.btn-submit:hover{background:#9a7a3a;transform:translateY(-1px);box-shadow:0 8px 20px rgba(184,150,78,0.4)}
+.form-note-small{font-size:11px;color:rgba(255,255,255,0.25);text-align:center;margin-top:12px;line-height:1.6}
 
-  .coupon-list { display: flex; flex-direction: column; gap: 2px; border-radius: 10px; overflow: hidden; border: 1px solid var(--silver); }
-  .cl-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 22px;
-    background: var(--off-white);
-    transition: background 0.2s;
-  }
-  .cl-item:hover { background: var(--silver); }
-  .cl-left { display: flex; align-items: center; gap: 14px; }
-  .cl-icon { font-size: 20px; }
-  .cl-name { font-size: 14px; font-weight: 500; color: var(--navy); }
-  .cl-sub { font-size: 12px; color: var(--text-gray); margin-top: 2px; }
-  .cl-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 700; color: var(--navy-deep);
-  }
+/* REGISTER */
+.reg-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.reg-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.2}
+.reg-left p{font-size:14px;color:var(--gray);line-height:1.9;margin-bottom:28px}
+.coupon-list{display:flex;flex-direction:column;gap:2px;border-radius:10px;overflow:hidden;border:1px solid var(--silver)}
+.cl-group{padding:8px 18px;background:var(--navy-deep);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.cl-item{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--off);transition:background 0.2s}
+.cl-item:hover{background:var(--silver)}
+.cl-l{display:flex;align-items:center;gap:10px}
+.cl-icon{font-size:16px}
+.cl-name{font-size:13px;font-weight:500;color:var(--navy)}
+.cl-sub{font-size:10px;color:var(--gray);margin-top:1px}
+.cl-val{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--navy-deep)}
+.reg-form{background:var(--navy-deep);border-radius:12px;padding:36px 32px}
+.reg-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:6px}
+.reg-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.r-field{margin-bottom:16px}
+.r-field label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px}
+.r-field input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;color:white;outline:none;transition:border-color 0.2s}
+.r-field input::placeholder{color:rgba(255,255,255,0.2)}
+.r-field input:focus{border-color:var(--gold)}
+.reg-consent{font-size:11px;color:rgba(255,255,255,0.25);text-align:center;margin-top:12px;line-height:1.6}
+.success-box{display:none;text-align:center;padding:40px 20px}
+.success-box.show{display:block;animation:fadeUp 0.5s ease}
+.s-icon{font-size:48px;margin-bottom:16px}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:white;margin-bottom:8px}
+.s-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.8}
 
-  /* FORM */
-  .reg-form { background: var(--navy-deep); border-radius: 12px; padding: 40px 36px; }
-  .reg-form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; color: white; margin-bottom: 8px;
-  }
-  .reg-form-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
-  .field { margin-bottom: 18px; }
-  .field label { display: block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-  .field input {
-    width: 100%; padding: 13px 16px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 6px;
-    font-family: 'Sarabun', sans-serif;
-    font-size: 15px; color: white; outline: none;
-    transition: border-color 0.2s;
-  }
-  .field input::placeholder { color: rgba(255,255,255,0.2); }
-  .field input:focus { border-color: var(--gold); }
+/* FOOTER */
+footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:white;letter-spacing:2px}
+.footer-logo span{color:var(--gold)}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.25)}
+.back-bar{padding:16px 48px;background:var(--white);border-bottom:1px solid var(--silver);display:flex;align-items:center}
+.back-btn{display:flex;align-items:center;gap:8px;background:none;border:none;font-family:'Sarabun',sans-serif;font-size:13px;color:var(--gray);cursor:pointer;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+.back-btn:hover{background:var(--off);color:var(--navy)}
+.back-btn::before{content:'←';font-size:16px}
 
-  .btn-submit {
-    width: 100%; margin-top: 8px;
-    padding: 15px;
-    background: var(--gold);
-    border: none; border-radius: 6px;
-    font-family: 'Sarabun', sans-serif;
-    font-size: 15px; font-weight: 600; color: white;
-    cursor: pointer; letter-spacing: 0.5px;
-    transition: all 0.25s;
-  }
-  .btn-submit:hover { background: #A07B38; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(184,150,78,0.4); }
-  .form-consent { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.7; }
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
-  /* SUCCESS */
-  .success-box {
-    display: none; text-align: center; padding: 48px 32px;
-  }
-  .success-box.show { display: block; animation: fadeUp 0.5s ease; }
-  .s-icon { font-size: 52px; margin-bottom: 20px; }
-  .s-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: white; margin-bottom: 10px; }
-  .s-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.8; }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy-deep);
-    padding: 40px 56px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 600; color: white; letter-spacing: 2px;
-  }
-  .footer-logo span { color: var(--gold); }
-  .footer-note { font-size: 12px; color: rgba(255,255,255,0.25); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-right .nav-link { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 88px 24px 60px; }
-    .hero-right { display: none; }
-    .benefits { padding: 60px 24px; }
-    .benefits-grid { grid-template-columns: 1fr; }
-    .register-section { padding: 60px 24px; }
-    .register-inner { grid-template-columns: 1fr; gap: 40px; }
-    footer { flex-direction: column; gap: 12px; padding: 32px 24px; text-align: center; }
-    .divider { padding: 40px 24px; }
-  }
+@media(max-width:900px){
+  nav{padding:0 16px}
+  .nav-links .nav-link{display:none}
+  .hero{grid-template-columns:1fr;padding:40px 24px}
+  .hero-right{display:none}
+  .section{padding:60px 24px}
+  .svc-grid,.mkt-grid{grid-template-columns:repeat(2,1fr)}
+  .partners-grid,.stay-grid,.pet-grid,.niche-grid{grid-template-columns:1fr}
+  .b2b-grid,.reg-inner{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:10px;padding:28px 24px;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">MG <span>Lifestyle</span></div>
-  <div class="nav-right">
-    <a href="#benefits" class="nav-link">สิทธิประโยชน์</a>
-    <a href="#register" class="nav-link">สมัครสมาชิก</a>
-    <button class="nav-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">รับคูปองฟรี</button>
+  <div class="logo" onclick="showPage('home')">MG <span>Lifestyle</span></div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage('home')">หน้าแรก</button>
+    <button class="nav-link" onclick="showPage('coupon')">คูปองส่วนลด</button>
+    <button class="nav-link" onclick="showPage('stay')">ที่พัก กทม</button>
+    <button class="nav-link" onclick="showPage('marketplace')">Marketplace</button>
+    <button class="nav-link" onclick="showPage('pet')">Pet Service</button>
+    <button class="nav-link" onclick="showPage('niche')">บริการพิเศษ</button>
+    <button class="nav-link" onclick="showPage('healthcare')">Healthcare</button>
+    <button class="nav-link" onclick="showPage('b2b')">B2B</button>
+    <button class="nav-cta" onclick="showPage('register')">สมัครสมาชิก ฟรี</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">สมาชิก MG Lifestyle</span>
-    </div>
-    <h1>สิทธิพิเศษ<br>ที่คุณ<span class="highlight"> สมควรได้รับ</span></h1>
-    <p class="hero-desc">
-      สมัครสมาชิกฟรี รับคูปองส่วนลดจากร้านอาหาร คลินิกความงาม และร้านทำเล็บคัดสรรพิเศษ ส่งตรงถึง Email ของคุณทันที
-    </p>
-    <div class="hero-actions">
-      <a href="#register" class="btn-primary">รับคูปองฟรี →</a>
-      <a href="#benefits" class="btn-ghost">ดูสิทธิประโยชน์ ↓</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">30,000+</div>
-        <div class="stat-label">สมาชิกทั่วไทย</div>
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">MG Lifestyle Platform</span></div>
+      <h1>ทุกไลฟ์สไตล์<br>ของคุณ<em> อยู่ที่นี่</em></h1>
+      <p class="hero-desc">สมัครสมาชิกฟรี รับคูปองส่วนลด ค้นหาที่พัก จองบริการถึงบ้าน ครบในที่เดียว</p>
+      <div class="hero-btns">
+        <button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกฟรี →</button>
+        <button class="btn-outline" onclick="showPage('coupon')">ดูคูปองทั้งหมด</button>
       </div>
-      <div class="stat">
-        <div class="stat-num">15+</div>
-        <div class="stat-label">ร้านพาร์ทเนอร์</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">฿0</div>
-        <div class="stat-label">ค่าสมัคร</div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">30,000+</div><div class="stat-label">สมาชิก</div></div>
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Partner</div></div>
+        <div class="stat"><div class="stat-num">฿0</div><div class="stat-label">ค่าสมัคร</div></div>
       </div>
     </div>
-  </div>
+    <div class="hero-right">
+      <div class="cards-wrap">
+        <div class="ccard ccard-1"><div class="cc-tag">คูปองส่วนลด</div><div class="cc-val">20<span class="u">%</span></div><div class="cc-name">🍽️ ร้านอาหาร</div><div class="cc-bar"></div><div class="cc-exp">หมดอายุ 31 มี.ค. 2026</div></div>
+        <div class="ccard ccard-2"><div class="cc-tag">คูปองส่วนลด</div><div class="cc-val">15<span class="u">%</span></div><div class="cc-name">✨ คลินิกศัลยกรรม</div><div class="cc-bar"></div><div class="cc-exp">หมดอายุ 30 เม.ย. 2026</div></div>
+        <div class="ccard ccard-3"><div class="cc-tag">คูปองส่วนลด</div><div class="cc-val">10<span class="u">%</span></div><div class="cc-name">☕ ร้านกาแฟ</div><div class="cc-bar"></div><div class="cc-exp">หมดอายุ 31 มี.ค. 2026</div></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="hero-right">
-    <div class="cards-wrap">
-      <div class="coupon-card card-1">
-        <div class="c-tag">คูปองส่วนลด</div>
-        <div class="c-discount">20<span class="unit">%</span></div>
-        <div class="c-name">🍽️ ร้านอาหาร</div>
-        <div class="c-bar"></div>
-        <div class="c-exp">หมดอายุ 31 มี.ค. 2026</div>
-      </div>
-      <div class="coupon-card card-2">
-        <div class="c-tag">คูปองส่วนลด</div>
-        <div class="c-discount">15<span class="unit">%</span></div>
-        <div class="c-name">✨ คลินิกศัลยกรรม</div>
-        <div class="c-bar"></div>
-        <div class="c-exp">หมดอายุ 30 เม.ย. 2026</div>
-      </div>
-      <div class="coupon-card card-3">
-        <div class="c-tag">คูปองส่วนลด</div>
-        <div class="c-discount">฿<span class="unit">200</span></div>
-        <div class="c-name">💅 ร้านทำเล็บ</div>
-        <div class="c-bar"></div>
-        <div class="c-exp">หมดอายุ 31 มี.ค. 2026</div>
-      </div>
+  <!-- SERVICES OVERVIEW -->
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">บริการทั้งหมด</span><h2 class="sec-title">MG Lifestyle มีอะไรบ้าง</h2><p class="sec-sub">ครบทุกความต้องการ สมัครครั้งเดียวใช้ได้ทุกบริการ</p></div>
+    <div class="svc-grid">
+      <div class="svc-card" onclick="showPage('coupon')"><span class="svc-icon">🎟️</span><div class="svc-name">คูปองส่วนลด</div><div class="svc-desc">ส่วนลดจาก 5 ร้านพาร์ทเนอร์คัดสรร</div><span class="svc-badge">5 ร้าน</span></div>
+      <div class="svc-card" onclick="showPage('stay')"><span class="svc-icon">🏨</span><div class="svc-name">ที่พัก กทม</div><div class="svc-desc">เกสต์เฮ้าส์ และโรงแรม 3 ดาว ราคาพิเศษ</div><span class="svc-badge">Airbnb Style</span></div>
+      <div class="svc-card" onclick="showPage('marketplace')"><span class="svc-icon">🔧</span><div class="svc-name">Marketplace</div><div class="svc-desc">บริการถึงบ้าน ช่าง ทำความสะอาด นวด</div><span class="svc-badge">On-demand</span></div>
+      <div class="svc-card" onclick="showPage('pet')"><span class="svc-icon">🐾</span><div class="svc-name">Pet Service</div><div class="svc-desc">รถรับส่ง อาบน้ำ และดูแลสัตว์เลี้ยง</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('niche')"><span class="svc-icon">⭐</span><div class="svc-name">บริการพิเศษ</div><div class="svc-desc">รอคิวแทน ทำบุญแทน เช่ามือถือ</div><span class="svc-badge">Unique</span></div>
+      <div class="svc-card" onclick="showPage('healthcare')"><span class="svc-icon">🏥</span><div class="svc-name">Healthcare</div><div class="svc-desc">พยาบาล คนดูแลผู้ป่วย บริการถึงบ้าน</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('b2b')"><span class="svc-icon">🏢</span><div class="svc-name">B2B Package</div><div class="svc-desc">สวัสดิการพนักงานและของขวัญเทศกาล</div><span class="svc-badge">Corporate</span></div>
+      <div class="svc-card" onclick="showPage('register')"><span class="svc-icon">🎁</span><div class="svc-name">สมัครสมาชิก</div><div class="svc-desc">สมัครฟรี รับคูปองทันที ไม่มีค่าใช้จ่าย</div><span class="svc-badge">ฟรี!</span></div>
+      <div class="svc-card" style="background:var(--navy-deep);border-color:var(--navy-deep)" onclick="showPage('register')"><span class="svc-icon">✦</span><div class="svc-name" style="color:var(--gold)">เริ่มต้นเลย</div><div class="svc-desc" style="color:rgba(255,255,255,0.5)">สมัครสมาชิกฟรี รับสิทธิ์ครบทุกบริการ</div><span class="svc-badge" style="background:var(--gold);color:white">สมัครเลย →</span></div>
     </div>
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="divider">
-  <div class="divider-line"></div>
-  <span class="divider-text">สิทธิประโยชน์สมาชิก</span>
-  <div class="divider-line"></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
 </div>
 
-<!-- BENEFITS -->
-<section class="benefits" id="benefits">
-  <div class="benefits-grid">
-    <div class="benefit-item">
-      <span class="b-icon">🍽️</span>
-      <div class="b-title">ร้านอาหาร</div>
-      <div class="b-desc">ส่วนลดพิเศษจากร้านอาหารคัดสรร เหมาะทั้งมื้อกลางวันและมื้อค่ำ</div>
-      <span class="b-discount">ลด 20%</span>
+<!-- ===== COUPON ===== -->
+<div id="page-coupon" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">สิทธิพิเศษสมาชิก</span><h2 class="sec-title">คูปองส่วนลดทั้งหมด</h2><p class="sec-sub">สมัครสมาชิกฟรี รับครบทุกคูปองทันที</p></div>
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterCat('all',this)">ทั้งหมด (5)</button>
+      <button class="cat-tab" onclick="filterCat('food',this)">🍽️ อาหาร & เครื่องดื่ม</button>
+      <button class="cat-tab" onclick="filterCat('beauty',this)">✨ ความงาม</button>
+      <button class="cat-tab" onclick="filterCat('lifestyle',this)">🔮 ไลฟ์สไตล์</button>
     </div>
-    <div class="benefit-item">
-      <span class="b-icon">✨</span>
-      <div class="b-title">คลินิกศัลยกรรม</div>
-      <div class="b-desc">แพ็กเกจความงามราคาพิเศษ เฉพาะสมาชิก MG Lifestyle เท่านั้น</div>
-      <span class="b-discount">ลด 15%</span>
+    <div class="partners-grid">
+      <div class="partner-card" data-cat="food"><div class="pc-top"><span class="pc-icon">🍽️</span><span class="pc-badge">ลด 20%</span></div><div class="pc-cat">อาหาร & เครื่องดื่ม</div><div class="pc-name">ร้านอาหาร</div><div class="pc-detail">ส่วนลดพิเศษทุกเมนู เหมาะทั้งมื้อกลางวันและมื้อค่ำ</div><div class="pc-footer"><span class="pc-exp">ถึง 31 มี.ค. 2026</span><span class="pc-discount">20% OFF</span></div></div>
+      <div class="partner-card" data-cat="food"><div class="pc-top"><span class="pc-icon">☕</span><span class="pc-badge">ลด 10%</span></div><div class="pc-cat">อาหาร & เครื่องดื่ม</div><div class="pc-name">ร้านกาแฟ</div><div class="pc-detail">เครื่องดื่มและขนมคัดสรร บรรยากาศดี</div><div class="pc-footer"><span class="pc-exp">ถึง 31 มี.ค. 2026</span><span class="pc-discount">10% OFF</span></div></div>
+      <div class="partner-card" data-cat="beauty"><div class="pc-top"><span class="pc-icon">✨</span><span class="pc-badge">ลด 15%</span></div><div class="pc-cat">ความงาม</div><div class="pc-name">คลินิกศัลยกรรม</div><div class="pc-detail">แพ็กเกจความงามราคาพิเศษ เฉพาะสมาชิก</div><div class="pc-footer"><span class="pc-exp">ถึง 30 เม.ย. 2026</span><span class="pc-discount">15% OFF</span></div></div>
+      <div class="partner-card" data-cat="beauty"><div class="pc-top"><span class="pc-icon">💅</span><span class="pc-badge">ลด ฿200</span></div><div class="pc-cat">ความงาม</div><div class="pc-name">ร้านทำเล็บ</div><div class="pc-detail">บริการทำเล็บระดับพรีเมียม พร้อมส่วนลดพิเศษ</div><div class="pc-footer"><span class="pc-exp">ถึง 31 มี.ค. 2026</span><span class="pc-discount">฿200 OFF</span></div></div>
+      <div class="partner-card" data-cat="beauty"><div class="pc-top"><span class="pc-icon">✂️</span><span class="pc-badge">ลด 10%</span></div><div class="pc-cat">ความงาม</div><div class="pc-name">ร้านตัดผม & สอนทำผม</div><div class="pc-detail">ตัดผมชาย-หญิง และคอร์สสอนทำผมมืออาชีพ</div><div class="pc-footer"><span class="pc-exp">ถึง 30 เม.ย. 2026</span><span class="pc-discount">10% OFF</span></div></div>
+      <div class="partner-card" data-cat="lifestyle"><div class="pc-top"><span class="pc-icon">🔮</span><span class="pc-badge">ลด 10%</span></div><div class="pc-cat">ไลฟ์สไตล์</div><div class="pc-name">ดูหมอไพ่ทาโร่</div><div class="pc-detail">นักอ่านไพ่มืออาชีพ ให้คำปรึกษาด้านความรัก การงาน ชีวิต</div><div class="pc-footer"><span class="pc-exp">ถึง 30 เม.ย. 2026</span><span class="pc-discount">10% OFF</span></div></div>
     </div>
-    <div class="benefit-item">
-      <span class="b-icon">💅</span>
-      <div class="b-title">ร้านทำเล็บ</div>
-      <div class="b-desc">บริการทำเล็บระดับพรีเมียม พร้อมส่วนลดพิเศษสำหรับสมาชิก</div>
-      <span class="b-discount">ลด ฿200</span>
-    </div>
-  </div>
-</section>
+    <div style="text-align:center;margin-top:48px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกรับคูปองฟรี →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
 
-<!-- REGISTER -->
-<section class="register-section" id="register">
-  <div class="register-inner">
-    <div class="reg-left">
-      <h2>รับคูปองทันที<br>เมื่อสมัครสมาชิก</h2>
-      <p>กรอกข้อมูลง่ายๆ เพียง 3 ช่อง รับสิทธิ์คูปองส่วนลดจากทุกร้านพาร์ทเนอร์ ส่งตรงถึง Email ของคุณทันที ไม่มีค่าใช้จ่ายใดทั้งสิ้น</p>
-      <div class="coupon-list">
-        <div class="cl-item">
-          <div class="cl-left">
-            <span class="cl-icon">🍽️</span>
-            <div>
-              <div class="cl-name">ร้านอาหาร</div>
-              <div class="cl-sub">ใช้ได้ถึง 31 มี.ค. 2026</div>
-            </div>
-          </div>
-          <div class="cl-val">20% OFF</div>
+<!-- ===== STAY ===== -->
+<div id="page-stay" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">ที่พักใน กทม</span><h2 class="sec-title">เลือกที่พักที่ใช่</h2><p class="sec-sub">เกสต์เฮ้าส์และโรงแรม 3 ดาวคัดสรร ราคาพิเศษสำหรับสมาชิก MG Lifestyle</p></div>
+    <div class="stay-grid">
+      <div class="stay-card"><div class="stay-img c1"><span style="position:relative;z-index:1">🏨</span><span class="stay-tag">สมาชิก ลด 15%</span></div><div class="stay-body"><div class="stay-zone">สุขุมวิท</div><div class="stay-name">โรงแรมบูทีค สุขุมวิท</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · ใกล้ BTS · ฟรี WiFi</div><div class="stay-row"><div class="stay-price">฿850<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 15%</span></div></div></div>
+      <div class="stay-card"><div class="stay-img c2"><span style="position:relative;z-index:1">🏩</span><span class="stay-tag">สมาชิก ลด 20%</span></div><div class="stay-body"><div class="stay-zone">อารีย์</div><div class="stay-name">เกสต์เฮ้าส์ อารีย์</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · บรรยากาศดี · อาหารเช้าฟรี</div><div class="stay-row"><div class="stay-price">฿650<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 20%</span></div></div></div>
+      <div class="stay-card"><div class="stay-img c3"><span style="position:relative;z-index:1">🏡</span><span class="stay-tag">สมาชิก ลด 10%</span></div><div class="stay-body"><div class="stay-zone">ลาดพร้าว</div><div class="stay-name">คอนโดพักรายวัน</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · ครัวครบ · จอดรถฟรี</div><div class="stay-row"><div class="stay-price">฿990<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 10%</span></div></div></div>
+      <div class="stay-card"><div class="stay-img c4"><span style="position:relative;z-index:1">🏢</span><span class="stay-tag">สมาชิก ลด 15%</span></div><div class="stay-body"><div class="stay-zone">สีลม</div><div class="stay-name">โรงแรม สีลม</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · ใกล้ BTS · สระว่ายน้ำ</div><div class="stay-row"><div class="stay-price">฿1,200<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 15%</span></div></div></div>
+      <div class="stay-card"><div class="stay-img c5"><span style="position:relative;z-index:1">🏘️</span><span class="stay-tag">สมาชิก ลด 20%</span></div><div class="stay-body"><div class="stay-zone">รัชดา</div><div class="stay-name">เกสต์เฮ้าส์ รัชดา</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · MRT สาย · ราคาคุ้ม</div><div class="stay-row"><div class="stay-price">฿550<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 20%</span></div></div></div>
+      <div class="stay-card"><div class="stay-img c6"><span style="position:relative;z-index:1">🌃</span><span class="stay-tag">สมาชิก ลด 12%</span></div><div class="stay-body"><div class="stay-zone">พระราม 9</div><div class="stay-name">บูทีคโฮเทล พระราม 9</div><div style="font-size:12px;color:var(--gray)">⭐⭐⭐ · วิวสวย · ใกล้ห้าง</div><div class="stay-row"><div class="stay-price">฿1,100<span>/คืน</span></div><span class="stay-disc">สมาชิก ลด 12%</span></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อรับราคาพิเศษ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== MARKETPLACE ===== -->
+<div id="page-marketplace" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">บริการถึงบ้าน</span><h2 class="sec-title">Marketplace</h2><p class="sec-sub">หาช่างและผู้ให้บริการมืออาชีพ ส่งตรงถึงบ้านคุณ</p></div>
+    <div class="mkt-grid">
+      <div class="mkt-card"><div class="mkt-icon">🔧</div><div class="mkt-name">ช่างซ่อมทีวี & เครื่องใช้ไฟฟ้า</div><div class="mkt-desc">ซ่อมทีวี ตู้เย็น เครื่องซักผ้า รับประกันงาน</div><div class="mkt-price">เริ่มต้น ฿299</div></div>
+      <div class="mkt-card"><div class="mkt-icon">❄️</div><div class="mkt-name">ช่างแอร์</div><div class="mkt-desc">ล้างแอร์ ติดตั้ง ซ่อม และเติมน้ำยาแอร์</div><div class="mkt-price">เริ่มต้น ฿499</div></div>
+      <div class="mkt-card"><div class="mkt-icon">🚿</div><div class="mkt-name">ช่างประปา</div><div class="mkt-desc">ซ่อมท่อ ก๊อกน้ำ สุขภัณฑ์ แก้ปัญหาน้ำรั่ว</div><div class="mkt-price">เริ่มต้น ฿349</div></div>
+      <div class="mkt-card"><div class="mkt-icon">💡</div><div class="mkt-name">ช่างไฟฟ้า</div><div class="mkt-desc">เดินสาย ติดตั้งปลั๊ก สวิตช์ และโคมไฟ</div><div class="mkt-price">เริ่มต้น ฿299</div></div>
+      <div class="mkt-card"><div class="mkt-icon">🧹</div><div class="mkt-name">ทำความสะอาดบ้าน</div><div class="mkt-desc">บริการทำความสะอาดบ้านและคอนโดครบวงจร</div><div class="mkt-price">เริ่มต้น ฿799</div></div>
+      <div class="mkt-card"><div class="mkt-icon">💆</div><div class="mkt-name">นวดถึงบ้าน</div><div class="mkt-desc">นวดแผนไทย นวดน้ำมัน บริการถึงที่พัก</div><div class="mkt-price">เริ่มต้น ฿499</div></div>
+      <div class="mkt-card"><div class="mkt-icon">💉</div><div class="mkt-name">เจาะเลือดตรวจสุขภาพ</div><div class="mkt-desc">พยาบาลมาเจาะเลือดที่บ้าน ผลรู้ภายใน 24 ชม</div><div class="mkt-price">เริ่มต้น ฿990</div></div>
+      <div class="mkt-card"><div class="mkt-icon">📦</div><div class="mkt-name">ขนของ ย้ายบ้าน</div><div class="mkt-desc">บริการขนย้ายสิ่งของ ระวังรักษา มีประกัน</div><div class="mkt-price">เริ่มต้น ฿899</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อจองบริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== PET ===== -->
+<div id="page-pet" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">บริการสัตว์เลี้ยง</span><h2 class="sec-title">Pet Service 🐾</h2><p class="sec-sub">บริการครบวงจรสำหรับน้องหมา น้องแมว และสัตว์เลี้ยงที่คุณรัก</p></div>
+    <div class="pet-grid">
+      <div class="pet-card"><div class="pet-icon">🚗</div><div class="pet-name">รถรับส่งสัตว์เลี้ยง</div><div class="pet-desc">รถที่ออกแบบเฉพาะสำหรับสัตว์เลี้ยง สะอาด ปลอดภัย รับ-ส่งถึงคลินิกและโรงพยาบาลสัตว์ทั่ว กทม</div><button class="pet-cta" onclick="showPage('register')">จองเลย</button></div>
+      <div class="pet-card"><div class="pet-icon">🛁</div><div class="pet-name">อาบน้ำ-ตัดขน Mobile</div><div class="pet-desc">ช่างอาบน้ำมืออาชีพมาถึงบ้าน พร้อมอุปกรณ์ครบ ไม่ต้องพาออกไปไหน สะดวกทั้งคนและสัตว์</div><button class="pet-cta" onclick="showPage('register')">จองเลย</button></div>
+      <div class="pet-card"><div class="pet-icon">🏠</div><div class="pet-name">Pet Sitter รับฝากดูแล</div><div class="pet-desc">ฝากน้องกับผู้ดูแลที่ผ่านการคัดเลือก มีรายงานสถานะและรูปน้องส่งให้ทุกวัน</div><button class="pet-cta" onclick="showPage('register')">จองเลย</button></div>
+      <div class="pet-card"><div class="pet-icon">💊</div><div class="pet-name">ยาและอาหารเสริมส่งถึงบ้าน</div><div class="pet-desc">สั่งยาและอาหารเสริมสัตว์เลี้ยงจากคลินิกพาร์ทเนอร์ ส่งถึงบ้านในวันเดียวกัน</div><button class="pet-cta" onclick="showPage('register')">สั่งเลย</button></div>
+      <div class="pet-card"><div class="pet-icon">📸</div><div class="pet-name">ถ่ายรูปสัตว์เลี้ยง</div><div class="pet-desc">ช่างภาพเฉพาะทางสัตว์เลี้ยง บันทึกช่วงเวลาน่ารักของน้องอย่างมืออาชีพ</div><button class="pet-cta" onclick="showPage('register')">จองเลย</button></div>
+      <div class="pet-card"><div class="pet-icon">🎓</div><div class="pet-name">ฝึกพฤติกรรมสัตว์เลี้ยง</div><div class="pet-desc">ครูฝึกมืออาชีพสอน Basic Command และแก้ปัญหาพฤติกรรมที่บ้าน</div><button class="pet-cta" onclick="showPage('register')">จองเลย</button></div>
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== NICHE ===== -->
+<div id="page-niche" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">บริการที่หาที่ไหนไม่ได้</span><h2 class="sec-title">Niche Services ⭐</h2><p class="sec-sub">บริการพิเศษที่คุณนึกไม่ถึงว่าจะมี แต่เราทำได้</p></div>
+    <div class="niche-grid">
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">⏰</span><div><div class="niche-label">บริการยอดนิยม</div><div class="niche-name">รับจ้างรอคิว</div></div></div><p class="niche-desc">ไม่อยากเสียเวลารอคิวร้านดัง หรือของ Limited Edition? ส่งคนไปรอแทนคุณ แจ้งผลแบบ Real-time</p><div class="niche-note">📍 ใช้งานได้กับร้านอาหารดัง, ของ Drop Limited, คอนเสิร์ต และงาน Event ต่างๆ</div></div>
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">📱</span><div><div class="niche-label">สำหรับสายคอนเสิร์ต</div><div class="niche-name">เช่ามือถือซูมส่อง</div></div></div><p class="niche-desc">ต้องการซูมระยะไกลในคอนเสิร์ตหรืองาน Event? เช่ามือถือกล้องดีพร้อมขาตั้งรายวัน ไม่ต้องซื้อกล้องราคาแพง</p><div class="niche-note">📍 รองรับทุก Event เช่า 1 วัน ราคาเริ่มต้น ฿299</div></div>
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">🙏</span><div><div class="niche-label">สำหรับคนไทยในต่างประเทศ</div><div class="niche-name">รับจ้างทำบุญแทน</div></div></div><p class="niche-desc">อยู่ต่างประเทศแต่อยากทำบุญในไทย? เราไปถวายสังฆทาน ปล่อยนก ปล่อยปลา หรือทำบุญที่วัดแทนคุณ พร้อมถ่ายรูปและ Live ให้ดู</p><div class="niche-note">📍 โอนเงินออนไลน์ได้ มีหลักฐานทุกครั้ง</div></div>
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">🛍️</span><div><div class="niche-label">Shopping Service</div><div class="niche-name">รับจ้างช้อปแทน</div></div></div><p class="niche-desc">ต้องการสินค้าจากร้านเฉพาะหรือตลาดนัด แต่ไม่สะดวกไปเอง? บอกรายการ เราไปหาและส่งให้</p><div class="niche-note">📍 บวกค่าบริการ + ค่าเดินทาง ราคาโปร่งใส</div></div>
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">📋</span><div><div class="niche-label">จัดการเอกสาร</div><div class="niche-name">รับจ้างติดต่อราชการ</div></div></div><p class="niche-desc">ต่อทะเบียนรถ ต่อบัตรประชาชน ยื่นเอกสารต่างๆ ไม่อยากเสียเวลาต่อคิวราชการ? เราจัดการให้</p><div class="niche-note">📍 ต้องมีเอกสารครบ ใช้เวลา 1-3 วันทำการ</div></div>
+      <div class="niche-card"><div class="niche-top"><span class="niche-icon">🎂</span><div><div class="niche-label">จัดงานพิเศษ</div><div class="niche-name">Surprise Planning</div></div></div><p class="niche-desc">วางแผนงาน Surprise วันเกิด ครบรอบ หรืองาน Proposal ให้คนที่คุณรัก ดูแลทุกรายละเอียด</p><div class="niche-note">📍 ราคาขึ้นอยู่กับแผนงาน ปรึกษาฟรีก่อน</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อใช้บริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== HEALTHCARE ===== -->
+<div id="page-healthcare" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">บริการดูแลสุขภาพ</span><h2 class="sec-title">Healthcare at Home 🏥</h2><p class="sec-sub">พยาบาลวิชาชีพ ผู้ดูแลผู้ป่วย และบริการสุขภาพถึงบ้าน คัดสรรมืออาชีพทุกคน</p></div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto">
+
+      <div class="pet-card">
+        <div class="pet-icon">👩‍⚕️</div>
+        <div class="pet-name">พยาบาลวิชาชีพ</div>
+        <div class="pet-desc">พยาบาลมีใบอนุญาต ดูแลผู้ป่วยที่บ้าน ให้ยา ฉีดยา ทำแผล และติดตามอาการ รายงานให้ครอบครัวทุกวัน</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿800/วัน</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-icon">🧑‍🦽</div>
+        <div class="pet-name">ผู้ดูแลผู้ป่วย (Caregiver)</div>
+        <div class="pet-desc">ผู้ดูแลผ่านการอบรม ช่วยเรื่องการกิน อาบน้ำ เดินทาง และกิจกรรมประจำวัน เหมาะสำหรับผู้สูงอายุและผู้ป่วยระยะพักฟื้น</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿500/วัน</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-icon">🩺</div>
+        <div class="pet-name">แพทย์เยี่ยมบ้าน</div>
+        <div class="pet-desc">แพทย์มาตรวจถึงบ้าน เหมาะสำหรับผู้ป่วยที่เดินทางลำบาก ผู้สูงอายุ หรือผู้ที่ต้องการการตรวจติดตามอาการ</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿1,500/ครั้ง</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-icon">🦴</div>
+        <div class="pet-name">นักกายภาพบำบัด</div>
+        <div class="pet-desc">นักกายภาพมาทำกายภาพบำบัดที่บ้าน ฟื้นฟูหลังผ่าตัด อัมพาต หรืออุบัติเหตุ มีอุปกรณ์ครบพร้อม</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿900/ครั้ง</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-icon">💉</div>
+        <div class="pet-name">เจาะเลือดตรวจสุขภาพ</div>
+        <div class="pet-desc">พยาบาลมาเจาะเลือดที่บ้าน ตรวจสุขภาพประจำปี หรือตามที่แพทย์สั่ง ผลออกภายใน 24 ชั่วโมง</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿490/ครั้ง</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-icon">🌙</div>
+        <div class="pet-name">ผู้ดูแลกะกลางคืน</div>
+        <div class="pet-desc">ผู้ดูแลเฉพาะช่วงกลางคืน เหมาะสำหรับครอบครัวที่ต้องการพักผ่อน แต่ยังต้องการให้ผู้ป่วยได้รับการดูแลตลอดคืน</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿600/คืน</div>
+        <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+      </div>
+
+    </div>
+
+    <!-- TRUST SECTION -->
+    <div style="max-width:1000px;margin:48px auto 0">
+      <div style="background:var(--navy-deep);border-radius:14px;padding:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold)">100%</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">ผ่านการตรวจสอบประวัติ</div>
         </div>
-        <div class="cl-item">
-          <div class="cl-left">
-            <span class="cl-icon">✨</span>
-            <div>
-              <div class="cl-name">คลินิกศัลยกรรม</div>
-              <div class="cl-sub">ใช้ได้ถึง 30 เม.ย. 2026</div>
-            </div>
-          </div>
-          <div class="cl-val">15% OFF</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold)">มีใบอนุญาต</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">พยาบาลและแพทย์ทุกคน</div>
         </div>
-        <div class="cl-item">
-          <div class="cl-left">
-            <span class="cl-icon">💅</span>
-            <div>
-              <div class="cl-name">ร้านทำเล็บ</div>
-              <div class="cl-sub">ใช้ได้ถึง 31 มี.ค. 2026</div>
-            </div>
-          </div>
-          <div class="cl-val">฿200 OFF</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold)">24/7</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">ติดต่อทีมงานได้ตลอด</div>
         </div>
       </div>
     </div>
 
-    <div class="reg-form">
-      <div id="formWrap">
-        <div class="reg-form-title">สมัครสมาชิกฟรี</div>
-        <div class="reg-form-sub">รับคูปองทันทีหลังสมัครสำเร็จ</div>
-        <div class="field">
-          <label>ชื่อ-นามสกุล</label>
-          <input type="text" id="name" placeholder="เช่น สมหญิง ใจดี">
+    <div style="text-align:center;margin-top:40px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อจองบริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== B2B ===== -->
+<div id="page-b2b" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">สำหรับองค์กร</span><h2 class="sec-title">B2B Corporate Package</h2><p class="sec-sub">สวัสดิการพนักงานและของขวัญเทศกาล สำหรับบริษัทและองค์กร</p></div>
+    <div class="b2b-grid">
+      <div class="b2b-left">
+        <h2>สวัสดิการที่พนักงาน<br>รักมากกว่าของขวัญทั่วไป</h2>
+        <p>แทนที่จะแจกของขวัญที่ใช้แล้วหมด MG Lifestyle Package คือสิทธิ์ส่วนลดในชีวิตประจำวันที่พนักงานใช้ได้จริงตลอดปี</p>
+        <div class="b2b-pkg-list">
+          <div class="b2b-pkg"><span class="b2b-pkg-icon">🍽️</span><div><div class="b2b-pkg-name">อาหาร & เครื่องดื่ม</div><div class="b2b-pkg-desc">ส่วนลดร้านอาหารและร้านกาแฟทุกวัน</div></div></div>
+          <div class="b2b-pkg"><span class="b2b-pkg-icon">✨</span><div><div class="b2b-pkg-name">ความงามและสุขภาพ</div><div class="b2b-pkg-desc">คลินิก ร้านทำเล็บ ร้านตัดผม</div></div></div>
+          <div class="b2b-pkg"><span class="b2b-pkg-icon">🏨</span><div><div class="b2b-pkg-name">ที่พักราคาพิเศษ</div><div class="b2b-pkg-desc">โรงแรมและเกสต์เฮ้าส์ใน กทม</div></div></div>
+          <div class="b2b-pkg"><span class="b2b-pkg-icon">📱</span><div><div class="b2b-pkg-name">Tech & Gadget</div><div class="b2b-pkg-desc">ส่วนลดมือถือและอุปกรณ์ไอทีในองค์กร</div></div></div>
+          <div class="b2b-pkg"><span class="b2b-pkg-icon">🎁</span><div><div class="b2b-pkg-name">ของขวัญเทศกาล</div><div class="b2b-pkg-desc">แพ็กเกจพิเศษ ปีใหม่ สงกรานต์ วาเลนไทน์</div></div></div>
         </div>
-        <div class="field">
-          <label>เบอร์โทรศัพท์</label>
-          <input type="tel" id="phone" placeholder="08X-XXX-XXXX">
-        </div>
-        <div class="field">
-          <label>อีเมล</label>
-          <input type="email" id="email" placeholder="example@email.com">
-        </div>
-        <button class="btn-submit" onclick="handleSubmit()">รับคูปองฟรีทันที →</button>
-        <p class="form-consent">โดยการสมัคร คุณยินยอมรับข้อมูลโปรโมชั่นผ่าน Email และ SMS<br>สามารถยกเลิกได้ตลอดเวลา</p>
       </div>
-      <div class="success-box" id="successBox">
-        <div class="s-icon">🎉</div>
-        <div class="s-title">สมัครสำเร็จแล้วค่ะ!</div>
-        <div class="s-desc">คูปองส่วนลดทั้งหมดถูกส่งไปที่<br>Email ของคุณแล้ว<br><br>อย่าลืมตรวจสอบกล่องข้อความนะคะ</div>
+      <div class="b2b-right">
+        <div id="b2bFormWrap">
+          <div class="b2b-title">ติดต่อเพื่อรับข้อเสนอ</div>
+          <div class="b2b-sub">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
+          <div class="b2b-field"><label>ชื่อบริษัท</label><input type="text" id="b2b-company" placeholder="บริษัท ABC จำกัด"></div>
+          <div class="b2b-field"><label>ชื่อผู้ติดต่อ</label><input type="text" id="b2b-name" placeholder="คุณสมชาย ใจดี"></div>
+          <div class="b2b-field"><label>เบอร์โทร</label><input type="tel" id="b2b-phone" placeholder="08X-XXX-XXXX"></div>
+          <div class="b2b-field"><label>อีเมล</label><input type="email" id="b2b-email" placeholder="hr@company.com"></div>
+          <div class="b2b-field"><label>จำนวนพนักงาน</label>
+            <select id="b2b-size">
+              <option value="">เลือกจำนวนพนักงาน</option>
+              <option>10–50 คน</option><option>51–100 คน</option>
+              <option>101–300 คน</option><option>300 คนขึ้นไป</option>
+            </select>
+          </div>
+          <button class="btn-submit" onclick="handleB2B()">ส่งข้อมูลเพื่อรับข้อเสนอ →</button>
+          <p class="form-note-small">ทีมงานจะติดต่อกลับภายใน 1 วันทำการ</p>
+        </div>
+        <div class="success-box" id="b2bSuccess">
+          <div class="s-icon">✅</div>
+          <div class="s-title">ได้รับข้อมูลแล้วค่ะ!</div>
+          <div class="s-desc">ทีมงานจะติดต่อกลับภายใน<br>1 วันทำการค่ะ</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">MG <span>Lifestyle</span></div>
-  <div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์ทุกประการ</div>
-</footer>
+<!-- ===== REGISTER ===== -->
+<div id="page-register" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">เข้าร่วมฟรี</span><h2 class="sec-title">สมัครสมาชิก MG Lifestyle</h2><p class="sec-sub">กรอกข้อมูลเพียง 3 ช่อง รับคูปองส่วนลดทั้งหมดทันที</p></div>
+    <div class="reg-inner">
+      <div class="reg-left">
+        <h2>สมัครฟรี<br>รับครบทุกสิทธิ์</h2>
+        <p>สมาชิก MG Lifestyle ได้รับสิทธิ์ส่วนลดจากทุกร้านพาร์ทเนอร์ ราคาพิเศษสำหรับที่พัก และสิทธิ์ใช้บริการทุกหมวด</p>
+        <div class="coupon-list">
+          <div class="cl-group">🍽️ อาหาร & เครื่องดื่ม</div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">🍽️</span><div><div class="cl-name">ร้านอาหาร</div><div class="cl-sub">ถึง 31 มี.ค. 2026</div></div></div><div class="cl-val">20% OFF</div></div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">☕</span><div><div class="cl-name">ร้านกาแฟ</div><div class="cl-sub">ถึง 31 มี.ค. 2026</div></div></div><div class="cl-val">10% OFF</div></div>
+          <div class="cl-group">✨ ความงาม</div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">✨</span><div><div class="cl-name">คลินิกศัลยกรรม</div><div class="cl-sub">ถึง 30 เม.ย. 2026</div></div></div><div class="cl-val">15% OFF</div></div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">💅</span><div><div class="cl-name">ร้านทำเล็บ</div><div class="cl-sub">ถึง 31 มี.ค. 2026</div></div></div><div class="cl-val">฿200 OFF</div></div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">✂️</span><div><div class="cl-name">ร้านตัดผม</div><div class="cl-sub">ถึง 30 เม.ย. 2026</div></div></div><div class="cl-val">10% OFF</div></div>
+          <div class="cl-group">🔮 ไลฟ์สไตล์</div>
+          <div class="cl-item"><div class="cl-l"><span class="cl-icon">🔮</span><div><div class="cl-name">ดูหมอไพ่ทาโร่</div><div class="cl-sub">ถึง 30 เม.ย. 2026</div></div></div><div class="cl-val">10% OFF</div></div>
+        </div>
+      </div>
+      <div class="reg-form">
+        <div id="regFormWrap">
+          <div class="reg-title">สมัครสมาชิกฟรี</div>
+          <div class="reg-sub">รับคูปองทันทีหลังสมัครสำเร็จ</div>
+          <div class="r-field"><label>ชื่อ-นามสกุล</label><input type="text" id="reg-name" placeholder="เช่น สมหญิง ใจดี"></div>
+          <div class="r-field"><label>เบอร์โทรศัพท์</label><input type="tel" id="reg-phone" placeholder="08X-XXX-XXXX"></div>
+          <div class="r-field"><label>อีเมล</label><input type="email" id="reg-email" placeholder="example@email.com"></div>
+          <button class="btn-submit" onclick="handleRegister()">รับคูปองฟรีทันที →</button>
+          <p class="reg-consent">โดยการสมัคร คุณยินยอมรับโปรโมชั่นผ่าน Email และ SMS<br>สามารถยกเลิกได้ตลอดเวลา</p>
+        </div>
+        <div class="success-box" id="regSuccess">
+          <div class="s-icon">🎉</div>
+          <div class="s-title">ยินดีต้อนรับค่ะ!</div>
+          <div class="s-desc">คูปองทั้งหมดถูกส่งไปที่<br>Email ของคุณแล้ว<br><br>อย่าลืมตรวจสอบกล่องข้อความนะคะ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
 
 <script>
-  function handleSubmit() {
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    if (!name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ'); return; }
-    if (!email.includes('@')) { alert('กรุณากรอก Email ให้ถูกต้องค่ะ'); return; }
-    document.getElementById('formWrap').style.display = 'none';
-    document.getElementById('successBox').classList.add('show');
-  }
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo(0,0);
+  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,healthcare:6,b2b:7};
+  const links = document.querySelectorAll('.nav-link');
+  if(map[id] !== undefined) links[map[id]].classList.add('active');
+}
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-    });
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.partner-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
   });
+}
+
+function handleRegister() {
+  const name = document.getElementById('reg-name').value.trim();
+  const phone = document.getElementById('reg-phone').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  if (!name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ'); return; }
+  if (!email.includes('@')) { alert('กรุณากรอก Email ให้ถูกต้องค่ะ'); return; }
+  document.getElementById('regFormWrap').style.display = 'none';
+  document.getElementById('regSuccess').classList.add('show');
+}
+
+function handleB2B() {
+  const company = document.getElementById('b2b-company').value.trim();
+  const name = document.getElementById('b2b-name').value.trim();
+  const phone = document.getElementById('b2b-phone').value.trim();
+  const email = document.getElementById('b2b-email').value.trim();
+  if (!company || !name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบค่ะ'); return; }
+  document.getElementById('b2bFormWrap').style.display = 'none';
+  document.getElementById('b2bSuccess').classList.add('show');
+}
 </script>
 </body>
 </html>
