@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MG Lifestyle — สิทธิพิเศษสำหรับคุณ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #111D33;
+    --navy-mid: #243657;
+    --white: #FFFFFF;
+    --off-white: #F8F9FC;
+    --silver: #E8ECF2;
+    --silver-mid: #C5CEDC;
+    --gold: #B8964E;
+    --text-gray: #6B7A94;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 56px;
+    height: 68px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--navy-deep);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .logo span { color: var(--gold); }
+  .nav-right {
+    display: flex; align-items: center; gap: 32px;
+  }
+  .nav-link {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    text-decoration: none; letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: white; }
+  .nav-cta {
+    padding: 9px 22px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 4px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px; cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy-deep);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 68px 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,150,78,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-left {
+    padding: 80px 0;
+    animation: fadeUp 0.9s ease both;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+  .eyebrow-text {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4.5vw, 64px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  h1 .highlight {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.9;
+    color: rgba(255,255,255,0.55);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 24px; }
+  .btn-primary {
+    padding: 15px 36px;
+    background: var(--gold);
+    color: white;
+    border: none; border-radius: 4px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: 0.5px;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #A07B38; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,150,78,0.35); }
+  .btn-ghost {
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: white; }
+
+  .hero-stats {
+    display: flex; gap: 0;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat {
+    flex: 1;
+    padding-right: 32px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    margin-right: 32px;
+  }
+  .stat:last-child { border-right: none; margin-right: 0; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 600;
+    color: var(--white);
+  }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 4px; }
+
+  /* COUPON STACK */
+  .hero-right {
+    display: flex; justify-content: center; align-items: center;
+    padding: 80px 0;
+    animation: fadeUp 0.9s 0.25s ease both;
+  }
+  .cards-wrap { position: relative; width: 340px; height: 460px; }
+
+  .coupon-card {
+    position: absolute; width: 300px;
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .card-1 {
+    background: linear-gradient(135deg, #243657 0%, #1B2A4A 100%);
+    border: 1px solid rgba(184,150,78,0.3);
+    top: 0; left: 0;
+    transform: rotate(-4deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .card-2 {
+    background: linear-gradient(135deg, #1e3a6e 0%, #162d58 100%);
+    border: 1px solid rgba(184,150,78,0.2);
+    top: 40px; left: 30px;
+    transform: rotate(1deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .card-3 {
+    background: linear-gradient(135deg, var(--gold) 0%, #8B6B2E 100%);
+    top: 80px; left: 15px;
+    transform: rotate(-1.5deg);
+    box-shadow: 0 20px 60px rgba(184,150,78,0.4);
+  }
+  .cards-wrap:hover .card-1 { transform: rotate(-6deg) translateY(-12px); }
+  .cards-wrap:hover .card-2 { transform: rotate(3deg) translateY(-4px); }
+  .cards-wrap:hover .card-3 { transform: rotate(-2deg) translateY(6px); }
+
+  .c-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .c-discount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px; font-weight: 700;
+    color: white; line-height: 1;
+  }
+  .c-discount .unit { font-size: 28px; }
+  .c-name { font-size: 15px; color: rgba(255,255,255,0.85); margin-top: 10px; font-weight: 500; }
+  .c-exp { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 20px; letter-spacing: 1px; }
+  .c-bar {
+    height: 2px; border-radius: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-top: 16px; position: relative; overflow: hidden;
+  }
+  .c-bar::after {
+    content: ''; position: absolute; left: 0; top: 0;
+    height: 100%; width: 60%;
+    background: var(--gold);
+  }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center;
+    padding: 60px 56px;
+    background: var(--off-white);
+    display: flex; justify-content: center; align-items: center; gap: 24px;
+  }
+  .divider-line { flex: 1; max-width: 200px; height: 1px; background: var(--silver-mid); }
+  .divider-text { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-gray); }
+
+  /* BENEFITS */
+  .benefits {
+    padding: 80px 56px;
+    background: var(--off-white);
+  }
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    max-width: 1000px; margin: 0 auto;
+    border: 1px solid var(--silver); border-radius: 12px; overflow: hidden;
+  }
+  .benefit-item {
+    padding: 40px 32px;
+    background: var(--white);
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .benefit-item:hover { background: var(--navy-deep); }
+  .benefit-item:hover .b-title, .benefit-item:hover .b-desc { color: white; }
+  .benefit-item:hover .b-title { color: var(--gold); }
+  .b-icon {
+    font-size: 28px; margin-bottom: 20px; display: block;
+    filter: grayscale(0);
+  }
+  .b-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 10px; transition: color 0.2s; }
+  .b-desc { font-size: 14px; color: var(--text-gray); line-height: 1.75; transition: color 0.2s; }
+  .b-discount {
+    display: inline-block; margin-top: 16px;
+    padding: 4px 12px; border-radius: 20px;
+    background: var(--off-white); font-size: 12px;
+    color: var(--navy); font-weight: 600; letter-spacing: 1px;
+  }
+
+  /* REGISTER */
+  .register-section {
+    padding: 100px 56px;
+    background: var(--white);
+  }
+  .register-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .reg-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3vw, 44px); font-weight: 600;
+    color: var(--navy); margin-bottom: 16px; line-height: 1.2;
+  }
+  .reg-left p { font-size: 15px; color: var(--text-gray); line-height: 1.9; margin-bottom: 36px; font-weight: 300; }
+
+  .coupon-list { display: flex; flex-direction: column; gap: 2px; border-radius: 10px; overflow: hidden; border: 1px solid var(--silver); }
+  .cl-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 22px;
+    background: var(--off-white);
+    transition: background 0.2s;
+  }
+  .cl-item:hover { background: var(--silver); }
+  .cl-left { display: flex; align-items: center; gap: 14px; }
+  .cl-icon { font-size: 20px; }
+  .cl-name { font-size: 14px; font-weight: 500; color: var(--navy); }
+  .cl-sub { font-size: 12px; color: var(--text-gray); margin-top: 2px; }
+  .cl-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: var(--navy-deep);
+  }
+
+  /* FORM */
+  .reg-form { background: var(--navy-deep); border-radius: 12px; padding: 40px 36px; }
+  .reg-form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: white; margin-bottom: 8px;
+  }
+  .reg-form-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .field input {
+    width: 100%; padding: 13px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 15px; color: white; outline: none;
+    transition: border-color 0.2s;
+  }
+  .field input::placeholder { color: rgba(255,255,255,0.2); }
+  .field input:focus { border-color: var(--gold); }
+
+  .btn-submit {
+    width: 100%; margin-top: 8px;
+    padding: 15px;
+    background: var(--gold);
+    border: none; border-radius: 6px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 15px; font-weight: 600; color: white;
+    cursor: pointer; letter-spacing: 0.5px;
+    transition: all 0.25s;
+  }
+  .btn-submit:hover { background: #A07B38; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(184,150,78,0.4); }
+  .form-consent { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.7; }
+
+  /* SUCCESS */
+  .success-box {
+    display: none; text-align: center; padding: 48px 32px;
+  }
+  .success-box.show { display: block; animation: fadeUp 0.5s ease; }
+  .s-icon { font-size: 52px; margin-bottom: 20px; }
+  .s-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: white; margin-bottom: 10px; }
+  .s-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    padding: 40px 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: white; letter-spacing: 2px;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-right .nav-link { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 88px 24px 60px; }
+    .hero-right { display: none; }
+    .benefits { padding: 60px 24px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .register-section { padding: 60px 24px; }
+    .register-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { flex-direction: column; gap: 12px; padding: 32px 24px; text-align: center; }
+    .divider { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">MG <span>Lifestyle</span></div>
+  <div class="nav-right">
+    <a href="#benefits" class="nav-link">สิทธิประโยชน์</a>
+    <a href="#register" class="nav-link">สมัครสมาชิก</a>
+    <button class="nav-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">รับคูปองฟรี</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">สมาชิก MG Lifestyle</span>
+    </div>
+    <h1>สิทธิพิเศษ<br>ที่คุณ<span class="highlight"> สมควรได้รับ</span></h1>
+    <p class="hero-desc">
+      สมัครสมาชิกฟรี รับคูปองส่วนลดจากร้านอาหาร คลินิกความงาม และร้านทำเล็บคัดสรรพิเศษ ส่งตรงถึง Email ของคุณทันที
+    </p>
+    <div class="hero-actions">
+      <a href="#register" class="btn-primary">รับคูปองฟรี →</a>
+      <a href="#benefits" class="btn-ghost">ดูสิทธิประโยชน์ ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">30,000+</div>
+        <div class="stat-label">สมาชิกทั่วไทย</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">ร้านพาร์ทเนอร์</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">฿0</div>
+        <div class="stat-label">ค่าสมัคร</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="cards-wrap">
+      <div class="coupon-card card-1">
+        <div class="c-tag">คูปองส่วนลด</div>
+        <div class="c-discount">20<span class="unit">%</span></div>
+        <div class="c-name">🍽️ ร้านอาหาร</div>
+        <div class="c-bar"></div>
+        <div class="c-exp">หมดอายุ 31 มี.ค. 2026</div>
+      </div>
+      <div class="coupon-card card-2">
+        <div class="c-tag">คูปองส่วนลด</div>
+        <div class="c-discount">15<span class="unit">%</span></div>
+        <div class="c-name">✨ คลินิกศัลยกรรม</div>
+        <div class="c-bar"></div>
+        <div class="c-exp">หมดอายุ 30 เม.ย. 2026</div>
+      </div>
+      <div class="coupon-card card-3">
+        <div class="c-tag">คูปองส่วนลด</div>
+        <div class="c-discount">฿<span class="unit">200</span></div>
+        <div class="c-name">💅 ร้านทำเล็บ</div>
+        <div class="c-bar"></div>
+        <div class="c-exp">หมดอายุ 31 มี.ค. 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-text">สิทธิประโยชน์สมาชิก</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <span class="b-icon">🍽️</span>
+      <div class="b-title">ร้านอาหาร</div>
+      <div class="b-desc">ส่วนลดพิเศษจากร้านอาหารคัดสรร เหมาะทั้งมื้อกลางวันและมื้อค่ำ</div>
+      <span class="b-discount">ลด 20%</span>
+    </div>
+    <div class="benefit-item">
+      <span class="b-icon">✨</span>
+      <div class="b-title">คลินิกศัลยกรรม</div>
+      <div class="b-desc">แพ็กเกจความงามราคาพิเศษ เฉพาะสมาชิก MG Lifestyle เท่านั้น</div>
+      <span class="b-discount">ลด 15%</span>
+    </div>
+    <div class="benefit-item">
+      <span class="b-icon">💅</span>
+      <div class="b-title">ร้านทำเล็บ</div>
+      <div class="b-desc">บริการทำเล็บระดับพรีเมียม พร้อมส่วนลดพิเศษสำหรับสมาชิก</div>
+      <span class="b-discount">ลด ฿200</span>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register-section" id="register">
+  <div class="register-inner">
+    <div class="reg-left">
+      <h2>รับคูปองทันที<br>เมื่อสมัครสมาชิก</h2>
+      <p>กรอกข้อมูลง่ายๆ เพียง 3 ช่อง รับสิทธิ์คูปองส่วนลดจากทุกร้านพาร์ทเนอร์ ส่งตรงถึง Email ของคุณทันที ไม่มีค่าใช้จ่ายใดทั้งสิ้น</p>
+      <div class="coupon-list">
+        <div class="cl-item">
+          <div class="cl-left">
+            <span class="cl-icon">🍽️</span>
+            <div>
+              <div class="cl-name">ร้านอาหาร</div>
+              <div class="cl-sub">ใช้ได้ถึง 31 มี.ค. 2026</div>
+            </div>
+          </div>
+          <div class="cl-val">20% OFF</div>
+        </div>
+        <div class="cl-item">
+          <div class="cl-left">
+            <span class="cl-icon">✨</span>
+            <div>
+              <div class="cl-name">คลินิกศัลยกรรม</div>
+              <div class="cl-sub">ใช้ได้ถึง 30 เม.ย. 2026</div>
+            </div>
+          </div>
+          <div class="cl-val">15% OFF</div>
+        </div>
+        <div class="cl-item">
+          <div class="cl-left">
+            <span class="cl-icon">💅</span>
+            <div>
+              <div class="cl-name">ร้านทำเล็บ</div>
+              <div class="cl-sub">ใช้ได้ถึง 31 มี.ค. 2026</div>
+            </div>
+          </div>
+          <div class="cl-val">฿200 OFF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reg-form">
+      <div id="formWrap">
+        <div class="reg-form-title">สมัครสมาชิกฟรี</div>
+        <div class="reg-form-sub">รับคูปองทันทีหลังสมัครสำเร็จ</div>
+        <div class="field">
+          <label>ชื่อ-นามสกุล</label>
+          <input type="text" id="name" placeholder="เช่น สมหญิง ใจดี">
+        </div>
+        <div class="field">
+          <label>เบอร์โทรศัพท์</label>
+          <input type="tel" id="phone" placeholder="08X-XXX-XXXX">
+        </div>
+        <div class="field">
+          <label>อีเมล</label>
+          <input type="email" id="email" placeholder="example@email.com">
+        </div>
+        <button class="btn-submit" onclick="handleSubmit()">รับคูปองฟรีทันที →</button>
+        <p class="form-consent">โดยการสมัคร คุณยินยอมรับข้อมูลโปรโมชั่นผ่าน Email และ SMS<br>สามารถยกเลิกได้ตลอดเวลา</p>
+      </div>
+      <div class="success-box" id="successBox">
+        <div class="s-icon">🎉</div>
+        <div class="s-title">สมัครสำเร็จแล้วค่ะ!</div>
+        <div class="s-desc">คูปองส่วนลดทั้งหมดถูกส่งไปที่<br>Email ของคุณแล้ว<br><br>อย่าลืมตรวจสอบกล่องข้อความนะคะ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MG <span>Lifestyle</span></div>
+  <div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ'); return; }
+    if (!email.includes('@')) { alert('กรุณากรอก Email ให้ถูกต้องค่ะ'); return; }
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successBox').classList.add('show');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
