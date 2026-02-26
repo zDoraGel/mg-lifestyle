@@ -227,11 +227,40 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   .b2b-grid,.reg-inner{grid-template-columns:1fr}
   footer{flex-direction:column;gap:10px;padding:28px 24px;text-align:center}
 }
+
+/* LOCK SCREEN */
+#lockScreen{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center}
+#lockScreen.hide{display:none}
+.lock-box{background:rgba(255,255,255,0.04);border:1px solid rgba(184,150,78,0.3);border-radius:16px;padding:48px 40px;width:360px;text-align:center}
+.lock-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:white;letter-spacing:2px;margin-bottom:4px}
+.lock-logo span{color:var(--gold)}
+.lock-sub{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:36px}
+.lock-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:left;display:block;margin-bottom:8px}
+.lock-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:15px;color:white;outline:none;text-align:center;letter-spacing:3px;transition:border-color 0.2s;box-sizing:border-box}
+.lock-input:focus{border-color:var(--gold)}
+.lock-input::placeholder{letter-spacing:1px;color:rgba(255,255,255,0.2)}
+.lock-btn{width:100%;margin-top:16px;padding:14px;background:var(--gold);border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;color:white;cursor:pointer;transition:all 0.2s}
+.lock-btn:hover{background:#9a7a3a;transform:translateY(-1px)}
+.lock-err{font-size:12px;color:#ff6b6b;margin-top:12px;min-height:18px;transition:opacity 0.2s}
+.lock-hint{font-size:11px;color:rgba(255,255,255,0.15);margin-top:24px;line-height:1.6}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+
+<div id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-logo">MG <span>Lifestyle</span></div>
+    <div class="lock-sub">Private Preview</div>
+    <label class="lock-label">Password</label>
+    <input class="lock-input" type="password" id="lockInput" placeholder="กรอก Password" onkeydown="if(event.key==='Enter')checkLock()">
+    <button class="lock-btn" onclick="checkLock()">เข้าสู่ระบบ →</button>
+    <div class="lock-err" id="lockErr"></div>
+    <div class="lock-hint">🔒 สำหรับทีมงาน MG Lifestyle เท่านั้นค่ะ</div>
+  </div>
+</div>
+
 <nav>
   <div class="logo" onclick="showPage('home')">MG <span>Lifestyle</span></div>
   <div class="nav-links">
@@ -242,7 +271,9 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
     <button class="nav-link" onclick="showPage('pet')">Pet Service</button>
     <button class="nav-link" onclick="showPage('niche')">บริการพิเศษ</button>
     <button class="nav-link" onclick="showPage('healthcare')">Healthcare</button>
+    <button class="nav-link" onclick="showPage('travel')">Travel Hub</button>
     <button class="nav-link" onclick="showPage('b2b')">B2B</button>
+    <button class="nav-link" onclick="showPage('provider')">สมัคร Provider</button>
     <button class="nav-cta" onclick="showPage('register')">สมัครสมาชิก ฟรี</button>
   </div>
 </nav>
@@ -285,6 +316,8 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
       <div class="svc-card" onclick="showPage('healthcare')"><span class="svc-icon">🏥</span><div class="svc-name">Healthcare</div><div class="svc-desc">พยาบาล คนดูแลผู้ป่วย บริการถึงบ้าน</div><span class="svc-badge">บริการใหม่</span></div>
       <div class="svc-card" onclick="showPage('b2b')"><span class="svc-icon">🏢</span><div class="svc-name">B2B Package</div><div class="svc-desc">สวัสดิการพนักงานและของขวัญเทศกาล</div><span class="svc-badge">Corporate</span></div>
       <div class="svc-card" onclick="showPage('register')"><span class="svc-icon">🎁</span><div class="svc-name">สมัครสมาชิก</div><div class="svc-desc">สมัครฟรี รับคูปองทันที ไม่มีค่าใช้จ่าย</div><span class="svc-badge">ฟรี!</span></div>
+      <div class="svc-card" onclick="showPage('travel')"><span class="svc-icon">🧳</span><div class="svc-name">Travel Hub</div><div class="svc-desc">ซิมต่างประเทศ เช่ากล้อง เสื้อกันหนาว บัตรเดินทาง</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('provider')"><span class="svc-icon">🤝</span><div class="svc-name">สมัคร Provider</div><div class="svc-desc">ตากล้อง ช่าง พยาบาล คนรอคิว สมัครรับงาน</div><span class="svc-badge">รับงานผ่าน MG</span></div>
       <div class="svc-card" style="background:var(--navy-deep);border-color:var(--navy-deep)" onclick="showPage('register')"><span class="svc-icon">✦</span><div class="svc-name" style="color:var(--gold)">เริ่มต้นเลย</div><div class="svc-desc" style="color:rgba(255,255,255,0.5)">สมัครสมาชิกฟรี รับสิทธิ์ครบทุกบริการ</div><span class="svc-badge" style="background:var(--gold);color:white">สมัครเลย →</span></div>
     </div>
   </section>
@@ -469,6 +502,217 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
 </div>
 
+<!-- ===== TRAVEL HUB ===== -->
+<div id="page-travel" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header"><span class="sec-tag">สำหรับนักเดินทาง</span><h2 class="sec-title">Travel Hub 🧳</h2><p class="sec-sub">ครบทุกอย่างที่นักเดินทางต้องการ ซิมต่างประเทศ เช่าอุปกรณ์ และบัตรเดินทาง</p></div>
+
+    <!-- SIM SECTION -->
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">📶</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">ซิมต่างประเทศ</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🇯🇵</span><span class="pc-badge" style="background:var(--gold-light);color:var(--navy)">ยอดนิยม</span></div>
+          <div class="pc-cat">ญี่ปุ่น</div>
+          <div class="pc-name">SIM2Fly Japan</div>
+          <div class="pc-detail">รองรับ Rakuten, KDDI, Softbank, Docomo · 6GB · 10 วัน · ใช้ได้ทันทีเมื่อถึงญี่ปุ่น</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿399</span></div>
+        </div>
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🌏</span><span class="pc-badge" style="background:var(--gold-light);color:var(--navy)">ครอบคลุม 30 ปท</span></div>
+          <div class="pc-cat">เอเชีย + ออสเตรเลีย</div>
+          <div class="pc-name">SIM2Fly Asia</div>
+          <div class="pc-detail">เกาหลี ญี่ปุ่น จีน ฮ่องกง สิงคโปร์ ออสเตรเลีย และอีก 25 ประเทศ · 6GB · 10 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿399</span></div>
+        </div>
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🌍</span><span class="pc-badge" style="background:var(--gold-light);color:var(--navy)">ทุกทวีป</span></div>
+          <div class="pc-cat">ยุโรป + ทั่วโลก</div>
+          <div class="pc-name">SIM2Fly Worldwide</div>
+          <div class="pc-detail">ยุโรป อเมริกา ตะวันออกกลาง แอฟริกา ครอบคลุมทุกทวีป · 10 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿899</span></div>
+        </div>
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🇰🇷</span><span class="pc-badge" style="background:#E8ECF2;color:var(--navy)">เกาหลี</span></div>
+          <div class="pc-cat">เกาหลีใต้</div>
+          <div class="pc-name">Korea SIM</div>
+          <div class="pc-detail">รองรับ SKT, KT, LG U+ · อินเตอร์เน็ตไม่จำกัด · เลือกได้ 5/10/15 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿350</span></div>
+        </div>
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🇬🇧</span><span class="pc-badge" style="background:#E8ECF2;color:var(--navy)">ยุโรป</span></div>
+          <div class="pc-cat">ยุโรป 30+ ประเทศ</div>
+          <div class="pc-name">Europe SIM</div>
+          <div class="pc-detail">อังกฤษ ฝรั่งเศส เยอรมนี อิตาลี สเปน และอีก 25 ประเทศ · 10GB · 15 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿599</span></div>
+        </div>
+
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🇺🇸</span><span class="pc-badge" style="background:#E8ECF2;color:var(--navy)">อเมริกา</span></div>
+          <div class="pc-cat">สหรัฐอเมริกา</div>
+          <div class="pc-name">USA SIM</div>
+          <div class="pc-detail">รองรับ AT&T, T-Mobile · อินเตอร์เน็ตไม่จำกัด · เลือกได้ 7/15/30 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">มี eSIM และ Nano SIM</span><span class="pc-discount">฿699</span></div>
+        </div>
+
+      </div>
+
+      <!-- RENTAL SECTION -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">📷</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">เช่าอุปกรณ์เดินทาง</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px">
+        <div class="mkt-card"><div class="mkt-icon">📷</div><div class="mkt-name">เช่ากล้อง Mirrorless</div><div class="mkt-desc">Sony, Canon, Fuji พร้อมเลนส์ รับ-ส่งถึงบ้าน</div><div class="mkt-price">เริ่มต้น ฿500/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🎥</div><div class="mkt-name">เช่า GoPro</div><div class="mkt-desc">GoPro Hero 12 พร้อม SD Card และ Accessories ครบ</div><div class="mkt-price">เริ่มต้น ฿300/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🧥</div><div class="mkt-name">เช่าเสื้อกันหนาว</div><div class="mkt-desc">แจ็คเก็ต Puffer, เสื้อ Fleece เหมาะญี่ปุ่น เกาหลี ยุโรป</div><div class="mkt-price">เริ่มต้น ฿150/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">👢</div><div class="mkt-name">เช่าบูทกันหนาว</div><div class="mkt-desc">บูทกันหนาว กันน้ำ เหมาะสำหรับประเทศที่มีหิมะ</div><div class="mkt-price">เริ่มต้น ฿100/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">📶</div><div class="mkt-name">Pocket WiFi</div><div class="mkt-desc">WiFi พกพาต่างประเทศ รองรับหลายอุปกรณ์พร้อมกัน</div><div class="mkt-price">เริ่มต้น ฿200/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🧳</div><div class="mkt-name">เช่ากระเป๋าเดินทาง</div><div class="mkt-desc">กระเป๋า 20"-28" ยี่ห้อดัง Samsonite, American Tourister</div><div class="mkt-price">เริ่มต้น ฿200/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🔋</div><div class="mkt-name">เช่า Power Bank</div><div class="mkt-desc">Power Bank 20,000 mAh พร้อมสายชาร์จครบทุก Type</div><div class="mkt-price">เริ่มต้น ฿80/วัน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🎒</div><div class="mkt-name">เช่าเป้สะพายหลัง</div><div class="mkt-desc">เป้เดินป่า Day Pack เหมาะสำหรับทริป Hiking</div><div class="mkt-price">เริ่มต้น ฿100/วัน</div></div>
+      </div>
+
+      <!-- TRAVEL CARD SECTION -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">🎫</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">บัตรเดินทางต่างประเทศ</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🚇</span><span class="pc-badge">ญี่ปุ่น</span></div>
+          <div class="pc-cat">ระบบขนส่งญี่ปุ่น</div>
+          <div class="pc-name">Suica / Pasmo Card</div>
+          <div class="pc-detail">บัตรโดยสารรถไฟและรถบัสทั่วญี่ปุ่น ใช้จ่ายที่ร้านสะดวกซื้อได้ด้วย คืนบัตรรับเงินคืนค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">เติมเงินพร้อมใช้งาน</span><span class="pc-discount">฿350</span></div>
+        </div>
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🚇</span><span class="pc-badge">เกาหลี</span></div>
+          <div class="pc-cat">ระบบขนส่งเกาหลี</div>
+          <div class="pc-name">T-money Card</div>
+          <div class="pc-detail">บัตรโดยสารรถไฟใต้ดิน รถบัส และแท็กซี่ทั่วเกาหลีใต้ ใช้ง่ายไม่ต้องต่อคิวซื้อตั๋ว</div>
+          <div class="pc-footer"><span class="pc-exp">เติมเงินพร้อมใช้งาน</span><span class="pc-discount">฿300</span></div>
+        </div>
+        <div class="partner-card">
+          <div class="pc-top"><span class="pc-icon">🚇</span><span class="pc-badge">อังกฤษ</span></div>
+          <div class="pc-cat">ระบบขนส่งลอนดอน</div>
+          <div class="pc-name">Oyster Card</div>
+          <div class="pc-detail">บัตรโดยสาร Tube, Bus, Overground ทั่วลอนดอน ประหยัดกว่าซื้อตั๋วรายครั้งมากค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">เติมเงินพร้อมใช้งาน</span><span class="pc-discount">฿450</span></div>
+        </div>
+      </div>
+
+      <!-- PHOTOGRAPHER SECTION -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">📸</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">จ้างตากล้อง</h3>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap">
+        <button class="cat-tab active" onclick="filterPhoto('all',this)" style="font-size:13px">ทั้งหมด</button>
+        <button class="cat-tab" onclick="filterPhoto('abroad',this)" style="font-size:13px">📍 ต่างประเทศ</button>
+        <button class="cat-tab" onclick="filterPhoto('thailand',this)" style="font-size:13px">🇹🇭 ในไทย</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px" id="photoGrid">
+
+        <div class="partner-card photo-card" data-photo="abroad">
+          <div class="pc-top"><span class="pc-icon">🗼</span><span class="pc-badge">ต่างประเทศ</span></div>
+          <div class="pc-cat">ญี่ปุ่น / เกาหลี</div>
+          <div class="pc-name">ตากล้องประจำประเทศ</div>
+          <div class="pc-detail">ช่างภาพท้องถิ่นที่รู้จักพื้นที่ดี ถ่ายรูปสวย Cinematic สไตล์ญี่ปุ่น-เกาหลี จุด Unseen ที่นักท่องเที่ยวทั่วไปไม่รู้จัก</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 3 วัน</span><span class="pc-discount">฿1,500/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="abroad">
+          <div class="pc-top"><span class="pc-icon">🗺️</span><span class="pc-badge">ต่างประเทศ</span></div>
+          <div class="pc-cat">ยุโรป</div>
+          <div class="pc-name">ตากล้องยุโรป</div>
+          <div class="pc-detail">ช่างภาพไทยที่อาศัยอยู่ในยุโรป ถ่ายรูปพรีเวดดิ้ง ท่องเที่ยว หน้าจุดสำคัญ Paris, Rome, Barcelona และอื่นๆ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 7 วัน</span><span class="pc-discount">฿2,500/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="abroad">
+          <div class="pc-top"><span class="pc-icon">🌏</span><span class="pc-badge">ต่างประเทศ</span></div>
+          <div class="pc-cat">เอเชียทั่วไป</div>
+          <div class="pc-name">ตากล้องเอเชีย</div>
+          <div class="pc-detail">สิงคโปร์ ฮ่องกง ไต้หวัน บาหลี ช่างภาพท้องถิ่นคุณภาพดี ส่งรูปแก้ไขแล้วภายใน 3 วัน</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 5 วัน</span><span class="pc-discount">฿1,200/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">🏙️</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">กรุงเทพฯ</div>
+          <div class="pc-name">ตากล้อง กทม</div>
+          <div class="pc-detail">ถ่ายรูป Portrait, Lifestyle, พรีเวดดิ้ง ในกรุงเทพฯ รู้จัก Location สวยๆ ทั้ง Cafe, ตรอก และมุมเมืองสวย</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 1 วัน</span><span class="pc-discount">฿800/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">🌸</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">เชียงใหม่</div>
+          <div class="pc-name">ตากล้อง เชียงใหม่</div>
+          <div class="pc-detail">ถ่ายรูปวัด ธรรมชาติ ดอกไม้ตามฤดูกาล และ Street Photo สไตล์เชียงใหม่ที่มีเสน่ห์เฉพาะตัว</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 1 วัน</span><span class="pc-discount">฿700/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">🏖️</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">ทะเล / หาด</div>
+          <div class="pc-name">ตากล้องทะเลไทย</div>
+          <div class="pc-detail">ภูเก็ต สมุย เกาะสวย ถ่ายรูปริมทะเล Golden Hour พระอาทิตย์ตก และ Underwater ได้ด้วยค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 2 วัน</span><span class="pc-discount">฿900/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">💍</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">งานพิเศษ</div>
+          <div class="pc-name">ตากล้องงานแต่ง / พรีเวดดิ้ง</div>
+          <div class="pc-detail">ช่างภาพงานแต่งงานและพรีเวดดิ้งมืออาชีพ สไตล์ Film, Cinematic หรือ Natural Light แล้วแต่ชอบค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 14 วัน</span><span class="pc-discount">฿3,500/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">🎂</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">งานพิเศษ</div>
+          <div class="pc-name">ตากล้องวันเกิด / Event</div>
+          <div class="pc-detail">ถ่ายรูปงานวันเกิด Surprise Party งาน Corporate Event และงานเลี้ยงต่างๆ แบบ Candid ธรรมชาติ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 3 วัน</span><span class="pc-discount">฿1,200/ชม</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="thailand">
+          <div class="pc-top"><span class="pc-icon">🛍️</span><span class="pc-badge">ในไทย</span></div>
+          <div class="pc-cat">ธุรกิจ / สินค้า</div>
+          <div class="pc-name">ถ่ายรูปสินค้า / Content</div>
+          <div class="pc-detail">ถ่ายรูปสินค้า อาหาร Flat Lay สำหรับ Social Media, Line, Shopee, Lazada คุณภาพระดับมืออาชีพ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 2 วัน</span><span class="pc-discount">฿1,000/ชม</span></div>
+        </div>
+
+      </div>
+
+      <!-- TRUST -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">30+</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">ประเทศที่รองรับ</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">eSIM</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">ไม่ต้องรอรับซิม ใช้ได้ทันที</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">ส่งถึงบ้าน</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">อุปกรณ์เช่าทุกชิ้น</div></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:40px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อจองบริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
 <!-- ===== B2B ===== -->
 <div id="page-b2b" class="page">
   <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
@@ -515,6 +759,146 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
 </div>
 
+<!-- ===== PROVIDER ===== -->
+<div id="page-provider" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">ร่วมเป็นส่วนหนึ่งของ MG Lifestyle</span>
+      <h2 class="sec-title">สมัครเป็น Provider 🤝</h2>
+      <p class="sec-sub">รับงานผ่าน MG Lifestyle ไม่ต้องหาลูกค้าเอง เราส่งงานให้คุณค่ะ</p>
+    </div>
+
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- BENEFITS -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div style="background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">👥</div>
+          <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px">ฐานลูกค้า 30,000 คน</div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.6">ไม่ต้องหาลูกค้าเอง MG Lifestyle ส่งงานให้คุณค่ะ</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">💰</div>
+          <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px">รายได้เสริมที่มั่นคง</div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.6">รับงานตามเวลาที่ว่าง ยืดหยุ่น ไม่มีขั้นต่ำค่ะ</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">⭐</div>
+          <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px">สร้าง Portfolio ออนไลน์</div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.6">มีหน้าโปรไฟล์และ Rating สร้างความน่าเชื่อถือค่ะ</div>
+        </div>
+      </div>
+
+      <!-- PROVIDER TYPES -->
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy);margin-bottom:16px;font-weight:600">ประเภท Provider ที่เปิดรับค่ะ</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px">
+        <div class="mkt-card"><div class="mkt-icon">📷</div><div class="mkt-name">ตากล้อง</div><div class="mkt-desc">ในไทยและต่างประเทศ</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🔧</div><div class="mkt-name">ช่างซ่อม</div><div class="mkt-desc">ไฟฟ้า ประปา แอร์ ทีวี</div></div>
+        <div class="mkt-card"><div class="mkt-icon">👩‍⚕️</div><div class="mkt-name">พยาบาล / Caregiver</div><div class="mkt-desc">ดูแลผู้ป่วยที่บ้าน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">⏰</div><div class="mkt-name">รับจ้างรอคิว</div><div class="mkt-desc">รอคิวร้านดัง / งาน Drop</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🐾</div><div class="mkt-name">Pet Sitter</div><div class="mkt-desc">ดูแลสัตว์เลี้ยง</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🧹</div><div class="mkt-name">แม่บ้าน</div><div class="mkt-desc">ทำความสะอาดบ้าน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">💆</div><div class="mkt-name">นวดแผนไทย</div><div class="mkt-desc">บริการถึงบ้าน</div></div>
+        <div class="mkt-card"><div class="mkt-icon">🙏</div><div class="mkt-name">รับทำบุญแทน</div><div class="mkt-desc">ถวายสังฆทาน ปล่อยนก</div></div>
+      </div>
+
+      <!-- FORM -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+
+        <!-- LEFT — ขั้นตอน -->
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);margin-bottom:20px;font-weight:600">ขั้นตอนหลังสมัครค่ะ</h3>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--silver)">
+              <div style="width:32px;height:32px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:white;font-size:13px;font-weight:700">1</span></div>
+              <div><div style="font-size:14px;font-weight:600;color:var(--navy)">กรอกข้อมูลสมัคร</div><div style="font-size:12px;color:var(--gray);margin-top:3px">ข้อมูลพื้นฐานและประเภทบริการค่ะ</div></div>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--silver)">
+              <div style="width:32px;height:32px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:white;font-size:13px;font-weight:700">2</span></div>
+              <div><div style="font-size:14px;font-weight:600;color:var(--navy)">ยืนยันตัวตน</div><div style="font-size:12px;color:var(--gray);margin-top:3px">ส่งรูปบัตรประชาชนและ Selfie คู่บัตรค่ะ</div></div>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--silver)">
+              <div style="width:32px;height:32px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:white;font-size:13px;font-weight:700">3</span></div>
+              <div><div style="font-size:14px;font-weight:600;color:var(--navy)">ส่ง Portfolio / ผลงาน</div><div style="font-size:12px;color:var(--gray);margin-top:3px">รูปผลงาน 3-6 รูป หรือลิงก์ Portfolio ค่ะ</div></div>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--silver)">
+              <div style="width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:white;font-size:13px;font-weight:700">4</span></div>
+              <div><div style="font-size:14px;font-weight:600;color:var(--navy)">ทีม MG ตรวจสอบ</div><div style="font-size:12px;color:var(--gray);margin-top:3px">ใช้เวลา 1-3 วันทำการค่ะ</div></div>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0">
+              <div style="width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:white;font-size:13px;font-weight:700">5</span></div>
+              <div><div style="font-size:14px;font-weight:600;color:var(--navy)">รับงานได้เลยค่ะ! 🎉</div><div style="font-size:12px;color:var(--gray);margin-top:3px">มีหน้าโปรไฟล์และ Badge ยืนยันตัวตนค่ะ</div></div>
+            </div>
+          </div>
+
+          <!-- COMMISSION NOTE -->
+          <div style="margin-top:24px;background:var(--gold-light);border:1px solid var(--gold);border-radius:10px;padding:18px">
+            <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px">💰 ค่า Commission ของ MG Lifestyle</div>
+            <div style="font-size:12px;color:var(--gray);line-height:1.8">
+              MG Lifestyle เก็บค่า Commission <strong style="color:var(--navy)">10-15%</strong> จากทุกงานที่จับคู่ได้ค่ะ<br>
+              ส่วนที่เหลือทั้งหมดโอนให้ Provider ภายใน 24 ชั่วโมงหลังงานเสร็จค่ะ
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — Form -->
+        <div style="background:var(--navy-deep);border-radius:12px;padding:36px 32px">
+          <div id="providerFormWrap">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:6px">สมัครเป็น Provider</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px">ทีมงานจะติดต่อกลับภายใน 1 วันทำการค่ะ</div>
+
+            <div class="b2b-field"><label>ชื่อ-นามสกุล</label><input type="text" id="pv-name" placeholder="เช่น สมชาย ใจดี"></div>
+            <div class="b2b-field"><label>เบอร์โทร</label><input type="tel" id="pv-phone" placeholder="08X-XXX-XXXX"></div>
+            <div class="b2b-field"><label>Email</label><input type="email" id="pv-email" placeholder="example@email.com"></div>
+            <div class="b2b-field"><label>Line ID</label><input type="text" id="pv-line" placeholder="@yourlineid"></div>
+
+            <div class="b2b-field"><label>ประเภทบริการที่ให้</label>
+              <select id="pv-type" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;color:white;outline:none">
+                <option value="" style="background:#1a2d4a">เลือกประเภทบริการ</option>
+                <option style="background:#1a2d4a">📷 ตากล้อง</option>
+                <option style="background:#1a2d4a">🔧 ช่างซ่อม</option>
+                <option style="background:#1a2d4a">👩‍⚕️ พยาบาล / Caregiver</option>
+                <option style="background:#1a2d4a">⏰ รับจ้างรอคิว</option>
+                <option style="background:#1a2d4a">🐾 Pet Sitter / อาบน้ำสัตว์เลี้ยง</option>
+                <option style="background:#1a2d4a">🧹 แม่บ้าน / ทำความสะอาด</option>
+                <option style="background:#1a2d4a">💆 นวดแผนไทย</option>
+                <option style="background:#1a2d4a">🙏 รับทำบุญแทน</option>
+                <option style="background:#1a2d4a">🏨 ที่พัก / โรงแรม</option>
+                <option style="background:#1a2d4a">อื่นๆ</option>
+              </select>
+            </div>
+
+            <div class="b2b-field"><label>พื้นที่ให้บริการ</label><input type="text" id="pv-area" placeholder="เช่น กรุงเทพฯ, เชียงใหม่, ทั่วประเทศ"></div>
+
+            <div class="b2b-field"><label>ประสบการณ์</label>
+              <select id="pv-exp" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;color:white;outline:none">
+                <option value="" style="background:#1a2d4a">เลือกประสบการณ์</option>
+                <option style="background:#1a2d4a">น้อยกว่า 1 ปี</option>
+                <option style="background:#1a2d4a">1-3 ปี</option>
+                <option style="background:#1a2d4a">3-5 ปี</option>
+                <option style="background:#1a2d4a">5 ปีขึ้นไป</option>
+              </select>
+            </div>
+
+            <div class="b2b-field"><label>ลิงก์ Portfolio / ผลงาน (ถ้ามี)</label><input type="text" id="pv-portfolio" placeholder="Instagram, Facebook, Website ฯลฯ"></div>
+
+            <button class="btn-submit" onclick="handleProvider()">สมัครเป็น Provider →</button>
+            <p class="form-note-small">ข้อมูลของคุณจะถูกเก็บเป็นความลับ ใช้เพื่อตรวจสอบและจับคู่งานเท่านั้นค่ะ</p>
+          </div>
+          <div class="success-box" id="providerSuccess">
+            <div class="s-icon">🎉</div>
+            <div class="s-title">สมัครสำเร็จแล้วค่ะ!</div>
+            <div class="s-desc">ทีม MG Lifestyle จะติดต่อกลับ<br>ภายใน 1-3 วันทำการค่ะ<br><br>ขอบคุณที่สนใจร่วมเป็น Provider นะคะ</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
 <!-- ===== REGISTER ===== -->
 <div id="page-register" class="page">
   <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
@@ -543,6 +927,20 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
           <div class="r-field"><label>ชื่อ-นามสกุล</label><input type="text" id="reg-name" placeholder="เช่น สมหญิง ใจดี"></div>
           <div class="r-field"><label>เบอร์โทรศัพท์</label><input type="tel" id="reg-phone" placeholder="08X-XXX-XXXX"></div>
           <div class="r-field"><label>อีเมล</label><input type="email" id="reg-email" placeholder="example@email.com"></div>
+          <div class="r-field"><label>อำเภอ / เขต</label><input type="text" id="reg-district" placeholder="เช่น วังทองหลาง, สาทร"></div>
+          <div class="r-field"><label>จังหวัด</label><input type="text" id="reg-province" placeholder="เช่น กรุงเทพฯ, เชียงใหม่"></div>
+          <div class="r-field"><label>บริการที่สนใจ</label>
+            <select id="reg-interest" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;font-family:'Sarabun',sans-serif;font-size:14px;color:white;outline:none;-webkit-appearance:none">
+              <option value="" style="background:#1a2d4a">เลือกบริการที่สนใจ</option>
+              <option style="background:#1a2d4a">คูปองส่วนลดร้านค้า</option>
+              <option style="background:#1a2d4a">ที่พัก กทม</option>
+              <option style="background:#1a2d4a">Marketplace บริการถึงบ้าน</option>
+              <option style="background:#1a2d4a">Pet Service</option>
+              <option style="background:#1a2d4a">Healthcare ดูแลผู้ป่วย</option>
+              <option style="background:#1a2d4a">บริการพิเศษ (รอคิว/ทำบุญแทน)</option>
+              <option style="background:#1a2d4a">ทุกบริการ</option>
+            </select>
+          </div>
           <button class="btn-submit" onclick="handleRegister()">รับคูปองฟรีทันที →</button>
           <p class="reg-consent">โดยการสมัคร คุณยินยอมรับโปรโมชั่นผ่าน Email และ SMS<br>สามารถยกเลิกได้ตลอดเวลา</p>
         </div>
@@ -563,7 +961,7 @@ function showPage(id) {
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   window.scrollTo(0,0);
-  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,healthcare:6,b2b:7};
+  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,healthcare:6,travel:7,b2b:8,provider:9};
   const links = document.querySelectorAll('.nav-link');
   if(map[id] !== undefined) links[map[id]].classList.add('active');
 }
@@ -576,25 +974,152 @@ function filterCat(cat, btn) {
   });
 }
 
-function handleRegister() {
-  const name = document.getElementById('reg-name').value.trim();
-  const phone = document.getElementById('reg-phone').value.trim();
-  const email = document.getElementById('reg-email').value.trim();
+// ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
+const SHEET_URL_MEMBER = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEET_URL_B2B    = 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE';
+
+async function handleRegister() {
+  const name     = document.getElementById('reg-name').value.trim();
+  const phone    = document.getElementById('reg-phone').value.trim();
+  const email    = document.getElementById('reg-email').value.trim();
+  const district = document.getElementById('reg-district').value.trim();
+  const province = document.getElementById('reg-province').value.trim();
+  const interest = document.getElementById('reg-interest').value;
+
   if (!name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ'); return; }
   if (!email.includes('@')) { alert('กรุณากรอก Email ให้ถูกต้องค่ะ'); return; }
+
+  const btn = document.querySelector('#regFormWrap .btn-submit');
+  btn.textContent = 'กำลังบันทึก...';
+  btn.disabled = true;
+
+  const data = {
+    type: 'member',
+    name, phone, email, district, province, interest,
+    date: new Date().toLocaleString('th-TH')
+  };
+
+  try {
+    if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+      await fetch(SHEET_URL_MEMBER, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+    }
+  } catch(e) { console.log('Sheet error:', e); }
+
   document.getElementById('regFormWrap').style.display = 'none';
   document.getElementById('regSuccess').classList.add('show');
 }
 
+async async function handleProvider() {
+  const name = document.getElementById('pv-name').value.trim();
+  const phone = document.getElementById('pv-phone').value.trim();
+  const email = document.getElementById('pv-email').value.trim();
+  const line = document.getElementById('pv-line').value.trim();
+  const type = document.getElementById('pv-type').value;
+  const area = document.getElementById('pv-area').value.trim();
+  const exp = document.getElementById('pv-exp').value;
+  const portfolio = document.getElementById('pv-portfolio').value.trim();
+
+  if (!name || !phone || !email || !type || !area) {
+    alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ');
+    return;
+  }
+
+  const btn = document.querySelector('#providerFormWrap .btn-submit');
+  btn.textContent = 'กำลังบันทึก...';
+  btn.disabled = true;
+
+  const data = {
+    type: 'provider',
+    name, phone, email, line,
+    serviceType: type, area, experience: exp, portfolio,
+    date: new Date().toLocaleString('th-TH'),
+    status: 'รอตรวจสอบ'
+  };
+
+  try {
+    if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+      await fetch(SHEET_URL_MEMBER, {
+        method: 'POST', mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+    }
+  } catch(e) { console.log('Sheet error:', e); }
+
+  document.getElementById('providerFormWrap').style.display = 'none';
+  document.getElementById('providerSuccess').classList.add('show');
+}
+
+function filterPhoto(cat, btn) {
+  document.querySelectorAll('#photoGrid .photo-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.photo === cat) ? 'block' : 'none';
+  });
+  // update tab styles
+  btn.closest('div').querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
 function handleB2B() {
   const company = document.getElementById('b2b-company').value.trim();
-  const name = document.getElementById('b2b-name').value.trim();
-  const phone = document.getElementById('b2b-phone').value.trim();
-  const email = document.getElementById('b2b-email').value.trim();
+  const name    = document.getElementById('b2b-name').value.trim();
+  const phone   = document.getElementById('b2b-phone').value.trim();
+  const email   = document.getElementById('b2b-email').value.trim();
+  const size    = document.getElementById('b2b-size').value;
+
   if (!company || !name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบค่ะ'); return; }
+
+  const btn = document.querySelector('#b2bFormWrap .btn-submit');
+  btn.textContent = 'กำลังบันทึก...';
+  btn.disabled = true;
+
+  const data = {
+    type: 'b2b',
+    company, name, phone, email, size,
+    date: new Date().toLocaleString('th-TH')
+  };
+
+  try {
+    if (SHEET_URL_B2B !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE') {
+      await fetch(SHEET_URL_B2B, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+    }
+  } catch(e) { console.log('Sheet error:', e); }
+
   document.getElementById('b2bFormWrap').style.display = 'none';
   document.getElementById('b2bSuccess').classList.add('show');
 }
+
+// ===== LOCK SCREEN =====
+const SITE_PASSWORD = 'mg2026'; // เปลี่ยน Password ได้ที่นี่ค่ะ
+
+function checkLock() {
+  const input = document.getElementById('lockInput').value;
+  const err = document.getElementById('lockErr');
+  if (input === SITE_PASSWORD) {
+    document.getElementById('lockScreen').classList.add('hide');
+    sessionStorage.setItem('mg_unlocked', '1');
+    err.textContent = '';
+  } else {
+    err.textContent = '❌  Password ไม่ถูกต้องค่ะ ลองใหม่อีกครั้ง';
+    document.getElementById('lockInput').value = '';
+    document.getElementById('lockInput').focus();
+  }
+}
+
+// ตรวจสอบว่าเคย unlock ในSession นี้แล้วไหม
+if (sessionStorage.getItem('mg_unlocked') === '1') {
+  document.getElementById('lockScreen').classList.add('hide');
+}
+
 </script>
 </body>
 </html>
