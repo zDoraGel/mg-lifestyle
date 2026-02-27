@@ -975,8 +975,8 @@ function filterCat(cat, btn) {
 }
 
 // ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
-const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbz5sQd_x45Own8RfU81wN0oEL_04ZUq3qZKsWNS6c9QEh9oplKLOP3sR_niVW0DVjeWtQ/execUR_GOOGLE_APPS_SCRIPT_URL_HERE';
-const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbz5sQd_x45Own8RfU81wN0oEL_04ZUq3qZKsWNS6c9QEh9oplKLOP3sR_niVW0DVjeWtQ/exec';
+const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec';
+const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec';
 
 function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
@@ -999,7 +999,7 @@ function handleRegister() {
     date: new Date().toLocaleString('th-TH')
   };
 
-  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbz5sQd_x45Own8RfU81wN0oEL_04ZUq3qZKsWNS6c9QEh9oplKLOP3sR_niVW0DVjeWtQ/exec') {
+  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -1037,7 +1037,7 @@ function handleProvider() {
     status: 'รอตรวจสอบ'
   };
 
-  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbz5sQd_x45Own8RfU81wN0oEL_04ZUq3qZKsWNS6c9QEh9oplKLOP3sR_niVW0DVjeWtQ/exec') {
+  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
