@@ -978,7 +978,7 @@ function filterCat(cat, btn) {
 const SHEET_URL_MEMBER = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 const SHEET_URL_B2B    = 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE';
 
-async function handleRegister() {
+function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
   const phone    = document.getElementById('reg-phone').value.trim();
   const email    = document.getElementById('reg-email').value.trim();
@@ -999,22 +999,18 @@ async function handleRegister() {
     date: new Date().toLocaleString('th-TH')
   };
 
-  try {
-    if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(SHEET_URL_MEMBER, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-    }
-  } catch(e) { console.log('Sheet error:', e); }
-
+  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    fetch(SHEET_URL_MEMBER, {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).catch(function(e){ console.log('Sheet error:', e); });
+  }
   document.getElementById('regFormWrap').style.display = 'none';
   document.getElementById('regSuccess').classList.add('show');
 }
 
-async async function handleProvider() {
+function handleProvider() {
   const name = document.getElementById('pv-name').value.trim();
   const phone = document.getElementById('pv-phone').value.trim();
   const email = document.getElementById('pv-email').value.trim();
@@ -1041,16 +1037,13 @@ async async function handleProvider() {
     status: 'รอตรวจสอบ'
   };
 
-  try {
-    if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(SHEET_URL_MEMBER, {
-        method: 'POST', mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-    }
-  } catch(e) { console.log('Sheet error:', e); }
-
+  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    fetch(SHEET_URL_MEMBER, {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).catch(function(e){ console.log('Sheet error:', e); });
+  }
   document.getElementById('providerFormWrap').style.display = 'none';
   document.getElementById('providerSuccess').classList.add('show');
 }
@@ -1083,17 +1076,13 @@ function handleB2B() {
     date: new Date().toLocaleString('th-TH')
   };
 
-  try {
-    if (SHEET_URL_B2B !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE') {
-      await fetch(SHEET_URL_B2B, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-    }
-  } catch(e) { console.log('Sheet error:', e); }
-
+  if (SHEET_URL_B2B !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE') {
+    fetch(SHEET_URL_B2B, {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).catch(function(e){ console.log('Sheet error:', e); });
+  }
   document.getElementById('b2bFormWrap').style.display = 'none';
   document.getElementById('b2bSuccess').classList.add('show');
 }
