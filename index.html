@@ -216,16 +216,94 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
+/* ===== HAMBURGER MENU ===== */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:white;border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--navy-deep);z-index:1000;flex-direction:column;padding:24px 20px;gap:4px;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu-btn{background:none;border:none;font-family:'Sarabun',sans-serif;font-size:16px;color:rgba(255,255,255,0.7);padding:14px 16px;border-radius:8px;cursor:pointer;text-align:left;transition:all 0.2s;width:100%}
+.mobile-menu-btn:hover,.mobile-menu-btn:active{background:rgba(255,255,255,0.08);color:white}
+.mobile-menu-btn.active{color:var(--gold)}
+.mobile-menu-divider{height:1px;background:rgba(255,255,255,0.08);margin:8px 0}
+.mobile-menu-cta{background:var(--gold);color:white;border-radius:8px;font-weight:600;margin-top:8px}
+
 @media(max-width:900px){
-  nav{padding:0 16px}
-  .nav-links .nav-link{display:none}
-  .hero{grid-template-columns:1fr;padding:40px 24px}
+  /* NAV */
+  nav{padding:0 16px;height:56px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-logo{font-size:18px}
+
+  /* HERO */
+  .hero{grid-template-columns:1fr;padding:40px 20px 32px}
   .hero-right{display:none}
-  .section{padding:60px 24px}
-  .svc-grid,.mkt-grid{grid-template-columns:repeat(2,1fr)}
-  .partners-grid,.stay-grid,.pet-grid,.niche-grid{grid-template-columns:1fr}
+  .hero-title{font-size:36px}
+  .hero-sub{font-size:14px}
+  .hero-stats{gap:16px}
+  .stat-num{font-size:28px}
+
+  /* SECTIONS */
+  .section{padding:48px 20px}
+  .sec-title{font-size:28px}
+  .sec-sub{font-size:13px}
+
+  /* GRIDS — 2 col on tablet, 1 col on phone */
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .mkt-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .partners-grid{grid-template-columns:1fr}
+  .stay-grid{grid-template-columns:1fr}
+  .pet-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .niche-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+
+  /* CARDS */
+  .svc-card{padding:20px 16px}
+  .pet-card{padding:24px 20px}
+  .partner-card{padding:20px 16px}
+  .mkt-card{padding:20px 16px}
+
+  /* FORMS */
   .b2b-grid,.reg-inner{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:10px;padding:28px 24px;text-align:center}
+  .b2b-field input,.b2b-field select,.r-field input,.r-field select,
+  .lock-input{font-size:16px !important} /* prevent iOS zoom */
+  .btn-submit{padding:16px;font-size:15px}
+
+  /* PROVIDER PAGE */
+  #page-provider .section > div > div:first-of-type{grid-template-columns:1fr !important}
+  #page-provider > section > div > div:nth-child(3){grid-template-columns:1fr !important}
+
+  /* TRAVEL & PHOTO GRIDS */
+  #page-travel .section div[style*="grid-template-columns: repeat(3"]{
+    grid-template-columns:1fr !important
+  }
+  #photoGrid{grid-template-columns:1fr !important}
+
+  /* HEALTHCARE GRID */
+  #page-healthcare .section div[style*="repeat(3,1fr)"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* BACK BAR */
+  .back-bar{padding:8px 16px}
+  .back-btn{font-size:12px;padding:6px 14px}
+
+  /* LOCK SCREEN */
+  .lock-box{width:calc(100% - 40px);padding:36px 24px}
+  .lock-logo{font-size:24px}
+
+  /* FOOTER */
+  footer{flex-direction:column;gap:10px;padding:28px 20px;text-align:center}
+}
+
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .mkt-grid{grid-template-columns:1fr}
+  .pet-grid{grid-template-columns:1fr}
+  .niche-grid{grid-template-columns:1fr}
+  .hero-title{font-size:30px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
 }
 
 /* LOCK SCREEN */
@@ -276,7 +354,26 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
     <button class="nav-link" onclick="showPage('provider')">สมัคร Provider</button>
     <button class="nav-cta" onclick="showPage('register')">สมัครสมาชิก ฟรี</button>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-btn" onclick="mobileNav('home')">🏠 หน้าแรก</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('coupon')">🎟️ คูปองส่วนลด</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('stay')">🏨 ที่พัก กทม</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('marketplace')">🔧 Marketplace</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('pet')">🐾 Pet Service</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('niche')">⭐ บริการพิเศษ</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('healthcare')">🏥 Healthcare</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('travel')">🧳 Travel Hub</button>
+  <div class="mobile-menu-divider"></div>
+  <button class="mobile-menu-btn" onclick="mobileNav('b2b')">🏢 B2B Package</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('provider')">🤝 สมัคร Provider</button>
+  <button class="mobile-menu-btn mobile-menu-cta" onclick="mobileNav('register')">✦ สมัครสมาชิก ฟรี</button>
+</div>
 
 <!-- ===== HOME ===== -->
 <div id="page-home" class="page active">
@@ -1086,6 +1183,36 @@ function handleB2B() {
   document.getElementById('b2bFormWrap').style.display = 'none';
   document.getElementById('b2bSuccess').classList.add('show');
 }
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+
+function mobileNav(page) {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.remove('open');
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+  showPage(page);
+}
+
+// Close menu on outside tap
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobileMenu');
+  var ham = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') &&
+      !menu.contains(e.target) && !ham.contains(e.target)) {
+    ham.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 // ===== LOCK SCREEN =====
 const SITE_PASSWORD = 'mg2026'; // เปลี่ยน Password ได้ที่นี่ค่ะ
