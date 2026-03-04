@@ -216,16 +216,94 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
+/* ===== HAMBURGER MENU ===== */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:white;border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--navy-deep);z-index:1000;flex-direction:column;padding:24px 20px;gap:4px;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu-btn{background:none;border:none;font-family:'Sarabun',sans-serif;font-size:16px;color:rgba(255,255,255,0.7);padding:14px 16px;border-radius:8px;cursor:pointer;text-align:left;transition:all 0.2s;width:100%}
+.mobile-menu-btn:hover,.mobile-menu-btn:active{background:rgba(255,255,255,0.08);color:white}
+.mobile-menu-btn.active{color:var(--gold)}
+.mobile-menu-divider{height:1px;background:rgba(255,255,255,0.08);margin:8px 0}
+.mobile-menu-cta{background:var(--gold);color:white;border-radius:8px;font-weight:600;margin-top:8px}
+
 @media(max-width:900px){
-  nav{padding:0 16px}
-  .nav-links .nav-link{display:none}
-  .hero{grid-template-columns:1fr;padding:40px 24px}
+  /* NAV */
+  nav{padding:0 16px;height:56px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-logo{font-size:18px}
+
+  /* HERO */
+  .hero{grid-template-columns:1fr;padding:40px 20px 32px}
   .hero-right{display:none}
-  .section{padding:60px 24px}
-  .svc-grid,.mkt-grid{grid-template-columns:repeat(2,1fr)}
-  .partners-grid,.stay-grid,.pet-grid,.niche-grid{grid-template-columns:1fr}
+  .hero-title{font-size:36px}
+  .hero-sub{font-size:14px}
+  .hero-stats{gap:16px}
+  .stat-num{font-size:28px}
+
+  /* SECTIONS */
+  .section{padding:48px 20px}
+  .sec-title{font-size:28px}
+  .sec-sub{font-size:13px}
+
+  /* GRIDS — 2 col on tablet, 1 col on phone */
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .mkt-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .partners-grid{grid-template-columns:1fr}
+  .stay-grid{grid-template-columns:1fr}
+  .pet-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .niche-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+
+  /* CARDS */
+  .svc-card{padding:20px 16px}
+  .pet-card{padding:24px 20px}
+  .partner-card{padding:20px 16px}
+  .mkt-card{padding:20px 16px}
+
+  /* FORMS */
   .b2b-grid,.reg-inner{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:10px;padding:28px 24px;text-align:center}
+  .b2b-field input,.b2b-field select,.r-field input,.r-field select,
+  .lock-input{font-size:16px !important} /* prevent iOS zoom */
+  .btn-submit{padding:16px;font-size:15px}
+
+  /* PROVIDER PAGE */
+  #page-provider .section > div > div:first-of-type{grid-template-columns:1fr !important}
+  #page-provider > section > div > div:nth-child(3){grid-template-columns:1fr !important}
+
+  /* TRAVEL & PHOTO GRIDS */
+  #page-travel .section div[style*="grid-template-columns: repeat(3"]{
+    grid-template-columns:1fr !important
+  }
+  #photoGrid{grid-template-columns:1fr !important}
+
+  /* HEALTHCARE GRID */
+  #page-healthcare .section div[style*="repeat(3,1fr)"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* BACK BAR */
+  .back-bar{padding:8px 16px}
+  .back-btn{font-size:12px;padding:6px 14px}
+
+  /* LOCK SCREEN */
+  .lock-box{width:calc(100% - 40px);padding:36px 24px}
+  .lock-logo{font-size:24px}
+
+  /* FOOTER */
+  footer{flex-direction:column;gap:10px;padding:28px 20px;text-align:center}
+}
+
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .mkt-grid{grid-template-columns:1fr}
+  .pet-grid{grid-template-columns:1fr}
+  .niche-grid{grid-template-columns:1fr}
+  .hero-title{font-size:30px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
 }
 
 /* LOCK SCREEN */
@@ -243,6 +321,27 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 .lock-btn:hover{background:#9a7a3a;transform:translateY(-1px)}
 .lock-err{font-size:12px;color:#ff6b6b;margin-top:12px;min-height:18px;transition:opacity 0.2s}
 .lock-hint{font-size:11px;color:rgba(255,255,255,0.15);margin-top:24px;line-height:1.6}
+
+/* PDPA */
+.pdpa-wrap{margin-top:16px;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px}
+.pdpa-text{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:10px}
+.pdpa-text span{color:var(--gold)}
+.pdpa-choices{display:flex;gap:20px}
+.pdpa-choice{display:flex;align-items:center;gap:8px;cursor:pointer}
+.pdpa-choice input[type=radio]{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
+.pdpa-choice label{font-size:13px;color:white;cursor:pointer}
+
+/* REVIEW REWARD */
+.reward-banner{background:linear-gradient(135deg,var(--navy),#2a4a7a);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-top:32px}
+.reward-icon{font-size:36px;flex-shrink:0}
+.reward-text{color:white}
+.reward-text strong{font-size:15px;display:block;margin-bottom:4px}
+.reward-text span{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6}
+.reward-steps{display:flex;gap:0;margin-top:24px}
+.reward-step{flex:1;text-align:center;padding:16px 8px;position:relative}
+.reward-step:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px}
+.reward-step-icon{font-size:28px;margin-bottom:8px}
+.reward-step-text{font-size:12px;color:var(--gray);line-height:1.5}
 </style>
 </head>
 <body>
@@ -271,12 +370,43 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
     <button class="nav-link" onclick="showPage('pet')">Pet Service</button>
     <button class="nav-link" onclick="showPage('niche')">บริการพิเศษ</button>
     <button class="nav-link" onclick="showPage('healthcare')">Healthcare</button>
+    <button class="nav-link" onclick="showPage('construction')">Construction</button>
+    <button class="nav-link" onclick="showPage('spiritual')">🔮 Spiritual</button>
+    <button class="nav-link" onclick="showPage('beauty')">💉 Beauty</button>
+    <button class="nav-link" onclick="showPage('creative')">🎬 Creative</button>
+    <button class="nav-link" onclick="showPage('education')">🎓 Education</button>
+    <button class="nav-link" onclick="showPage('artisan')">👜 Artisan</button>
     <button class="nav-link" onclick="showPage('travel')">Travel Hub</button>
     <button class="nav-link" onclick="showPage('b2b')">B2B</button>
     <button class="nav-link" onclick="showPage('provider')">สมัคร Provider</button>
     <button class="nav-cta" onclick="showPage('register')">สมัครสมาชิก ฟรี</button>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-btn" onclick="mobileNav('home')">🏠 หน้าแรก</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('coupon')">🎟️ คูปองส่วนลด</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('stay')">🏨 ที่พัก กทม</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('marketplace')">🔧 Marketplace</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('pet')">🐾 Pet Service</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('niche')">⭐ บริการพิเศษ</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('construction')">🏗️ Construction</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('spiritual')">🔮 Spiritual Hub</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('beauty')">💉 Beauty & Clinic</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('healthcare')">🏥 Healthcare</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('travel')">🧳 Travel Hub</button>
+  <div class="mobile-menu-divider"></div>
+  <button class="mobile-menu-btn" onclick="mobileNav('creative')">🎬 Creative & Content</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('education')">🎓 Education Hub</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('artisan')">👜 Artisan & Craft</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('b2b')">🏢 B2B Package</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('provider')">🤝 สมัคร Provider</button>
+  <button class="mobile-menu-btn mobile-menu-cta" onclick="mobileNav('register')">✦ สมัครสมาชิก ฟรี</button>
+</div>
 
 <!-- ===== HOME ===== -->
 <div id="page-home" class="page active">
@@ -316,7 +446,13 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
       <div class="svc-card" onclick="showPage('healthcare')"><span class="svc-icon">🏥</span><div class="svc-name">Healthcare</div><div class="svc-desc">พยาบาล คนดูแลผู้ป่วย บริการถึงบ้าน</div><span class="svc-badge">บริการใหม่</span></div>
       <div class="svc-card" onclick="showPage('b2b')"><span class="svc-icon">🏢</span><div class="svc-name">B2B Package</div><div class="svc-desc">สวัสดิการพนักงานและของขวัญเทศกาล</div><span class="svc-badge">Corporate</span></div>
       <div class="svc-card" onclick="showPage('register')"><span class="svc-icon">🎁</span><div class="svc-name">สมัครสมาชิก</div><div class="svc-desc">สมัครฟรี รับคูปองทันที ไม่มีค่าใช้จ่าย</div><span class="svc-badge">ฟรี!</span></div>
+      <div class="svc-card" onclick="showPage('construction')"><span class="svc-icon">🏗️</span><div class="svc-name">Construction</div><div class="svc-desc">ก่อสร้าง Renovation ออกแบบสวน</div><span class="svc-badge">บริการใหม่</span></div>
       <div class="svc-card" onclick="showPage('travel')"><span class="svc-icon">🧳</span><div class="svc-name">Travel Hub</div><div class="svc-desc">ซิมต่างประเทศ เช่ากล้อง เสื้อกันหนาว บัตรเดินทาง</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('spiritual')"><span class="svc-icon">🔮</span><div class="svc-name">Spiritual Hub</div><div class="svc-desc">หมอดู ฮวงจุ้ย ไพ่ทาโรต สินค้ามงคล</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('beauty')"><span class="svc-icon">💉</span><div class="svc-name">Beauty & Clinic</div><div class="svc-desc">คลินิกความงาม โบท็อก ฟิลเลอร์</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('creative')"><span class="svc-icon">🎬</span><div class="svc-name">Creative & Content</div><div class="svc-desc">VDO Packshot รีวิวสินค้า Micro Influencer</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('education')"><span class="svc-icon">🎓</span><div class="svc-name">Education Hub</div><div class="svc-desc">ครูสอนพิเศษ ภาษา ดนตรี แข่งขัน</div><span class="svc-badge">บริการใหม่</span></div>
+      <div class="svc-card" onclick="showPage('artisan')"><span class="svc-icon">👜</span><div class="svc-name">Artisan & Craft</div><div class="svc-desc">งานหนัง กระเป๋า กุญแจ ของ Custom</div><span class="svc-badge">บริการใหม่</span></div>
       <div class="svc-card" onclick="showPage('provider')"><span class="svc-icon">🤝</span><div class="svc-name">สมัคร Provider</div><div class="svc-desc">ตากล้อง ช่าง พยาบาล คนรอคิว สมัครรับงาน</div><span class="svc-badge">รับงานผ่าน MG</span></div>
       <div class="svc-card" style="background:var(--navy-deep);border-color:var(--navy-deep)" onclick="showPage('register')"><span class="svc-icon">✦</span><div class="svc-name" style="color:var(--gold)">เริ่มต้นเลย</div><div class="svc-desc" style="color:rgba(255,255,255,0.5)">สมัครสมาชิกฟรี รับสิทธิ์ครบทุกบริการ</div><span class="svc-badge" style="background:var(--gold);color:white">สมัครเลย →</span></div>
     </div>
@@ -417,6 +553,329 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
       <div class="niche-card"><div class="niche-top"><span class="niche-icon">🎂</span><div><div class="niche-label">จัดงานพิเศษ</div><div class="niche-name">Surprise Planning</div></div></div><p class="niche-desc">วางแผนงาน Surprise วันเกิด ครบรอบ หรืองาน Proposal ให้คนที่คุณรัก ดูแลทุกรายละเอียด</p><div class="niche-note">📍 ราคาขึ้นอยู่กับแผนงาน ปรึกษาฟรีก่อน</div></div>
     </div>
     <div style="text-align:center;margin-top:48px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อใช้บริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== SPIRITUAL ===== -->
+<div id="page-spiritual" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">ดวงชะตา ฮวงจุ้ย และสิ่งศักดิ์สิทธิ์</span>
+      <h2 class="sec-title">Spiritual Hub 🔮</h2>
+      <p class="sec-sub">เลือกหมอดูที่ใช่ ดูดวงออนไลน์ และสินค้าเสริมดวงคัดสรรค่ะ</p>
+    </div>
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- หมอดู -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">👁️</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">เลือกหมอดูที่ใช่ค่ะ</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🃏</div>
+          <div class="pet-name">ไพ่ทาโรต</div>
+          <div class="pet-desc">ดูดวงด้วยไพ่ทาโรต ความรัก การงาน การเงิน โดยหมอดูที่มีประสบการณ์และรีวิวจริงค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿299/Session</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🌟</div>
+          <div class="pet-name">โหราศาสตร์ไทย</div>
+          <div class="pet-desc">ดูดวงโหราศาสตร์ไทย วิเคราะห์ดวงชะตาตามวันเดือนปีเกิด แม่นยำและละเอียดค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿499/Session</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🏮</div>
+          <div class="pet-name">ฮวงจุ้ย / ชินแส</div>
+          <div class="pet-desc">ดูฮวงจุ้ยบ้าน ออฟฟิศ ร้านค้า จัดวางเฟอร์นิเจอร์เสริมดวง โดยผู้เชี่ยวชาญค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿1,500/ครั้ง</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🔯</div>
+          <div class="pet-name">ดูดวงจีน / ไพ้เก้</div>
+          <div class="pet-desc">วิเคราะห์ดวงตามหลักจีนโบราณ เหมาะสำหรับการตัดสินใจสำคัญและการลงทุนค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿599/Session</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">📅</div>
+          <div class="pet-name">ฤกษ์มงคล</div>
+          <div class="pet-desc">เลือกฤกษ์งานแต่ง ขึ้นบ้านใหม่ เปิดร้าน ลงนามสัญญา โดยโหรที่มีใบประกาศค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿800/ครั้ง</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">💬</div>
+          <div class="pet-name">ดูดวงออนไลน์</div>
+          <div class="pet-desc">ดูดวงผ่าน Line / Video Call สะดวก ไม่ต้องเดินทาง เหมาะสำหรับคนที่ไม่มีเวลาค่ะ</div>
+          <div style="margin-top:8px"><span style="color:var(--gold);font-size:13px">⭐⭐⭐⭐⭐</span> <span style="font-size:11px;color:var(--gray)">(รีวิวจริง)</span></div>
+          <div style="margin-top:8px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿299/Session</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+      </div>
+
+      <!-- ช่างฝีมือมงคล -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">🛕</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">ช่างฝีมืองานมงคลค่ะ</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🗿</div>
+          <div class="pet-name">ช่างแกะสลัก</div>
+          <div class="pet-desc">รับแกะสลักไม้ หิน งาช้างเทียม ทั้งรูปเคารพ ของตกแต่ง และของที่ระลึกสั่งทำพิเศษค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ราคาตามงาน / ปรึกษาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🛕</div>
+          <div class="pet-name">ช่างทำตู้พระ</div>
+          <div class="pet-desc">รับทำตู้พระบูชาทุกสไตล์ ไทยโบราณ ร่วมสมัย ขนาดเล็กถึงใหญ่ สั่งทำตามแบบได้ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿3,500</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">✨</div>
+          <div class="pet-name">ช่างลงรักปิดทอง</div>
+          <div class="pet-desc">รับลงรักปิดทองพระพุทธรูป ตู้พระ และของมีค่า ฝีมือช่างระดับวัด ละเอียดงดงามค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ราคาตามงาน / ปรึกษาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+      </div>
+
+      <!-- ระบบรีวิว -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px;text-align:center">
+        <div style="font-size:32px;margin-bottom:12px">⭐</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:8px">รีวิวแลกดูดวงฟรีค่ะ</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:500px;margin:0 auto">
+          ใช้บริการแล้วเขียนรีวิวให้หมอดูหรือช่างฝีมือ<br>
+          รับสิทธิ์ดูดวงฟรี 1 ครั้ง มูลค่าสูงสุด ฿299 ค่ะ
+        </div>
+        <button class="btn-submit" style="margin-top:20px;max-width:280px" onclick="showPage('register')">สมัครสมาชิกเพื่อรับสิทธิ์ →</button>
+      </div>
+
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== BEAUTY ===== -->
+<div id="page-beauty" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">ความงามและสุขภาพ</span>
+      <h2 class="sec-title">Beauty & Clinic 💉</h2>
+      <p class="sec-sub">คลินิกความงามมาตรฐาน โบท็อก ฟิลเลอร์ และบริการเสริมความงามครบวงจรค่ะ</p>
+    </div>
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- Beauty Services -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">💉</div>
+          <div class="pet-name">โบท็อก</div>
+          <div class="pet-desc">โบท็อกแท้นำเข้า ฉีดโดยแพทย์ผู้เชี่ยวชาญ ลดริ้วรอย หน้าเรียว ขากรรไกร ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿1,500/จุด</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">✨</div>
+          <div class="pet-name">ฟิลเลอร์</div>
+          <div class="pet-desc">ฉีดฟิลเลอร์เติมร่อง ปรับโครงหน้า เสริมจมูก ปาก โดยแพทย์มีใบประกอบวิชาชีพค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿3,500/ซีซี</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🌟</div>
+          <div class="pet-name">สกินแคร์ / หน้าใส</div>
+          <div class="pet-desc">รักษาหน้าใส ฝ้า กระ สิว รูขุมขนกว้าง ด้วยเครื่องมือแพทย์ระดับมาตรฐานค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿800/ครั้ง</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">💊</div>
+          <div class="pet-name">วิตามินเสริมผิว</div>
+          <div class="pet-desc">วิตามินผิวขาว ผมและเล็บ อาหารเสริมคุณภาพสูง คัดสรรโดยเภสัชกรและแพทย์ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿590/เดือน</div>
+          <button class="pet-cta" onclick="showPage('register')">สั่งซื้อเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">💅</div>
+          <div class="pet-name">เสริมความงามครบจุด</div>
+          <div class="pet-desc">Package ครบวงจร ทำเล็บ + หน้า + ผม ในราคาพิเศษสำหรับสมาชิก MG Lifestyle ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">Package เริ่มต้น ฿999</div>
+          <button class="pet-cta" onclick="showPage('register')">ดู Package</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🏥</div>
+          <div class="pet-name">ปรึกษาแพทย์ออนไลน์</div>
+          <div class="pet-desc">ปรึกษาแพทย์ผิวหนังและความงามออนไลน์ก่อนตัดสินใจทำหัตถการ ฟรีสำหรับสมาชิกค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ฟรีสำหรับสมาชิก MG</div>
+          <button class="pet-cta" onclick="showPage('register')">ปรึกษาเลย</button>
+        </div>
+      </div>
+
+      <!-- B2B โบท็อก -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:8px">💉 สำหรับคลินิกความงาม — B2B</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.8">รับจัดหาโบท็อกและผลิตภัณฑ์ความงามคุณภาพสูงส่งตรงถึงคลินิกค่ะ ราคาพิเศษสำหรับคลินิกในเครือ MG Lifestyle</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+          <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px">
+            <div style="font-size:24px;margin-bottom:8px">💉</div>
+            <div style="font-size:13px;font-weight:600;color:white">โบท็อกแท้นำเข้า</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ราคาส่งพิเศษค่ะ</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px">
+            <div style="font-size:24px;margin-bottom:8px">✨</div>
+            <div style="font-size:13px;font-weight:600;color:white">ฟิลเลอร์และ Skincare</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ส่งตรงถึงคลินิกค่ะ</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px">
+            <div style="font-size:24px;margin-bottom:8px">🤝</div>
+            <div style="font-size:13px;font-weight:600;color:white">รับลูกค้าจาก MG</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ฐานลูกค้า 30,000 คนค่ะ</div>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="showPage('b2b')">ติดต่อสอบถาม B2B →</button>
+      </div>
+
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== CONSTRUCTION ===== -->
+<div id="page-construction" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">ก่อสร้าง ออกแบบ และตกแต่ง</span>
+      <h2 class="sec-title">Construction & Design Hub 🏗️</h2>
+      <p class="sec-sub">วิศวกร สถาปนิก และภูมิสถาปัตย์มืออาชีพ ครบทุกบริการด้านบ้านและอาคารค่ะ</p>
+    </div>
+
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- วิศวกร -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">👷</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">รับเหมาก่อสร้างและ Renovation</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🏠</div>
+          <div class="pet-name">ต่อเติมบ้าน</div>
+          <div class="pet-desc">ต่อเติมห้อง เพิ่มพื้นที่ใช้สอย ควบคุมโดยวิศวกรที่มีใบอนุญาตค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ประเมินราคาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🔨</div>
+          <div class="pet-name">Renovation / ปรับปรุงบ้าน</div>
+          <div class="pet-desc">รีโนเวทห้องน้ำ ห้องครัว หรือทั้งบ้าน ออกแบบและก่อสร้างครบวงจรค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ประเมินราคาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🔍</div>
+          <div class="pet-name">ตรวจบ้านก่อนรับโอน</div>
+          <div class="pet-desc">วิศวกรตรวจสอบโครงสร้างและระบบทั้งหมดก่อนรับโอนบ้าน มีรายงานละเอียดค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿3,500</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">📐</div>
+          <div class="pet-name">แบบบ้านสำเร็จรูป</div>
+          <div class="pet-desc">แบบบ้านพร้อมใช้ หลากหลายสไตล์ พร้อมวิศวกรเซ็นรับรองแบบโครงสร้างค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿5,000</div>
+          <button class="pet-cta" onclick="showPage('register')">ดูแบบบ้าน</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🏗️</div>
+          <div class="pet-name">รับเหมาก่อสร้างใหม่</div>
+          <div class="pet-desc">รับสร้างบ้านใหม่ตั้งแต่ต้น ควบคุมงานโดยวิศวกรมืออาชีพ มีประกันงานค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ประเมินราคาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">💡</div>
+          <div class="pet-name">ที่ปรึกษาโครงการ</div>
+          <div class="pet-desc">ปรึกษาวิศวกรก่อนตัดสินใจก่อสร้าง ประเมินความเป็นไปได้และค่าใช้จ่ายค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿1,500/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+      </div>
+
+      <!-- ภูมิสถาปัตย์ -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">🌿</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">ออกแบบสวนและภูมิทัศน์</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🌳</div>
+          <div class="pet-name">ออกแบบสวนบ้าน</div>
+          <div class="pet-desc">ออกแบบสวนสไตล์ที่ชอบ ทั้ง Tropical, Japanese, Modern หรือ Cottage ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿8,000</div>
+          <button class="pet-cta" onclick="showPage('register')">ปรึกษาฟรี</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🏢</div>
+          <div class="pet-name">Landscape ในอาคาร</div>
+          <div class="pet-desc">ออกแบบพื้นที่สีเขียวในอาคารสำนักงาน โรงแรม โรงพยาบาล และ Shopping Mall ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ประเมินราคาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🌱</div>
+          <div class="pet-name">ดูแลสวนรายเดือน</div>
+          <div class="pet-desc">บริการดูแลสวนประจำ ตัดแต่งต้นไม้ รดน้ำ ใส่ปุ๋ย โดยทีมงานมืออาชีพค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿1,500/เดือน</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🏨</div>
+          <div class="pet-name">สวน Rooftop / Balcony</div>
+          <div class="pet-desc">ออกแบบและจัดสวนบนดาดฟ้าหรือระเบียง เพิ่มพื้นที่สีเขียวให้คอนโดและบ้านค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿5,000</div>
+          <button class="pet-cta" onclick="showPage('register')">ปรึกษาฟรี</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🌾</div>
+          <div class="pet-name">จัดสวนสำนักงาน / นิติบุคคล</div>
+          <div class="pet-desc">ออกแบบและดูแลสวนหมู่บ้าน คอนโด ออฟฟิศ รับงานทั้งโครงการใหม่และปรับปรุงค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ประเมินราคาฟรี</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🎋</div>
+          <div class="pet-name">ปรึกษาออกแบบออนไลน์</div>
+          <div class="pet-desc">ส่งรูปพื้นที่มา ภูมิสถาปนิกให้คำแนะนำเบื้องต้นออนไลน์ ประหยัดเวลาค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿800/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+      </div>
+
+      <!-- Trust -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">มีใบอนุญาต</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">วิศวกรและสถาปนิกทุกคน</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">ฟรี</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">ประเมินราคาเบื้องต้น</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold)">มีประกัน</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px">รับประกันงานทุกโครงการ</div></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:40px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อขอใบเสนอราคา →</button></div>
   </section>
   <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
 </div>
@@ -622,6 +1081,7 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
         <button class="cat-tab active" onclick="filterPhoto('all',this)" style="font-size:13px">ทั้งหมด</button>
         <button class="cat-tab" onclick="filterPhoto('abroad',this)" style="font-size:13px">📍 ต่างประเทศ</button>
         <button class="cat-tab" onclick="filterPhoto('thailand',this)" style="font-size:13px">🇹🇭 ในไทย</button>
+        <button class="cat-tab" onclick="filterPhoto('ceremony',this)" style="font-size:13px">🙏 งานพิธี</button>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px" id="photoGrid">
@@ -698,6 +1158,38 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
           <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 2 วัน</span><span class="pc-discount">฿1,000/ชม</span></div>
         </div>
 
+        <div class="partner-card photo-card" data-photo="ceremony">
+          <div class="pc-top"><span class="pc-icon">🙏</span><span class="pc-badge">งานพิธี</span></div>
+          <div class="pc-cat">งานบวช</div>
+          <div class="pc-name">ตากล้องงานบวช</div>
+          <div class="pc-detail">ถ่ายรูปพิธีบวชครบทุกขั้นตอน ตั้งแต่แห่นาค จนเสร็จพิธี ได้รูปสวยเก็บไว้เป็นที่ระลึกค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 7 วัน</span><span class="pc-discount">฿3,000/งาน</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="ceremony">
+          <div class="pc-top"><span class="pc-icon">🕊️</span><span class="pc-badge">งานพิธี</span></div>
+          <div class="pc-cat">งานศพ</div>
+          <div class="pc-name">ตากล้องงานศพ</div>
+          <div class="pc-detail">ถ่ายรูปพิธีกรรม ครอบครัว และหมู่คณะ ด้วยความละเอียดอ่อนและเคารพ ทำ Album ที่ระลึกให้ด้วยค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 3 วัน</span><span class="pc-discount">฿2,500/งาน</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="ceremony">
+          <div class="pc-top"><span class="pc-icon">🏠</span><span class="pc-badge">งานพิธี</span></div>
+          <div class="pc-cat">ขึ้นบ้านใหม่ / ทำบุญบริษัท</div>
+          <div class="pc-name">ตากล้องงานมงคล</div>
+          <div class="pc-detail">ขึ้นบ้านใหม่ ทำบุญบริษัท งานเลี้ยงฉลอง ถ่ายรูปบรรยากาศและหมู่คณะ ได้ไฟล์ความละเอียดสูงค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 3 วัน</span><span class="pc-discount">฿2,000/งาน</span></div>
+        </div>
+
+        <div class="partner-card photo-card" data-photo="ceremony">
+          <div class="pc-top"><span class="pc-icon">🎓</span><span class="pc-badge">งานพิธี</span></div>
+          <div class="pc-cat">รับปริญญา</div>
+          <div class="pc-name">ตากล้องรับปริญญา</div>
+          <div class="pc-detail">ถ่ายรูปหน้ามหาวิทยาลัย ในงาน และถ่าย Pre-Grad สวยๆ ก่อนวันงาน สไตล์ Fine Art หรือ Natural ค่ะ</div>
+          <div class="pc-footer"><span class="pc-exp">นัดล่วงหน้า 14 วัน</span><span class="pc-discount">฿2,500/งาน</span></div>
+        </div>
+
       </div>
 
       <!-- TRUST -->
@@ -709,6 +1201,285 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 
     </div>
     <div style="text-align:center;margin-top:40px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อจองบริการ →</button></div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== CREATIVE ===== -->
+<div id="page-creative" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">Content Creator & Micro Influencer</span>
+      <h2 class="sec-title">Creative & Content Hub 🎬</h2>
+      <p class="sec-sub">VDO Packshot รีวิวสินค้า Graphic Design ราคาเข้าถึงได้ ไม่ต้องจ้าง Agency ค่ะ</p>
+    </div>
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- VDO & Content -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">🎬</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">VDO & Content Creator</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">📦</div>
+          <div class="pet-name">VDO Packshot สินค้า</div>
+          <div class="pet-desc">ถ่าย VDO สินค้า 15-60 วิ สำหรับ TikTok / IG / Facebook ราคาต่อชิ้น ไม่แพงค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 Nano ฿200 / Micro ฿500 / Mid ฿1,500</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">⭐</div>
+          <div class="pet-name">รีวิวสินค้า + ปักตะกร้า</div>
+          <div class="pet-desc">Creator รีวิวสินค้าจริง ปักตะกร้า TikTok Shop ลูกค้าซื้อได้เลยค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 เริ่มต้น ฿400/VDO ค่ะ</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">📸</div>
+          <div class="pet-name">ถ่ายรูปสินค้า</div>
+          <div class="pet-desc">Flat Lay, White Background, Lifestyle Shot สำหรับ Shopee / Lazada / Line OA ค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 เริ่มต้น ฿500/10 รูป ค่ะ</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🎨</div>
+          <div class="pet-name">Graphic Design</div>
+          <div class="pet-desc">Banner Facebook / IG, Story Template, โลโก้, Menu ร้านอาหาร, Brochure ค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 เริ่มต้น ฿200/ชิ้น ค่ะ</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">📱</div>
+          <div class="pet-name">UI/UX Design</div>
+          <div class="pet-desc">ออกแบบหน้าตา App / เว็บ Wireframe, Prototype ทำใน Figma ค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 เริ่มต้น ฿3,000/โปรเจกต์ ค่ะ</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">✍️</div>
+          <div class="pet-name">Caption / Copywriting</div>
+          <div class="pet-desc">เขียนโพสต์ขายของ Script VDO SEO Description สินค้า ให้ยอดขายพุ่งค่ะ</div>
+          <div style="margin-top:8px;font-size:11px;color:var(--gray)">📍 เริ่มต้น ฿150/โพสต์ ค่ะ</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+      </div>
+
+      <!-- Tier System -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px;margin-bottom:32px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:20px;text-align:center">เลือก Creator ตามงบที่มีค่ะ</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="text-align:center;padding:20px;background:rgba(255,255,255,0.05);border-radius:10px">
+            <div style="font-size:28px;margin-bottom:8px">🌱</div>
+            <div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px">Nano</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px">1K - 10K Followers</div>
+            <div style="font-size:18px;font-weight:700;color:var(--gold)">฿200-500</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ต่อ VDO ค่ะ</div>
+          </div>
+          <div style="text-align:center;padding:20px;background:rgba(184,150,78,0.15);border:1px solid rgba(184,150,78,0.3);border-radius:10px">
+            <div style="font-size:28px;margin-bottom:8px">🌿</div>
+            <div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px">Micro</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px">10K - 50K Followers</div>
+            <div style="font-size:18px;font-weight:700;color:var(--gold)">฿500-1,500</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ต่อ VDO ค่ะ</div>
+          </div>
+          <div style="text-align:center;padding:20px;background:rgba(255,255,255,0.05);border-radius:10px">
+            <div style="font-size:28px;margin-bottom:8px">🌳</div>
+            <div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px">Mid</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px">50K - 100K Followers</div>
+            <div style="font-size:18px;font-weight:700;color:var(--gold)">฿1,500-5,000</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px">ต่อ VDO ค่ะ</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อใช้บริการ →</button></div>
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== EDUCATION ===== -->
+<div id="page-education" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">เรียนรู้และพัฒนาตัวเอง</span>
+      <h2 class="sec-title">Education Hub 🎓</h2>
+      <p class="sec-sub">ครูสอนพิเศษส่วนตัว สถาบันภาษา และดนตรีระดับแข่งขันค่ะ</p>
+    </div>
+    <div style="max-width:1000px;margin:0 auto">
+
+      <!-- ครูส่วนตัว -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:28px">👩‍🏫</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);font-weight:600">ครูสอนพิเศษส่วนตัว</h3>
+      </div>
+      <p style="font-size:13px;color:var(--gray);margin-bottom:20px">สอนที่บ้าน / ร้านกาแฟ / Online ราคาเบากว่าสถาบัน เลือกครูที่ชอบได้ค่ะ</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🇬🇧</div>
+          <div class="pet-name">ภาษาอังกฤษ</div>
+          <div class="pet-desc">ตัวต่อตัว / กลุ่มเล็ก เตรียมสอบ IELTS TOEIC สนทนา และธุรกิจค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿300/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🇨🇳</div>
+          <div class="pet-name">ภาษาจีน</div>
+          <div class="pet-desc">HSK ทุกระดับ สนทนา อ่านเขียน โดยครูเจ้าของภาษาและครูไทยค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿350/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🇯🇵</div>
+          <div class="pet-name">ภาษาญี่ปุ่น / เกาหลี</div>
+          <div class="pet-desc">JLPT N5-N1 สนทนา และเตรียมท่องเที่ยว โดยครูที่เคยอยู่ต่างประเทศค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿350/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🎵</div>
+          <div class="pet-name">ดนตรี — เปียโน / กีตาร์</div>
+          <div class="pet-desc">สอนตั้งแต่เริ่มต้นจนระดับแข่งขัน ครูมีประสบการณ์ส่งเด็กแข่งระดับนานาชาติค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿400/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🎨</div>
+          <div class="pet-name">วาดรูป / ศิลปะ</div>
+          <div class="pet-desc">สอนวาดรูปทุกสไตล์ สีน้ำ ดินสอ ดิจิทัล เหมาะทั้งเด็กและผู้ใหญ่ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿300/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">💻</div>
+          <div class="pet-name">Coding สำหรับเด็ก</div>
+          <div class="pet-desc">สอน Scratch, Python เบื้องต้น เหมาะอายุ 7-15 ปี สนุกและได้ทักษะอนาคตค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿400/ชม</div>
+          <button class="pet-cta" onclick="showPage('register')">จองเลย</button>
+        </div>
+      </div>
+
+      <!-- Music Competition -->
+      <div style="background:var(--navy-deep);border-radius:14px;padding:32px;margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <span style="font-size:32px">🏆</span>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:white">Music Competition — ส่งแข่งระดับนานาชาติ</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px">ฮ่องกง ญี่ปุ่น สิงคโปร์ และทั่วโลกค่ะ</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+          <div style="padding:16px;background:rgba(255,255,255,0.05);border-radius:10px">
+            <div style="font-size:20px;margin-bottom:8px">🎹</div>
+            <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">เตรียมความพร้อมแข่งขัน</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">ครูเฉพาะทางระดับแข่งขันนานาชาติค่ะ</div>
+          </div>
+          <div style="padding:16px;background:rgba(255,255,255,0.05);border-radius:10px">
+            <div style="font-size:20px;margin-bottom:8px">✈️</div>
+            <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">จัดทริปไปแข่งต่างประเทศ</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">ตั๋ว ที่พัก ซิม ครบวงจรค่ะ</div>
+          </div>
+          <div style="padding:16px;background:rgba(255,255,255,0.05);border-radius:10px">
+            <div style="font-size:20px;margin-bottom:8px">📸</div>
+            <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">ตากล้องงานแข่งขัน</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4)">เก็บความทรงจำสำคัญไว้ค่ะ</div>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="showPage('register')">สนใจส่งลูกแข่งขัน →</button>
+      </div>
+
+      <!-- สถาบัน -->
+      <div style="background:var(--gold-light);border:1px solid var(--gold);border-radius:14px;padding:24px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);margin-bottom:8px">🏫 สถาบันภาษาอังกฤษ Partner ของ MG</div>
+        <div style="font-size:13px;color:var(--gray);margin-bottom:16px">เรียนแบบมีหลักสูตร รายบุคคลและรายกลุ่ม โดยสถาบันที่ไว้วางใจได้ค่ะ</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div style="text-align:center;padding:12px;background:white;border-radius:8px">
+            <div style="font-size:13px;font-weight:600;color:var(--navy)">รายบุคคล</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:4px">เรียน 1-on-1 ยืดหยุ่น</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:white;border-radius:8px">
+            <div style="font-size:13px;font-weight:600;color:var(--navy)">รายกลุ่ม</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:4px">ราคาดีกว่า สังคมดีค่ะ</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:white;border-radius:8px">
+            <div style="font-size:13px;font-weight:600;color:var(--navy)">เตรียมสอบ</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:4px">IELTS TOEIC TOEFL</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อใช้บริการ →</button></div>
+    </div>
+  </section>
+  <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
+</div>
+
+<!-- ===== ARTISAN ===== -->
+<div id="page-artisan" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">งานฝีมือและของ Custom</span>
+      <h2 class="sec-title">Artisan & Craft 👜</h2>
+      <p class="sec-sub">งานหนังมือทำ กระเป๋า กุญแจ และของ Custom สั่งทำพิเศษค่ะ</p>
+    </div>
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+        <div class="pet-card">
+          <div class="pet-icon">🔑</div>
+          <div class="pet-name">พวงกุญแจหนังแท้</div>
+          <div class="pet-desc">สั่งทำพวงกุญแจหนังแท้ สลักชื่อ ตราสัญลักษณ์ ของขวัญพิเศษที่ไม่เหมือนใครค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿350/ชิ้น</div>
+          <button class="pet-cta" onclick="showPage('register')">สั่งทำเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">👜</div>
+          <div class="pet-name">กระเป๋าหนัง Custom</div>
+          <div class="pet-desc">กระเป๋าหนังแท้สั่งทำตามแบบ เลือกสี ขนาด และลายได้เลยค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿2,500</div>
+          <button class="pet-cta" onclick="showPage('register')">สั่งทำเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">⌚</div>
+          <div class="pet-name">สายนาฬิกาหนัง</div>
+          <div class="pet-desc">สายนาฬิกาหนังแท้สั่งทำ เลือกสีและขนาดได้ตามต้องการค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿800</div>
+          <button class="pet-cta" onclick="showPage('register')">สั่งทำเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">👞</div>
+          <div class="pet-name">เข็มขัดหนัง</div>
+          <div class="pet-desc">เข็มขัดหนังแท้สั่งทำ เลือกหัวเข็มขัด ความกว้าง และสีได้เลยค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">เริ่มต้น ฿600</div>
+          <button class="pet-cta" onclick="showPage('register')">สั่งทำเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🔧</div>
+          <div class="pet-name">ซ่อมกระเป๋าหนัง</div>
+          <div class="pet-desc">ซ่อมกระเป๋าหนังแบรนด์เนม เปลี่ยนซิป สาย ทำสีใหม่ ดูแลรักษาหนังค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ราคาตามงาน</div>
+          <button class="pet-cta" onclick="showPage('register')">สอบถามเลย</button>
+        </div>
+        <div class="pet-card">
+          <div class="pet-icon">🎁</div>
+          <div class="pet-name">ของขวัญ Corporate</div>
+          <div class="pet-desc">ของขวัญหนังสั่งทำสำหรับองค์กร สลักโลโก้บริษัท สั่งจำนวนมากได้ค่ะ</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold);font-weight:600">ราคาพิเศษตามจำนวน</div>
+          <button class="pet-cta" onclick="showPage('register')">ขอใบเสนอราคา</button>
+        </div>
+      </div>
+
+      <div style="background:var(--navy-deep);border-radius:14px;padding:28px;text-align:center">
+        <div style="font-size:32px;margin-bottom:12px">✋</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:white;margin-bottom:8px">งานทำมือทุกชิ้น ไม่มีซ้ำในโลกค่ะ</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);max-width:400px;margin:0 auto">ช่างฝีมือที่มีประสบการณ์มากกว่า 10 ปี คัดสรรหนังแท้คุณภาพสูงทุกชิ้นค่ะ</div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px"><button class="btn-gold" onclick="showPage('register')">สมัครสมาชิกเพื่อสั่งทำ →</button></div>
+    </div>
   </section>
   <footer><div class="footer-logo">MG <span>Lifestyle</span></div><div class="footer-note">© 2026 MG Lifestyle · สงวนลิขสิทธิ์</div></footer>
 </div>
@@ -745,6 +1516,13 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
               <option>101–300 คน</option><option>300 คนขึ้นไป</option>
             </select>
           </div>
+<div class="pdpa-wrap">
+              <div class="pdpa-text">ข้าพเจ้ายินยอมให้ <span>MG Lifestyle</span> เก็บรวบรวมและใช้ข้อมูลส่วนบุคคล เพื่อการให้บริการและการติดต่อสื่อสาร ตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</div>
+              <div class="pdpa-choices">
+                <label class="pdpa-choice"><input type="radio" name="pdpa-b2b" value="ยินยอม"> <span>ยินยอม</span></label>
+                <label class="pdpa-choice"><input type="radio" name="pdpa-b2b" value="ไม่ยินยอม"> <span>ไม่ยินยอม</span></label>
+              </div>
+            </div>
           <button class="btn-submit" onclick="handleB2B()">ส่งข้อมูลเพื่อรับข้อเสนอ →</button>
           <p class="form-note-small">ทีมงานจะติดต่อกลับภายใน 1 วันทำการ</p>
         </div>
@@ -858,6 +1636,19 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
                 <option value="" style="background:#1a2d4a">เลือกประเภทบริการ</option>
                 <option style="background:#1a2d4a">📷 ตากล้อง</option>
                 <option style="background:#1a2d4a">🔧 ช่างซ่อม</option>
+                <option style="background:#1a2d4a">👷 วิศวกร / รับเหมาก่อสร้าง</option>
+                <option style="background:#1a2d4a">🌿 ภูมิสถาปัตย์ / จัดสวน</option>
+                <option style="background:#1a2d4a">🤝 Companion / เพื่อนรับจ้าง</option>
+                <option style="background:#1a2d4a">🔮 หมอดู / ทาโรต / ฮวงจุ้ย</option>
+                <option style="background:#1a2d4a">🛕 ช่างแกะสลัก / ตู้พระ / ลงรัก</option>
+                <option style="background:#1a2d4a">💉 คลินิกความงาม / แพทย์</option>
+                <option style="background:#1a2d4a">🐕 ครูฝึกสุนัข</option>
+                <option style="background:#1a2d4a">🎬 Content Creator / VDO</option>
+                <option style="background:#1a2d4a">🎓 ครูสอนพิเศษ / ภาษา / ดนตรี</option>
+                <option style="background:#1a2d4a">👜 งานหนัง / Artisan</option>
+                <option style="background:#1a2d4a">🔑 ช่างกุญแจ</option>
+                <option style="background:#1a2d4a">🚚 รับจ้างขนของ / ย้ายบ้าน</option>
+                <option style="background:#1a2d4a">✂️ ตัดผม / แต่งหน้าถึงบ้าน</option>
                 <option style="background:#1a2d4a">👩‍⚕️ พยาบาล / Caregiver</option>
                 <option style="background:#1a2d4a">⏰ รับจ้างรอคิว</option>
                 <option style="background:#1a2d4a">🐾 Pet Sitter / อาบน้ำสัตว์เลี้ยง</option>
@@ -883,6 +1674,13 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 
             <div class="b2b-field"><label>ลิงก์ Portfolio / ผลงาน (ถ้ามี)</label><input type="text" id="pv-portfolio" placeholder="Instagram, Facebook, Website ฯลฯ"></div>
 
+<div class="pdpa-wrap">
+              <div class="pdpa-text">ข้าพเจ้ายินยอมให้ <span>MG Lifestyle</span> เก็บรวบรวมและใช้ข้อมูลส่วนบุคคล เพื่อการให้บริการและการติดต่อสื่อสาร ตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</div>
+              <div class="pdpa-choices">
+                <label class="pdpa-choice"><input type="radio" name="pdpa-provider" value="ยินยอม"> <span>ยินยอม</span></label>
+                <label class="pdpa-choice"><input type="radio" name="pdpa-provider" value="ไม่ยินยอม"> <span>ไม่ยินยอม</span></label>
+              </div>
+            </div>
             <button class="btn-submit" onclick="handleProvider()">สมัครเป็น Provider →</button>
             <p class="form-note-small">ข้อมูลของคุณจะถูกเก็บเป็นความลับ ใช้เพื่อตรวจสอบและจับคู่งานเท่านั้นค่ะ</p>
           </div>
@@ -941,6 +1739,24 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
               <option style="background:#1a2d4a">ทุกบริการ</option>
             </select>
           </div>
+<div class="pdpa-wrap">
+              <div class="pdpa-text">ข้าพเจ้ายินยอมให้ <span>MG Lifestyle</span> เก็บรวบรวมและใช้ข้อมูลส่วนบุคคล เพื่อการให้บริการและการติดต่อสื่อสาร ตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</div>
+              <div class="pdpa-choices">
+                <label class="pdpa-choice"><input type="radio" name="pdpa-member" value="ยินยอม"> <span>ยินยอม</span></label>
+                <label class="pdpa-choice"><input type="radio" name="pdpa-member" value="ไม่ยินยอม"> <span>ไม่ยินยอม</span></label>
+              </div>
+            </div>
+
+            <!-- REWARD SYSTEM -->
+            <div style="margin-top:16px;background:rgba(184,150,78,0.1);border:1px solid rgba(184,150,78,0.3);border-radius:10px;padding:16px">
+              <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:10px">🎁 ระบบรีวิวแลกรางวัลค่ะ</div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">⭐ รีวิว 1 ครั้ง → คูปองส่วนลด ฿100</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">⭐⭐⭐ รีวิว 3 ครั้ง → ดูดวงฟรี 1 ครั้ง</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">⭐⭐⭐⭐⭐ รีวิว 5 ครั้ง → บริการฟรี 1 ครั้งค่ะ</div>
+              </div>
+            </div>
+
           <button class="btn-submit" onclick="handleRegister()">รับคูปองฟรีทันที →</button>
           <p class="reg-consent">โดยการสมัคร คุณยินยอมรับโปรโมชั่นผ่าน Email และ SMS<br>สามารถยกเลิกได้ตลอดเวลา</p>
         </div>
@@ -961,7 +1777,7 @@ function showPage(id) {
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   window.scrollTo(0,0);
-  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,healthcare:6,travel:7,b2b:8,provider:9};
+  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,spiritual:6,beauty:7,construction:8,healthcare:9,travel:10,creative:11,education:12,artisan:13,b2b:14,provider:15};
   const links = document.querySelectorAll('.nav-link');
   if(map[id] !== undefined) links[map[id]].classList.add('active');
 }
@@ -975,8 +1791,8 @@ function filterCat(cat, btn) {
 }
 
 // ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
-const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec';
-const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec';
+const SHEET_URL_MEMBER = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEET_URL_B2B    = 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE';
 
 function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
@@ -986,7 +1802,9 @@ function handleRegister() {
   const province = document.getElementById('reg-province').value.trim();
   const interest = document.getElementById('reg-interest').value;
 
+  const pdpa = document.querySelector('input[name="pdpa-member"]:checked');
   if (!name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ'); return; }
+  if (!pdpa) { alert('กรุณาเลือกการยินยอม PDPA ก่อนนะคะ'); return; }
   if (!email.includes('@')) { alert('กรุณากรอก Email ให้ถูกต้องค่ะ'); return; }
 
   const btn = document.querySelector('#regFormWrap .btn-submit');
@@ -996,10 +1814,11 @@ function handleRegister() {
   const data = {
     type: 'member',
     name, phone, email, district, province, interest,
-    date: new Date().toLocaleString('th-TH')
+    date: new Date().toLocaleString('th-TH'),
+    pdpa: pdpa ? pdpa.value : 'ไม่ระบุ'
   };
 
-  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec') {
+  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -1020,10 +1839,12 @@ function handleProvider() {
   const exp = document.getElementById('pv-exp').value;
   const portfolio = document.getElementById('pv-portfolio').value.trim();
 
+  const pdpaPv = document.querySelector('input[name="pdpa-provider"]:checked');
   if (!name || !phone || !email || !type || !area) {
     alert('กรุณากรอกข้อมูลให้ครบทุกช่องค่ะ');
     return;
   }
+  if (!pdpaPv) { alert('กรุณาเลือกการยินยอม PDPA ก่อนนะคะ'); return; }
 
   const btn = document.querySelector('#providerFormWrap .btn-submit');
   btn.textContent = 'กำลังบันทึก...';
@@ -1034,10 +1855,11 @@ function handleProvider() {
     name, phone, email, line,
     serviceType: type, area, experience: exp, portfolio,
     date: new Date().toLocaleString('th-TH'),
+    pdpa: pdpaPv ? pdpaPv.value : 'ไม่ระบุ',
     status: 'รอตรวจสอบ'
   };
 
-  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycbyrcQn-XQSV6-fcZW8SYXZqgqMd65ONnjLcjPzwJibXbj4QLBwYM-0--1IyJ-xGoC7F/exec') {
+  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -1064,7 +1886,9 @@ function handleB2B() {
   const email   = document.getElementById('b2b-email').value.trim();
   const size    = document.getElementById('b2b-size').value;
 
+  const pdpaB2b = document.querySelector('input[name="pdpa-b2b"]:checked');
   if (!company || !name || !phone || !email) { alert('กรุณากรอกข้อมูลให้ครบค่ะ'); return; }
+  if (!pdpaB2b) { alert('กรุณาเลือกการยินยอม PDPA ก่อนนะคะ'); return; }
 
   const btn = document.querySelector('#b2bFormWrap .btn-submit');
   btn.textContent = 'กำลังบันทึก...';
@@ -1086,6 +1910,36 @@ function handleB2B() {
   document.getElementById('b2bFormWrap').style.display = 'none';
   document.getElementById('b2bSuccess').classList.add('show');
 }
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+
+function mobileNav(page) {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.remove('open');
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+  showPage(page);
+}
+
+// Close menu on outside tap
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobileMenu');
+  var ham = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') &&
+      !menu.contains(e.target) && !ham.contains(e.target)) {
+    ham.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 // ===== LOCK SCREEN =====
 const SITE_PASSWORD = 'mg2026'; // เปลี่ยน Password ได้ที่นี่ค่ะ
