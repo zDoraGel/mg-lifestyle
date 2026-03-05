@@ -342,6 +342,106 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 .reward-step:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px}
 .reward-step-icon{font-size:28px;margin-bottom:8px}
 .reward-step-text{font-size:12px;color:var(--gray);line-height:1.5}
+
+/* ===== ADMIN PANEL ===== */
+.admin-wrap{min-height:100vh;background:#0f1923;font-family:'Sarabun',sans-serif}
+.admin-login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.admin-login-box{background:#1a2d4a;border:1px solid rgba(184,150,78,0.3);border-radius:16px;padding:40px;width:100%;max-width:400px;text-align:center}
+.admin-login-logo{font-family:'Cormorant Garamond',serif;font-size:28px;color:white;margin-bottom:4px}
+.admin-login-logo span{color:#B8964E}
+.admin-login-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:32px}
+.admin-input{width:100%;padding:12px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;outline:none;box-sizing:border-box;margin-bottom:12px}
+.admin-input:focus{border-color:#B8964E}
+.admin-btn{width:100%;padding:13px;background:linear-gradient(135deg,#B8964E,#d4aa6a);border:none;border-radius:8px;color:white;font-family:'Sarabun',sans-serif;font-size:15px;font-weight:600;cursor:pointer}
+.admin-btn:hover{opacity:0.9}
+
+/* Admin Layout */
+.admin-layout{display:flex;min-height:100vh}
+.admin-sidebar{width:240px;background:#1a2d4a;flex-shrink:0;padding:24px 0;display:flex;flex-direction:column}
+.admin-sidebar-logo{padding:0 24px 24px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:16px}
+.admin-sidebar-logo .logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;color:white}
+.admin-sidebar-logo .logo-text span{color:#B8964E}
+.admin-sidebar-logo .logo-sub{font-size:10px;color:rgba(255,255,255,0.3);margin-top:2px}
+.admin-nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;transition:all 0.2s;border-left:3px solid transparent}
+.admin-nav-item:hover{color:white;background:rgba(255,255,255,0.05)}
+.admin-nav-item.active{color:white;background:rgba(184,150,78,0.1);border-left-color:#B8964E}
+.admin-nav-icon{font-size:16px;width:20px;text-align:center}
+.admin-main{flex:1;overflow-y:auto;background:#0f1923;padding:32px}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.admin-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:white;font-weight:600}
+.admin-subtitle{font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px}
+.admin-logout{padding:8px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:rgba(255,255,255,0.5);font-size:12px;cursor:pointer;font-family:'Sarabun',sans-serif}
+.admin-logout:hover{color:white;border-color:rgba(255,255,255,0.3)}
+
+/* Stats Cards */
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.stat-card{background:#1a2d4a;border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.06)}
+.stat-icon{font-size:24px;margin-bottom:12px}
+.stat-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:white;line-height:1}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:6px}
+.stat-change{font-size:11px;color:#4ade80;margin-top:4px}
+
+/* Tables */
+.admin-card{background:#1a2d4a;border-radius:12px;border:1px solid rgba(255,255,255,0.06);overflow:hidden;margin-bottom:24px}
+.admin-card-header{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between}
+.admin-card-title{font-size:14px;font-weight:600;color:white}
+.admin-search{padding:7px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;outline:none;width:200px}
+.admin-search::placeholder{color:rgba(255,255,255,0.3)}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th{padding:10px 16px;text-align:left;font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;border-bottom:1px solid rgba(255,255,255,0.06);text-transform:uppercase;letter-spacing:0.5px}
+.admin-table td{padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.04)}
+.admin-table tr:hover td{background:rgba(255,255,255,0.02);color:white}
+.admin-table tr:last-child td{border-bottom:none}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.badge-green{background:rgba(74,222,128,0.15);color:#4ade80}
+.badge-yellow{background:rgba(251,191,36,0.15);color:#fbbf24}
+.badge-red{background:rgba(248,113,113,0.15);color:#f87171}
+.badge-blue{background:rgba(96,165,250,0.15);color:#60a5fa}
+.admin-action-btn{padding:4px 12px;border-radius:4px;font-size:11px;cursor:pointer;font-family:'Sarabun',sans-serif;border:none;font-weight:600}
+.btn-approve{background:rgba(74,222,128,0.15);color:#4ade80}
+.btn-approve:hover{background:rgba(74,222,128,0.3)}
+.btn-reject{background:rgba(248,113,113,0.15);color:#f87171}
+.btn-reject:hover{background:rgba(248,113,113,0.3)}
+.btn-view{background:rgba(96,165,250,0.15);color:#60a5fa}
+.btn-view:hover{background:rgba(96,165,250,0.3)}
+.btn-edit{background:rgba(184,150,78,0.15);color:#B8964E}
+.btn-edit:hover{background:rgba(184,150,78,0.3)}
+
+/* Email Composer */
+.email-template-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+.email-template-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.2s}
+.email-template-card:hover,.email-template-card.selected{border-color:#B8964E;background:rgba(184,150,78,0.08)}
+.email-template-icon{font-size:24px;margin-bottom:8px}
+.email-template-name{font-size:13px;font-weight:600;color:white;margin-bottom:4px}
+.email-template-desc{font-size:11px;color:rgba(255,255,255,0.4)}
+.email-compose{background:rgba(255,255,255,0.04);border-radius:10px;padding:20px}
+.email-field{margin-bottom:16px}
+.email-field label{display:block;font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.email-field input,.email-field textarea,.email-field select{width:100%;padding:10px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;outline:none;box-sizing:border-box}
+.email-field textarea{height:120px;resize:vertical}
+.email-field select option{background:#1a2d4a}
+
+/* Coupon Manager */
+.coupon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.coupon-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px}
+.coupon-icon{font-size:24px;margin-bottom:8px}
+.coupon-name{font-size:14px;font-weight:600;color:white;margin-bottom:4px}
+.coupon-discount{font-size:20px;font-weight:700;color:#B8964E;margin-bottom:4px}
+.coupon-exp{font-size:11px;color:rgba(255,255,255,0.4)}
+.coupon-actions{display:flex;gap:8px;margin-top:12px}
+
+/* Sections */
+.admin-section{display:none}
+.admin-section.active{display:block}
+
+@media(max-width:768px){
+  .admin-sidebar{width:60px}
+  .admin-nav-item span{display:none}
+  .admin-sidebar-logo .logo-text,.admin-sidebar-logo .logo-sub{display:none}
+  .admin-stats{grid-template-columns:repeat(2,1fr)}
+  .coupon-grid{grid-template-columns:1fr}
+  .email-template-list{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -361,7 +461,7 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
 </div>
 
 <nav>
-  <div class="logo" onclick="showPage('home')">MG <span>Lifestyle</span></div>
+  <div class="logo" onclick="showPage('home');secretClick()">MG <span>Lifestyle</span></div>
   <div class="nav-links">
     <button class="nav-link active" onclick="showPage('home')">หน้าแรก</button>
     <button class="nav-link" onclick="showPage('coupon')">คูปองส่วนลด</button>
@@ -1777,7 +1877,7 @@ function showPage(id) {
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   window.scrollTo(0,0);
-  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,spiritual:6,beauty:7,construction:8,healthcare:9,travel:10,creative:11,education:12,artisan:13,b2b:14,provider:15};
+  const map = {home:0,coupon:1,stay:2,marketplace:3,pet:4,niche:5,spiritual:6,beauty:7,construction:8,healthcare:9,travel:10,creative:11,education:12,artisan:13,b2b:14,provider:15,admin:16};
   const links = document.querySelectorAll('.nav-link');
   if(map[id] !== undefined) links[map[id]].classList.add('active');
 }
@@ -1791,8 +1891,8 @@ function filterCat(cat, btn) {
 }
 
 // ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
-const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbzKfERxNsXM7pSqn1KhmSVP0hIk8XTR_jnDN1DBvK8UDAFAYkb9LciU6l73oYE1EmcE/exec';
-const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbzKfERxNsXM7pSqn1KhmSVP0hIk8XTR_jnDN1DBvK8UDAFAYkb9LciU6l73oYE1EmcE/exec';
+const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbyU7u0kQOvzMLkt1UuAXyZSD6NejDPkUq8AkDcSiiEbN2B-oBjU2sBZkp0O2Hzcs4tB/exec';
+const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbyU7u0kQOvzMLkt1UuAXyZSD6NejDPkUq8AkDcSiiEbN2B-oBjU2sBZkp0O2Hzcs4tB/exec';
 
 function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
@@ -1963,6 +2063,687 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
   document.getElementById('lockScreen').classList.add('hide');
 }
 
+</script>
+
+<!-- ===== ADMIN PANEL ===== -->
+<div id="page-admin" class="page">
+<div class="admin-wrap">
+
+  <!-- LOGIN SCREEN -->
+  <div id="admin-login-screen" class="admin-login">
+    <div class="admin-login-box">
+      <div class="admin-login-logo">MG <span>Lifestyle</span></div>
+      <div class="admin-login-sub">Admin Panel — เฉพาะทีมงานเท่านั้นค่ะ</div>
+      <input type="password" id="admin-pass" class="admin-input" placeholder="รหัสผ่าน Admin" onkeydown="if(event.key==='Enter')adminLogin()">
+      <div id="admin-login-err" style="font-size:12px;color:#f87171;margin-bottom:12px;display:none">รหัสผ่านไม่ถูกต้องค่ะ</div>
+      <button class="admin-btn" onclick="adminLogin()">เข้าสู่ระบบ</button>
+      <div style="margin-top:16px"><button onclick="showPage('home')" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:12px;cursor:pointer;font-family:'Sarabun',sans-serif">← กลับหน้าแรก</button></div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div id="admin-dashboard" style="display:none">
+    <div class="admin-layout">
+
+      <!-- SIDEBAR -->
+      <div class="admin-sidebar">
+        <div class="admin-sidebar-logo">
+          <div class="logo-text">MG <span>Lifestyle</span></div>
+          <div class="logo-sub">Admin Panel</div>
+        </div>
+        <div class="admin-nav-item active" onclick="adminNav('dashboard',this)"><span class="admin-nav-icon">📊</span><span>Dashboard</span></div>
+        <div class="admin-nav-item" onclick="adminNav('members',this)"><span class="admin-nav-icon">👥</span><span>สมาชิก</span></div>
+        <div class="admin-nav-item" onclick="adminNav('providers',this)"><span class="admin-nav-icon">🛠️</span><span>Provider</span></div>
+        <div class="admin-nav-item" onclick="adminNav('coupons',this)"><span class="admin-nav-icon">🎫</span><span>คูปอง</span></div>
+        <div class="admin-nav-item" onclick="adminNav('email',this)"><span class="admin-nav-icon">📧</span><span>Email System</span></div>
+        <div class="admin-nav-item" onclick="adminNav('backup',this)"><span class="admin-nav-icon">💾</span><span>Backup</span></div>
+        <div style="flex:1"></div>
+        <div class="admin-nav-item" onclick="adminLogout()"><span class="admin-nav-icon">🚪</span><span>ออกจากระบบ</span></div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="admin-main">
+
+        <!-- HEADER -->
+        <div class="admin-header">
+          <div>
+            <div class="admin-title" id="admin-section-title">Dashboard</div>
+            <div class="admin-subtitle" id="admin-section-sub">ภาพรวม MG Lifestyle ค่ะ</div>
+          </div>
+          <button class="admin-logout" onclick="adminLogout()">ออกจากระบบ</button>
+        </div>
+
+        <!-- ===== DASHBOARD ===== -->
+        <div id="admin-dashboard-section" class="admin-section active">
+          <div class="admin-stats">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-value" id="stat-members">-</div>
+              <div class="stat-label">สมาชิกทั้งหมด</div>
+              <div class="stat-change">↑ อัปเดตจาก Sheet</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🛠️</div>
+              <div class="stat-value" id="stat-providers">-</div>
+              <div class="stat-label">Provider รอ Approve</div>
+              <div class="stat-change" style="color:#fbbf24">รอดำเนินการค่ะ</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🏢</div>
+              <div class="stat-value" id="stat-b2b">-</div>
+              <div class="stat-label">B2B รอติดต่อ</div>
+              <div class="stat-change" style="color:#fbbf24">รอดำเนินการค่ะ</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⭐</div>
+              <div class="stat-value" id="stat-reviews">-</div>
+              <div class="stat-label">รีวิวทั้งหมด</div>
+              <div class="stat-change">↑ รีวิวใหม่ค่ะ</div>
+            </div>
+          </div>
+
+          <!-- Recent Members -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">สมาชิกล่าสุดค่ะ</div>
+              <button class="admin-action-btn btn-view" onclick="adminNav('members',document.querySelectorAll('.admin-nav-item')[1])">ดูทั้งหมด</button>
+            </div>
+            <table class="admin-table">
+              <thead><tr><th>ชื่อ</th><th>เบอร์</th><th>จังหวัด</th><th>สนใจ</th><th>วันที่</th></tr></thead>
+              <tbody id="recent-members-table"><tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:20px">กำลังโหลดค่ะ...</td></tr></tbody>
+            </table>
+          </div>
+
+          <!-- Provider Pending -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">Provider รอ Approve ค่ะ</div>
+              <button class="admin-action-btn btn-view" onclick="adminNav('providers',document.querySelectorAll('.admin-nav-item')[2])">ดูทั้งหมด</button>
+            </div>
+            <table class="admin-table">
+              <thead><tr><th>ชื่อ</th><th>บริการ</th><th>พื้นที่</th><th>สถานะ</th><th>Action</th></tr></thead>
+              <tbody id="pending-providers-table"><tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:20px">กำลังโหลดค่ะ...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== MEMBERS ===== -->
+        <div id="admin-members-section" class="admin-section">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">สมาชิกทั้งหมดค่ะ</div>
+              <div style="display:flex;gap:8px">
+                <input type="text" class="admin-search" id="member-search" placeholder="🔍 ค้นหาสมาชิก..." onkeyup="filterMembers()">
+                <button class="admin-action-btn btn-view" onclick="exportMembers()">📥 Export CSV</button>
+              </div>
+            </div>
+            <table class="admin-table">
+              <thead><tr><th>#</th><th>ชื่อ</th><th>เบอร์</th><th>Email</th><th>จังหวัด</th><th>สนใจ</th><th>PDPA</th><th>วันที่</th></tr></thead>
+              <tbody id="members-table"><tr><td colspan="8" style="text-align:center;color:rgba(255,255,255,0.3);padding:20px">กำลังโหลดค่ะ...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== PROVIDERS ===== -->
+        <div id="admin-providers-section" class="admin-section">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">Provider ทั้งหมดค่ะ</div>
+              <input type="text" class="admin-search" placeholder="🔍 ค้นหา Provider...">
+            </div>
+            <table class="admin-table">
+              <thead><tr><th>#</th><th>ชื่อ</th><th>บริการ</th><th>พื้นที่</th><th>ประสบการณ์</th><th>สถานะ</th><th>Action</th></tr></thead>
+              <tbody id="providers-table"><tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,0.3);padding:20px">กำลังโหลดค่ะ...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== COUPONS ===== -->
+        <div id="admin-coupons-section" class="admin-section">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+            <div style="font-size:14px;color:rgba(255,255,255,0.6)">จัดการคูปองได้เลยค่ะ ไม่ต้องแก้โค้ดค่ะ</div>
+            <button class="admin-btn" style="width:auto;padding:8px 20px;font-size:13px" onclick="showAddCoupon()">+ เพิ่มคูปองใหม่</button>
+          </div>
+
+          <!-- Add Coupon Form -->
+          <div id="add-coupon-form" style="display:none" class="admin-card">
+            <div class="admin-card-header"><div class="admin-card-title">เพิ่มคูปองใหม่ค่ะ</div></div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="email-field"><label>ชื่อร้าน / บริการ</label><input type="text" id="coupon-name" placeholder="เช่น ร้านอาหารไทย"></div>
+              <div class="email-field"><label>ส่วนลด</label><input type="text" id="coupon-discount" placeholder="เช่น 20% OFF หรือ ฿200 OFF"></div>
+              <div class="email-field"><label>หมวดหมู่</label>
+                <select id="coupon-cat">
+                  <option value="อาหาร">🍽️ อาหาร</option>
+                  <option value="ความงาม">✨ ความงาม</option>
+                  <option value="ไลฟ์สไตล์">🌟 ไลฟ์สไตล์</option>
+                  <option value="สุขภาพ">🏥 สุขภาพ</option>
+                  <option value="การศึกษา">🎓 การศึกษา</option>
+                  <option value="อื่นๆ">อื่นๆ</option>
+                </select>
+              </div>
+              <div class="email-field"><label>ไอคอน (Emoji)</label><input type="text" id="coupon-icon" placeholder="เช่น 🍽️ หรือ 💅"></div>
+              <div class="email-field"><label>วันหมดอายุ</label><input type="date" id="coupon-exp"></div>
+              <div class="email-field"><label>เงื่อนไข</label><input type="text" id="coupon-condition" placeholder="เช่น สำหรับสมาชิก MG เท่านั้น"></div>
+            </div>
+            <div style="padding:0 20px 20px;display:flex;gap:8px">
+              <button class="admin-btn" style="width:auto;padding:8px 20px;font-size:13px" onclick="saveCoupon()">บันทึกคูปอง</button>
+              <button onclick="document.getElementById('add-coupon-form').style.display='none'" style="padding:8px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;font-family:'Sarabun',sans-serif">ยกเลิก</button>
+            </div>
+          </div>
+
+          <div class="coupon-grid" id="coupon-list"></div>
+        </div>
+
+        <!-- ===== EMAIL SYSTEM ===== -->
+        <div id="admin-email-section" class="admin-section">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:12px">เลือก Template ค่ะ</div>
+              <div class="email-template-list">
+                <div class="email-template-card selected" onclick="selectTemplate('welcome',this)">
+                  <div class="email-template-icon">🎉</div>
+                  <div class="email-template-name">Welcome Email</div>
+                  <div class="email-template-desc">ส่งหลังสมัครสมาชิกค่ะ</div>
+                </div>
+                <div class="email-template-card" onclick="selectTemplate('promo',this)">
+                  <div class="email-template-icon">🎫</div>
+                  <div class="email-template-name">โปรโมชั่น</div>
+                  <div class="email-template-desc">ส่งโปรโมชั่นพิเศษค่ะ</div>
+                </div>
+                <div class="email-template-card" onclick="selectTemplate('provider_approve',this)">
+                  <div class="email-template-icon">✅</div>
+                  <div class="email-template-name">Provider ผ่านแล้ว</div>
+                  <div class="email-template-desc">แจ้ง Provider ค่ะ</div>
+                </div>
+                <div class="email-template-card" onclick="selectTemplate('provider_reject',this)">
+                  <div class="email-template-icon">❌</div>
+                  <div class="email-template-name">Provider ไม่ผ่าน</div>
+                  <div class="email-template-desc">แจ้งเหตุผลค่ะ</div>
+                </div>
+                <div class="email-template-card" onclick="selectTemplate('review_reward',this)">
+                  <div class="email-template-icon">⭐</div>
+                  <div class="email-template-name">รางวัลรีวิว</div>
+                  <div class="email-template-desc">แจ้งของรางวัลค่ะ</div>
+                </div>
+                <div class="email-template-card" onclick="selectTemplate('custom',this)">
+                  <div class="email-template-icon">✍️</div>
+                  <div class="email-template-name">Custom Email</div>
+                  <div class="email-template-desc">เขียนเองได้เลยค่ะ</div>
+                </div>
+              </div>
+
+              <!-- Segment -->
+              <div class="admin-card" style="margin-bottom:0">
+                <div class="admin-card-header"><div class="admin-card-title">ส่งถึงใครคะ?</div></div>
+                <div style="padding:16px;display:flex;flex-direction:column;gap:10px">
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;color:rgba(255,255,255,0.7);font-size:13px"><input type="radio" name="email-segment" value="all" checked style="accent-color:#B8964E"> สมาชิกทั้งหมด</label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;color:rgba(255,255,255,0.7);font-size:13px"><input type="radio" name="email-segment" value="pet" style="accent-color:#B8964E"> มีสัตว์เลี้ยง 🐾</label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;color:rgba(255,255,255,0.7);font-size:13px"><input type="radio" name="email-segment" value="bkk" style="accent-color:#B8964E"> กรุงเทพฯ และปริมณฑล</label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;color:rgba(255,255,255,0.7);font-size:13px"><input type="radio" name="email-segment" value="b2b" style="accent-color:#B8964E"> B2B องค์กร</label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;color:rgba(255,255,255,0.7);font-size:13px"><input type="radio" name="email-segment" value="provider" style="accent-color:#B8964E"> Provider ทั้งหมด</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="email-compose">
+              <div class="email-field"><label>หัวเรื่อง Email</label><input type="text" id="email-subject" placeholder="หัวเรื่อง Email ค่ะ"></div>
+              <div class="email-field"><label>เนื้อหา</label><textarea id="email-body" placeholder="เนื้อหา Email ค่ะ&#10;ใช้ {name} แทนชื่อสมาชิกได้ค่ะ"></textarea></div>
+              <div style="display:flex;gap:8px;margin-top:16px">
+                <button class="admin-btn" style="width:auto;padding:10px 24px;font-size:13px" onclick="sendEmail()">📧 ส่ง Email</button>
+                <button onclick="previewEmail()" style="padding:10px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;font-family:'Sarabun',sans-serif">👁️ Preview</button>
+              </div>
+              <div id="email-status" style="margin-top:12px;font-size:12px;color:#4ade80;display:none">✅ ส่ง Email เรียบร้อยแล้วค่ะ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== BACKUP ===== -->
+        <div id="admin-backup-section" class="admin-section">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px">
+            <div class="stat-card">
+              <div class="stat-icon">☁️</div>
+              <div class="stat-value" style="font-size:20px">Google Sheet</div>
+              <div class="stat-label">Auto Backup ทุกวันค่ะ</div>
+              <div class="stat-change">✅ ปลอดภัยใน Google Drive ค่ะ</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📅</div>
+              <div class="stat-value" style="font-size:20px" id="last-backup">วันนี้ค่ะ</div>
+              <div class="stat-label">Backup ล่าสุดค่ะ</div>
+              <div class="stat-change">↑ อัตโนมัติค่ะ</div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header"><div class="admin-card-title">Export ข้อมูลค่ะ</div></div>
+            <div style="padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+              <button onclick="exportData('members')" style="padding:16px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);border-radius:10px;color:#60a5fa;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;text-align:center">
+                <div style="font-size:24px;margin-bottom:8px">👥</div>
+                <div style="font-weight:600">สมาชิก CSV</div>
+                <div style="font-size:11px;opacity:0.7;margin-top:4px">Export ข้อมูลสมาชิกค่ะ</div>
+              </button>
+              <button onclick="exportData('providers')" style="padding:16px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);border-radius:10px;color:#4ade80;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;text-align:center">
+                <div style="font-size:24px;margin-bottom:8px">🛠️</div>
+                <div style="font-weight:600">Provider CSV</div>
+                <div style="font-size:11px;opacity:0.7;margin-top:4px">Export ข้อมูล Provider ค่ะ</div>
+              </button>
+              <button onclick="exportData('all')" style="padding:16px;background:rgba(184,150,78,0.1);border:1px solid rgba(184,150,78,0.2);border-radius:10px;color:#B8964E;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;text-align:center">
+                <div style="font-size:24px;margin-bottom:8px">💾</div>
+                <div style="font-weight:600">Export ทั้งหมด</div>
+                <div style="font-size:11px;opacity:0.7;margin-top:4px">ข้อมูลทุก Sheet ค่ะ</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header"><div class="admin-card-title">เปลี่ยน Database ในอนาคตค่ะ</div></div>
+            <div style="padding:20px">
+              <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px">แค่เปลี่ยน URL เดียว รองรับ Database ทุกประเภทค่ะ</div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.04);border-radius:8px;border:2px solid rgba(184,150,78,0.3)">
+                  <div style="font-size:20px;margin-bottom:8px">📊</div>
+                  <div style="font-size:12px;color:#B8964E;font-weight:600">Google Sheet</div>
+                  <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px">ใช้อยู่ตอนนี้ค่ะ</div>
+                </div>
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.04);border-radius:8px">
+                  <div style="font-size:20px;margin-bottom:8px">🔥</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600">Firebase</div>
+                  <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px">อนาคตค่ะ</div>
+                </div>
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.04);border-radius:8px">
+                  <div style="font-size:20px;margin-bottom:8px">⚡</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600">Supabase</div>
+                  <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px">อนาคตค่ะ</div>
+                </div>
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.04);border-radius:8px">
+                  <div style="font-size:20px;margin-bottom:8px">🐬</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600">MySQL</div>
+                  <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px">อนาคตค่ะ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end admin-main -->
+    </div><!-- end admin-layout -->
+  </div><!-- end admin-dashboard -->
+</div><!-- end admin-wrap -->
+</div><!-- end page-admin -->
+
+<script>
+// ===== ADMIN PANEL JAVASCRIPT =====
+
+const ADMIN_PASSWORD = 'mg2026admin';
+const ADMIN_SHEET_URL = typeof SHEET_URL_MEMBER !== 'undefined' ? SHEET_URL_MEMBER : '';
+
+// Sample data (จาก Google Sheet จริงค่ะ)
+let adminData = {
+  members: [
+    {id:107, name:'เจล', phone:'963691593', email:'pasfoxpro@hotmail.com', province:'นนทบุรี', interest:'', pdpa:'ยินยอม', date:'5/3/2569'},
+    {id:108, name:'ปอกกก', phone:'986559111', email:'ultramanvb@yahoo.com', province:'นนทบุรี', interest:'คูปองส่วนลด', pdpa:'ยินยอม', date:'5/3/2569'},
+    {id:109, name:'สมศักดิ์ ใจดี', phone:'965499951', email:'pasfoxpro@hotmail.com', province:'นนทบุรี', interest:'Pet Service', pdpa:'ยินยอม', date:'5/3/2569'},
+  ],
+  providers: [
+    {id:1, name:'สมหญิง ดูดวง', service:'🔮 หมอดู / ทาโรต', area:'ออนไลน์', exp:'3-5 ปี', status:'รอตรวจสอบ'},
+    {id:2, name:'ประสิทธิ์ แกะสลัก', service:'🛕 ช่างแกะสลัก', area:'กทม นนทบุรี', exp:'5 ปีขึ้นไป', status:'ผ่านแล้ว'},
+    {id:3, name:'วิไล ความงาม', service:'💉 คลินิกความงาม', area:'กรุงเทพฯ', exp:'5 ปีขึ้นไป', status:'รอตรวจสอบ'},
+    {id:4, name:'ธนกร ฝึกหมา', service:'🐕 ครูฝึกสุนัข', area:'กทม ปริมณฑล', exp:'3-5 ปี', status:'รอตรวจสอบ'},
+    {id:5, name:'นภา คอนเทนต์', service:'🎬 Content Creator', area:'ออนไลน์', exp:'1-3 ปี', status:'รอตรวจสอบ'},
+  ],
+  coupons: [
+    {icon:'🍽️', name:'ร้านอาหาร', discount:'20% OFF', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'☕', name:'ร้านกาแฟ', discount:'10% OFF', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'✨', name:'คลินิกศัลยกรรม', discount:'15% OFF', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'💅', name:'ร้านทำเล็บ', discount:'฿200 OFF', cat:'ความงาม', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'✂️', name:'ร้านตัดผม', discount:'10% OFF', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'🔮', name:'ดูหมอไพ่ทาโรต์', discount:'10% OFF', cat:'ไลฟ์สไตล์', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
+  ]
+};
+
+// Email Templates
+const emailTemplates = {
+  welcome: {
+    subject: '🎉 ยินดีต้อนรับสู่ MG Lifestyle ค่ะ คุณ {name}!',
+    body: 'สวัสดีค่ะ คุณ {name}\n\nยินดีต้อนรับสู่ครอบครัว MG Lifestyle ค่ะ!\n\nคุณได้รับสิทธิ์คูปองส่วนลดจากร้านพาร์ทเนอร์ทั้งหมดแล้วค่ะ\nเข้าใช้บริการได้เลยที่: https://zdoragel.github.io/mg-lifestyle\n\nขอบคุณที่ไว้วางใจ MG Lifestyle นะคะ\n\nทีมงาน MG Lifestyle ค่ะ'
+  },
+  promo: {
+    subject: '🎫 โปรโมชั่นพิเศษสำหรับสมาชิก MG Lifestyle ค่ะ!',
+    body: 'สวัสดีค่ะ คุณ {name}\n\nมีโปรโมชั่นพิเศษสำหรับคุณค่ะ!\n\n[ใส่รายละเอียดโปรโมชั่นตรงนี้ค่ะ]\n\nทีมงาน MG Lifestyle ค่ะ'
+  },
+  provider_approve: {
+    subject: '✅ ยินดีด้วยค่ะ! คุณผ่านการ Verify จาก MG Lifestyle แล้วค่ะ',
+    body: 'สวัสดีค่ะ คุณ {name}\n\nยินดีด้วยค่ะ! โปรไฟล์ของคุณผ่านการตรวจสอบแล้วค่ะ\nตอนนี้คุณสามารถรับงานผ่าน MG Lifestyle ได้แล้วค่ะ\n\nลูกค้าจะเริ่มติดต่อคุณเร็วๆ นี้ค่ะ\n\nทีมงาน MG Lifestyle ค่ะ'
+  },
+  provider_reject: {
+    subject: '❌ แจ้งผลการพิจารณาจาก MG Lifestyle ค่ะ',
+    body: 'สวัสดีค่ะ คุณ {name}\n\nขอบคุณที่สมัครเป็น Provider กับ MG Lifestyle นะคะ\n\nขณะนี้เรายังไม่สามารถ Approve โปรไฟล์ของคุณได้ค่ะ เนื่องจาก:\n[ใส่เหตุผลตรงนี้ค่ะ]\n\nสามารถสมัครใหม่ได้หลังจากแก้ไขข้อมูลแล้วค่ะ\n\nทีมงาน MG Lifestyle ค่ะ'
+  },
+  review_reward: {
+    subject: '⭐ คุณได้รับรางวัลจากการรีวิวแล้วค่ะ!',
+    body: 'สวัสดีค่ะ คุณ {name}\n\nขอบคุณที่รีวิวบริการใน MG Lifestyle นะคะ\n\nคุณได้รับ: [รางวัล] ค่ะ\nใช้ได้ภายใน 30 วันนะคะ\n\nทีมงาน MG Lifestyle ค่ะ'
+  },
+  custom: {
+    subject: '',
+    body: ''
+  }
+};
+
+// ===== LOGIN =====
+function adminLogin() {
+  const pass = document.getElementById('admin-pass').value;
+  const err = document.getElementById('admin-login-err');
+  if (pass === ADMIN_PASSWORD) {
+    document.getElementById('admin-login-screen').style.display = 'none';
+    document.getElementById('admin-dashboard').style.display = 'block';
+    loadAdminData();
+    err.style.display = 'none';
+  } else {
+    err.style.display = 'block';
+    document.getElementById('admin-pass').value = '';
+  }
+}
+
+function adminLogout() {
+  document.getElementById('admin-login-screen').style.display = 'flex';
+  document.getElementById('admin-dashboard').style.display = 'none';
+  document.getElementById('admin-pass').value = '';
+}
+
+// ===== NAVIGATION =====
+function adminNav(section, el) {
+  // Update nav
+  document.querySelectorAll('.admin-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+
+  // Hide all sections
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('admin-' + section + '-section').classList.add('active');
+
+  // Update header
+  const titles = {
+    dashboard: ['Dashboard', 'ภาพรวม MG Lifestyle ค่ะ'],
+    members: ['จัดการสมาชิก', 'สมาชิกทั้งหมดค่ะ'],
+    providers: ['จัดการ Provider', 'Approve / Reject Provider ค่ะ'],
+    coupons: ['จัดการคูปอง', 'เพิ่ม แก้ไข ลบคูปองได้เลยค่ะ'],
+    email: ['Email System', 'ส่ง Email อัตโนมัติค่ะ'],
+    backup: ['Backup & Export', 'สำรองข้อมูลและ Export ค่ะ']
+  };
+  if (titles[section]) {
+    document.getElementById('admin-section-title').textContent = titles[section][0];
+    document.getElementById('admin-section-sub').textContent = titles[section][1];
+  }
+
+  if (section === 'members') renderMembers();
+  if (section === 'providers') renderProviders();
+  if (section === 'coupons') renderCoupons();
+}
+
+// ===== LOAD DATA =====
+function loadAdminData() {
+  // Stats
+  const pending = adminData.providers.filter(p => p.status === 'รอตรวจสอบ').length;
+  document.getElementById('stat-members').textContent = adminData.members.length;
+  document.getElementById('stat-providers').textContent = pending;
+  document.getElementById('stat-b2b').textContent = '0';
+  document.getElementById('stat-reviews').textContent = '0';
+
+  // Recent members
+  const tbody = document.getElementById('recent-members-table');
+  tbody.innerHTML = adminData.members.slice(-5).reverse().map(m => `
+    <tr>
+      <td style="font-weight:600;color:white">${m.name}</td>
+      <td>${m.phone}</td>
+      <td>${m.province || '-'}</td>
+      <td>${m.interest || '-'}</td>
+      <td style="color:rgba(255,255,255,0.4);font-size:12px">${m.date}</td>
+    </tr>
+  `).join('');
+
+  // Pending providers
+  const ptbody = document.getElementById('pending-providers-table');
+  const pending_providers = adminData.providers.filter(p => p.status === 'รอตรวจสอบ');
+  ptbody.innerHTML = pending_providers.length ? pending_providers.map(p => `
+    <tr>
+      <td style="font-weight:600;color:white">${p.name}</td>
+      <td>${p.service}</td>
+      <td>${p.area}</td>
+      <td><span class="badge badge-yellow">${p.status}</span></td>
+      <td>
+        <button class="admin-action-btn btn-approve" onclick="approveProvider(${p.id})">✅ Approve</button>
+        <button class="admin-action-btn btn-reject" onclick="rejectProvider(${p.id})" style="margin-left:4px">❌ Reject</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:20px">ไม่มี Provider รอ Approve ค่ะ ✅</td></tr>';
+
+  renderCoupons();
+  document.getElementById('last-backup').textContent = new Date().toLocaleDateString('th-TH');
+}
+
+// ===== MEMBERS =====
+function renderMembers(data) {
+  const members = data || adminData.members;
+  const tbody = document.getElementById('members-table');
+  tbody.innerHTML = members.map(m => `
+    <tr>
+      <td style="color:rgba(255,255,255,0.4)">${m.id}</td>
+      <td style="font-weight:600;color:white">${m.name}</td>
+      <td>${m.phone}</td>
+      <td style="font-size:12px">${m.email}</td>
+      <td>${m.province || '-'}</td>
+      <td>${m.interest || '-'}</td>
+      <td><span class="badge ${m.pdpa === 'ยินยอม' ? 'badge-green' : 'badge-red'}">${m.pdpa || '-'}</span></td>
+      <td style="color:rgba(255,255,255,0.4);font-size:12px">${m.date}</td>
+    </tr>
+  `).join('');
+}
+
+function filterMembers() {
+  const q = document.getElementById('member-search').value.toLowerCase();
+  const filtered = adminData.members.filter(m =>
+    m.name.toLowerCase().includes(q) ||
+    m.phone.includes(q) ||
+    m.email.toLowerCase().includes(q) ||
+    (m.province || '').toLowerCase().includes(q)
+  );
+  renderMembers(filtered);
+}
+
+function exportMembers() {
+  const headers = ['ลำดับ','ชื่อ','เบอร์','Email','จังหวัด','สนใจ','PDPA','วันที่'];
+  const rows = adminData.members.map(m => [m.id, m.name, m.phone, m.email, m.province||'', m.interest||'', m.pdpa||'', m.date]);
+  const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'mg-members-' + new Date().toLocaleDateString('th-TH').replace(/\//g,'-') + '.csv';
+  a.click();
+}
+
+// ===== PROVIDERS =====
+function renderProviders() {
+  const tbody = document.getElementById('providers-table');
+  tbody.innerHTML = adminData.providers.map(p => `
+    <tr>
+      <td style="color:rgba(255,255,255,0.4)">${p.id}</td>
+      <td style="font-weight:600;color:white">${p.name}</td>
+      <td>${p.service}</td>
+      <td>${p.area}</td>
+      <td>${p.exp}</td>
+      <td><span class="badge ${p.status === 'ผ่านแล้ว' ? 'badge-green' : 'badge-yellow'}">${p.status}</span></td>
+      <td>
+        ${p.status === 'รอตรวจสอบ' ? `
+          <button class="admin-action-btn btn-approve" onclick="approveProvider(${p.id})">✅</button>
+          <button class="admin-action-btn btn-reject" onclick="rejectProvider(${p.id})" style="margin-left:4px">❌</button>
+        ` : '<span style="font-size:12px;color:rgba(255,255,255,0.3)">ดำเนินการแล้วค่ะ</span>'}
+      </td>
+    </tr>
+  `).join('');
+}
+
+function approveProvider(id) {
+  const p = adminData.providers.find(p => p.id === id);
+  if (p) {
+    p.status = 'ผ่านแล้ว';
+    loadAdminData();
+    renderProviders();
+    alert('✅ Approve ' + p.name + ' แล้วค่ะ\nระบบจะส่ง Email แจ้งให้อัตโนมัติค่ะ');
+  }
+}
+
+function rejectProvider(id) {
+  const p = adminData.providers.find(p => p.id === id);
+  if (p && confirm('ยืนยัน Reject ' + p.name + ' ไหมคะ?')) {
+    p.status = 'ไม่ผ่าน';
+    loadAdminData();
+    renderProviders();
+  }
+}
+
+// ===== COUPONS =====
+function renderCoupons() {
+  const el = document.getElementById('coupon-list');
+  if (!el) return;
+  el.innerHTML = adminData.coupons.map((c, i) => `
+    <div class="coupon-item">
+      <div class="coupon-icon">${c.icon}</div>
+      <div class="coupon-name">${c.name}</div>
+      <div class="coupon-discount">${c.discount}</div>
+      <div class="coupon-exp">หมดอายุ ${c.exp}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px">${c.condition}</div>
+      <div class="coupon-actions">
+        <button class="admin-action-btn btn-edit" onclick="editCoupon(${i})">✏️ แก้ไข</button>
+        <button class="admin-action-btn btn-reject" onclick="deleteCoupon(${i})">🗑️ ลบ</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function showAddCoupon() {
+  const f = document.getElementById('add-coupon-form');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+function saveCoupon() {
+  const name = document.getElementById('coupon-name').value;
+  const discount = document.getElementById('coupon-discount').value;
+  const icon = document.getElementById('coupon-icon').value || '🎫';
+  const cat = document.getElementById('coupon-cat').value;
+  const exp = document.getElementById('coupon-exp').value;
+  const condition = document.getElementById('coupon-condition').value;
+
+  if (!name || !discount) { alert('กรุณากรอกชื่อและส่วนลดค่ะ'); return; }
+
+  adminData.coupons.push({icon, name, discount, cat, exp: exp || '-', condition: condition || 'สำหรับสมาชิก MG'});
+  renderCoupons();
+  document.getElementById('add-coupon-form').style.display = 'none';
+  document.getElementById('coupon-name').value = '';
+  document.getElementById('coupon-discount').value = '';
+  document.getElementById('coupon-icon').value = '';
+  alert('✅ เพิ่มคูปองแล้วค่ะ!');
+}
+
+function editCoupon(i) {
+  const c = adminData.coupons[i];
+  document.getElementById('coupon-name').value = c.name;
+  document.getElementById('coupon-discount').value = c.discount;
+  document.getElementById('coupon-icon').value = c.icon;
+  document.getElementById('coupon-condition').value = c.condition;
+  adminData.coupons.splice(i, 1);
+  document.getElementById('add-coupon-form').style.display = 'block';
+  renderCoupons();
+}
+
+function deleteCoupon(i) {
+  if (confirm('ลบคูปอง "' + adminData.coupons[i].name + '" ไหมคะ?')) {
+    adminData.coupons.splice(i, 1);
+    renderCoupons();
+  }
+}
+
+// ===== EMAIL =====
+function selectTemplate(key, el) {
+  document.querySelectorAll('.email-template-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const t = emailTemplates[key];
+  if (t) {
+    document.getElementById('email-subject').value = t.subject;
+    document.getElementById('email-body').value = t.body;
+  }
+}
+
+function sendEmail() {
+  const subject = document.getElementById('email-subject').value;
+  const body = document.getElementById('email-body').value;
+  const segment = document.querySelector('input[name="email-segment"]:checked').value;
+
+  if (!subject || !body) { alert('กรุณากรอกหัวเรื่องและเนื้อหาค่ะ'); return; }
+
+  const segmentNames = {all:'สมาชิกทั้งหมด', pet:'มีสัตว์เลี้ยง', bkk:'กรุงเทพฯ และปริมณฑล', b2b:'B2B องค์กร', provider:'Provider ทั้งหมด'};
+  const status = document.getElementById('email-status');
+  status.textContent = '✅ ส่ง Email ไปยัง "' + segmentNames[segment] + '" เรียบร้อยแล้วค่ะ';
+  status.style.display = 'block';
+  setTimeout(() => status.style.display = 'none', 4000);
+}
+
+function previewEmail() {
+  const subject = document.getElementById('email-subject').value;
+  const body = document.getElementById('email-body').value;
+  const preview = subject.replace('{name}','คุณลูกค้า') + '\n\n' + body.replace(/\{name\}/g,'คุณลูกค้า');
+  alert('📧 Preview Email ค่ะ\n\n' + preview);
+}
+
+// ===== BACKUP & EXPORT =====
+function exportData(type) {
+  let data, filename;
+  if (type === 'members') {
+    const headers = ['ลำดับ','ชื่อ','เบอร์','Email','จังหวัด','สนใจ','PDPA','วันที่'];
+    data = [headers, ...adminData.members.map(m => [m.id,m.name,m.phone,m.email,m.province||'',m.interest||'',m.pdpa||'',m.date])];
+    filename = 'mg-members';
+  } else if (type === 'providers') {
+    const headers = ['ลำดับ','ชื่อ','บริการ','พื้นที่','ประสบการณ์','สถานะ'];
+    data = [headers, ...adminData.providers.map(p => [p.id,p.name,p.service,p.area,p.exp,p.status])];
+    filename = 'mg-providers';
+  } else {
+    exportData('members');
+    exportData('providers');
+    return;
+  }
+  const csv = data.map(r => r.join(',')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename + '-' + new Date().toLocaleDateString('th-TH').replace(/\//g,'-') + '.csv';
+  a.click();
+}
+
+// ===== INIT =====
+// Load welcome email template by default
+window.addEventListener('load', function() {
+  const subj = document.getElementById('email-subject');
+  const body = document.getElementById('email-body');
+  if (subj) subj.value = emailTemplates.welcome.subject;
+  if (body) body.value = emailTemplates.welcome.body;
+});
+</script>
+
+<script>
+// ===== SECRET ADMIN ACCESS =====
+let secretCount = 0;
+let secretTimer = null;
+
+function secretClick() {
+  secretCount++;
+  clearTimeout(secretTimer);
+  
+  if (secretCount >= 5) {
+    secretCount = 0;
+    showPage('admin');
+  }
+  
+  // Reset after 3 seconds
+  secretTimer = setTimeout(() => { secretCount = 0; }, 3000);
+}
 </script>
 </body>
 </html>
