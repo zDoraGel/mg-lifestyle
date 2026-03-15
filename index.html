@@ -283,11 +283,6 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   }
   #photoGrid{grid-template-columns:1fr !important}
 
-  /* HEALTHCARE GRID */
-  #page-healthcare .section div[style*="repeat(3,1fr)"]{
-    grid-template-columns:1fr !important
-  }
-
   /* BACK BAR */
   .back-bar{padding:8px 16px}
   .back-btn{font-size:12px;padding:6px 14px}
@@ -706,7 +701,13 @@ nav.scrolled .aera-name{color:var(--charcoal)}
   <button class="mobile-menu-btn" onclick="mobileNav('wellness')">💪 Wellness & Fitness</button>
   <button class="mobile-menu-btn" onclick="mobileNav('creative')">🎬 Creative & Content</button>
   <button class="mobile-menu-btn" onclick="mobileNav('education')">🎓 Education Hub</button>
-  <button class="mobile-menu-btn<div id="page-home" class="page active">
+  <button class="mobile-menu-btn" onclick="mobileNav('artisan')">👜 Artisan</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('b2b')">🤝 B2B</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('provider')">📋 สมัคร Provider</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('register');toggleMenu()" style="background:#C9785A;color:white;font-weight:700">สมัครสมาชิกฟรี →</button>
+</div>
+
+<div id="page-home" class="page active">
 
   <!-- HERO -->
   <section class="hero" style="background:#4A1F1F;padding:64px 48px;display:flex;align-items:center;gap:48px;min-height:380px">
@@ -780,50 +781,91 @@ nav.scrolled .aera-name{color:var(--charcoal)}
     </div>
   </section>
 
-  <!-- SERVICE GRID -->
+  <!-- SERVICE GRID — Bento -->
   <section style="background:#F7F0EC;padding:0 48px 56px">
     <div style="margin-bottom:32px">
       <div style="font-size:10px;color:#8B5E52;letter-spacing:3px;margin-bottom:10px">บริการทั้งหมด</div>
       <div style="font-family:'Sarabun',sans-serif;font-size:34px;font-weight:300;color:#2D2D2D"><em style="color:#C9785A;font-style:normal">ชีวิตเดียว</em> ต้อง ใช้ ให้คุ้ม</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(139,115,85,0.15);border-radius:16px;overflow:hidden">
-      <div onclick="showPage('coupon')" style="background:#4A1F1F;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          <div style="position:absolute;top:12px;right:12px;background:#C9785A;color:white;font-size:9px;font-weight:600;padding:2px 8px;border-radius:20px">ยอดนิยม</div>
-          <div style="font-size:36px;margin-bottom:12px">🎫</div>
-          <div style="font-weight:600;font-size:14px;color:rgba(201,169,110,0.9)">คูปองส่วนลด</div>
-        </div><div onclick="showPage('stay')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">🏙️</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">ที่พัก กทม</div>
-        </div><div onclick="showPage('marketplace')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">🛠️</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">Marketplace</div>
-        </div><div onclick="showPage('pet')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">🐾</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">Pet Service</div>
-        </div><div onclick="showPage('spiritual')" style="background:#4A1F1F;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          <div style="position:absolute;top:12px;right:12px;background:#C9785A;color:white;font-size:9px;font-weight:600;padding:2px 8px;border-radius:20px">ยอดนิยม</div>
-          <div style="font-size:36px;margin-bottom:12px">🔮</div>
-          <div style="font-weight:600;font-size:14px;color:rgba(201,169,110,0.9)">Spiritual</div>
-        </div><div onclick="showPage('beauty')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">💉</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">Beauty & Clinic</div>
-        </div><div onclick="showPage('wellness')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">💪</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">Wellness</div>
-        </div><div onclick="showPage('travel')" style="background:white;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">✈️</div>
-          <div style="font-weight:600;font-size:14px;color:#2D2D2D">Travel</div>
-        </div><div onclick="showPage('education')" style="background:#4A1F1F;padding:28px 20px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(139,115,85,0.1);position:relative" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          
-          <div style="font-size:36px;margin-bottom:12px">🎓</div>
-          <div style="font-weight:600;font-size:14px;color:rgba(201,169,110,0.9)">Education</div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 160px 200px;gap:10px">
+
+      <div onclick="showPage('coupon')" style="grid-column:1;grid-row:1;background:#4A1F1F;border-radius:16px;padding:28px 22px;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(74,31,31,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:absolute;top:12px;right:12px;background:#C9785A;color:white;font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px">⭐ เด่น</div>
+        <div style="font-size:36px">🎫</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:white;line-height:1">20<span style="font-size:28px">%</span></div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:2px;margin-top:2px">OFF · ส่วนลด</div>
+          <div style="font-weight:600;font-size:13px;color:#C9A87A;margin-top:8px">คูปองส่วนลด</div>
         </div>
+      </div>
+
+      <div onclick="showPage('spiritual')" style="grid-column:2/4;grid-row:1;background:#F0E8E0;border-radius:16px;padding:28px;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(139,115,85,0.15);overflow:hidden;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(201,120,90,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:absolute;top:12px;right:12px;background:#C9785A;color:white;font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px">ยอดนิยม</div>
+        <div style="font-size:36px">✨</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:#C9785A;line-height:1">15<span style="font-size:28px">%</span></div>
+          <div style="font-size:10px;color:#8B5E52;letter-spacing:2px;margin-top:2px">OFF · ส่วนลด</div>
+          <div style="font-weight:600;font-size:13px;color:#4A1F1F;margin-top:8px">Spiritual</div>
+        </div>
+      </div>
+
+      <div onclick="showPage('beauty')" style="grid-column:4;grid-row:1;background:#F7F0EC;border-radius:16px;padding:28px 22px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(139,115,85,0.15);overflow:hidden;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(139,115,85,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:36px">🚀</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#C9785A;line-height:1">฿200</div>
+          <div style="font-size:10px;color:#8B5E52;letter-spacing:2px;margin-top:2px">OFF · ส่วนลด</div>
+          <div style="font-weight:600;font-size:13px;color:#4A1F1F;margin-top:8px">Beauty & Clinic</div>
+        </div>
+      </div>
+
+      <div onclick="showPage('pet')" style="grid-column:1;grid-row:2;background:white;border-radius:14px;padding:22px 20px;cursor:pointer;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(139,115,85,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:32px">🐾</div>
+        <div style="font-weight:600;font-size:14px;color:#2D2D2D">Pet Service</div>
+      </div>
+
+      <div onclick="showPage('wellness')" style="grid-column:2;grid-row:2;background:white;border-radius:14px;padding:22px 20px;cursor:pointer;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(139,115,85,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:32px">💪</div>
+        <div style="font-weight:600;font-size:14px;color:#2D2D2D">Wellness</div>
+      </div>
+
+      <div onclick="showPage('travel')" style="grid-column:3;grid-row:2;background:white;border-radius:14px;padding:22px 20px;cursor:pointer;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(139,115,85,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:32px">✈️</div>
+        <div style="font-weight:600;font-size:14px;color:#2D2D2D">Travel</div>
+      </div>
+
+      <div onclick="showPage('education')" style="grid-column:4;grid-row:2;background:#4A1F1F;border-radius:14px;padding:22px 20px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(74,31,31,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:32px">🎓</div>
+        <div style="font-weight:600;font-size:14px;color:#C9A87A">Education</div>
+      </div>
+
+      <div onclick="showPage('stay')" style="grid-column:1;grid-row:3;background:#F0E8E0;border-radius:14px;padding:22px 20px;cursor:pointer;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;transition:transform .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="font-size:30px">✂️</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:#C9785A;line-height:1.1">10<span style="font-size:22px">%</span></div>
+        <div style="font-size:10px;color:#8B5E52;letter-spacing:2px">OFF · ส่วนลด</div>
+        <div style="font-weight:600;font-size:12px;color:#4A1F1F;margin-top:4px">ที่พัก กทม</div>
+      </div>
+
+      <div onclick="showPage('spiritual')" style="grid-column:2;grid-row:3;background:#4A1F1F;border-radius:14px;padding:22px 20px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;transition:transform .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="font-size:30px">🔮</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:white;line-height:1.1">10<span style="font-size:22px">%</span></div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:2px">OFF · ส่วนลด</div>
+        <div style="font-weight:600;font-size:12px;color:#C9A87A;margin-top:4px">Spiritual</div>
+      </div>
+
+      <div onclick="showPage('marketplace')" style="grid-column:3;grid-row:3;background:#F0E8E0;border-radius:14px;padding:22px 20px;cursor:pointer;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;transition:transform .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="font-size:30px">☕</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:#C9785A;line-height:1.1">10<span style="font-size:22px">%</span></div>
+        <div style="font-size:10px;color:#8B5E52;letter-spacing:2px">OFF · ส่วนลด</div>
+        <div style="font-weight:600;font-size:12px;color:#4A1F1F;margin-top:4px">Marketplace</div>
+      </div>
+
+      <div style="grid-column:4;grid-row:3;background:white;border-radius:14px;padding:22px 20px;border:1px solid rgba(139,115,85,0.12);display:flex;flex-direction:column;justify-content:center;gap:10px">
+        <div style="font-size:12px;color:#8B5E52;line-height:1.7">เข้าถึงทุกบริการ รับคูปองทันที ชีวิตดีขึ้นได้เลยวันนี้</div>
+        <button onclick="showPage('register')" style="padding:10px 16px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer">สมัครสมาชิกฟรี →</button>
+        <button onclick="showPage('coupon')" style="padding:10px 16px;background:transparent;border:1px solid #C9785A;border-radius:50px;color:#C9785A;font-family:'Sarabun',sans-serif;font-size:12px;cursor:pointer">ดูบริการ</button>
+      </div>
+
     </div>
   </section>
 
@@ -1003,12 +1045,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
     </div>
   </section>
-  <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+  <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1207,12 +1254,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1351,12 +1403,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Freelance กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1453,12 +1510,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Pet Service Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1555,12 +1617,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Professional กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1685,12 +1752,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1815,12 +1887,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -1917,12 +1994,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นช่างหรือผู้รับเหมากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2061,12 +2143,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Healthcare Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2163,12 +2250,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Travel Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2293,12 +2385,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2423,12 +2520,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2553,12 +2655,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2655,12 +2762,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นคลินิก/ร้านยากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2785,12 +2897,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -2976,12 +3093,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -3170,12 +3292,17 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
     </div>
   </section>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-social"><div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a><a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a><a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a><a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div></div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -3249,19 +3376,18 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
     </div>
   </section>
-  <footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:4px">
-  <svg width="20" height="18" viewBox="0 0 28 24" fill="none"><polygon points="14,1 27,23 1,23" fill="none" stroke="#C9785A" stroke-width="1.5"/><line x1="7" y1="17" x2="21" y2="17" stroke="#C9785A" stroke-width="1"/></svg>
-  <div><div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:white;letter-spacing:5px">AERA</div><div style="font-size:6px;color:rgba(255,255,255,0.4);letter-spacing:3px">A NEW ERA OF LIFESTYLE</div></div>
-</div>
-  <div class="footer-social">
-    <div class="social-bar"><a href="#" target="_blank" class="social-btn social-fb"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-      <a href="#" target="_blank" class="social-btn social-ig"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
-      <a href="#" target="_blank" class="social-btn social-tt"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>TikTok</a>
-      <a href="#" target="_blank" class="social-btn social-line"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>Line OA</a></div>
-  </div>
-  <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
-</footer>
+  <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+  </footer>
 </div>
 
 <script>
@@ -3288,8 +3414,8 @@ function filterCat(cat, btn) {
 }
 
 // ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
-const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycbwK7L2UYWmXaQF4pntGq8TgWBtDfGiGK_pae9MeIs09o9yYB9TfStBVAVFDLeouzbHbFw/exec';
-const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycbwK7L2UYWmXaQF4pntGq8TgWBtDfGiGK_pae9MeIs09o9yYB9TfStBVAVFDLeouzbHbFw/exec';
+const SHEET_URL_MEMBER = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEET_URL_B2B    = 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE';
 
 function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
@@ -3590,11 +3716,17 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
 
     </div>
   </section>
-  <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+  <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
@@ -3754,11 +3886,17 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
 
     </div>
   </div>
-    <footer>
-    <div style="display:inline-block;text-align:center;margin-bottom:4px">
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:white;letter-spacing:8px;line-height:1">A E R A</div>
+    <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
     </div>
-    <div class="footer-note" style="margin-top:16px">© 2026 AERA Lifestyle Services · สงวนลิขสิทธิ์</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
   </footer>
 </div>
 
