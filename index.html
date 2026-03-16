@@ -676,6 +676,9 @@ nav.scrolled .aera-name{color:var(--charcoal)}
     <button class="nav-link" onclick="showPage('travel')">Travel Hub</button>
     <button class="nav-link" onclick="showPage('b2b')">B2B</button>
     <button class="nav-link" onclick="showPage('provider')">สมัคร Provider</button>
+    <button class="nav-link" onclick="showPage('faq')">FAQ</button>
+    <button class="nav-link" onclick="showPage('contact')">ติดต่อเรา</button>
+    <button class="nav-link" onclick="showPage('whyjoin')">ร่วมกับเรา</button>
     <button class="nav-cta" onclick="showPage('register')">สมัครสมาชิก ฟรี</button>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -704,6 +707,10 @@ nav.scrolled .aera-name{color:var(--charcoal)}
   <button class="mobile-menu-btn" onclick="mobileNav('artisan')">👜 Artisan</button>
   <button class="mobile-menu-btn" onclick="mobileNav('b2b')">🤝 B2B</button>
   <button class="mobile-menu-btn" onclick="mobileNav('provider')">📋 สมัคร Provider</button>
+  <div class="mobile-menu-divider"></div>
+  <button class="mobile-menu-btn" onclick="mobileNav('faq')">❓ FAQ</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('contact')">📞 ติดต่อเรา</button>
+  <button class="mobile-menu-btn" onclick="mobileNav('whyjoin')">💡 ร่วมกับเรา</button>
   <button class="mobile-menu-btn" onclick="mobileNav('register');toggleMenu()" style="background:#C9785A;color:white;font-weight:700">สมัครสมาชิกฟรี →</button>
 </div>
 
@@ -745,8 +752,8 @@ nav.scrolled .aera-name{color:var(--charcoal)}
   <!-- STATS BAR -->
   <div style="background:#F0E8E0;display:flex;border-bottom:1px solid rgba(139,94,82,0.15)">
     <div style="flex:1;padding:24px;text-align:center;border-right:1px solid rgba(139,94,82,0.15)">
-      <div style="font-family:'Raleway',sans-serif;font-size:32px;font-weight:300;color:#2D2D2D">30K+</div>
-      <div style="font-size:12px;color:#8B5E52;margin-top:4px">สมาชิก</div>
+      <div style="font-family:'Raleway',sans-serif;font-size:32px;font-weight:300;color:#2D2D2D">100K+</div>
+      <div style="font-size:12px;color:#8B5E52;margin-top:4px">สมาชิกในระบบ</div>
     </div>
     <div style="flex:1;padding:24px;text-align:center;border-right:1px solid rgba(139,94,82,0.15)">
       <div style="font-family:'Raleway',sans-serif;font-size:32px;font-weight:300;color:#2D2D2D">50+</div>
@@ -892,7 +899,14 @@ nav.scrolled .aera-name{color:var(--charcoal)}
         <a href="#" style="padding:10px 20px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;text-decoration:none">Line OA</a>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3)">© 2026 AERA · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:rgba(255,255,255,0.3)">© 2026 AERA · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+      <div style="display:flex;gap:16px">
+        <button onclick="showPage('faq')" style="background:none;border:none;color:rgba(255,255,255,0.35);font-family:'Sarabun',sans-serif;font-size:12px;cursor:pointer;padding:0">FAQ</button>
+        <button onclick="showPage('contact')" style="background:none;border:none;color:rgba(255,255,255,0.35);font-family:'Sarabun',sans-serif;font-size:12px;cursor:pointer;padding:0">ติดต่อเรา</button>
+        <button onclick="showPage('provider')" style="background:none;border:none;color:rgba(255,255,255,0.35);font-family:'Sarabun',sans-serif;font-size:12px;cursor:pointer;padding:0">สมัคร Provider</button>
+      </div>
+    </div>
   </footer>
 </div>
 
@@ -1248,7 +1262,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <!-- CTA -->
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center">
         <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">มีที่พักอยากลงทะเบียนกับ AERA ไหมคะ?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div>
         <button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button>
       </div>
 
@@ -1400,7 +1414,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Freelance กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Freelance กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -1507,7 +1521,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Pet Service Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Pet Service Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -1614,7 +1628,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Professional กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Professional กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -1747,7 +1761,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center">
         <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นหมอดู / อาจารย์ดูดวงกับ AERA ไหมคะ?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">ลูกค้ารอคุณอยู่ 30,000 คนค่ะ สมัครฟรีค่ะ</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div>
         <button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button>
       </div>
     </div>
@@ -1882,7 +1896,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       </div>
       <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center">
         <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เปิดคลินิก/ร้านความงามกับ AERA ไหมคะ?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div>
         <button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button>
       </div>
     </div>
@@ -1907,7 +1921,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
     <div class="sec-header">
       <span class="sec-tag">ช่างและงานบ้าน</span>
       <h2 class="sec-title">Home Service</h2>
-      <p class="sec-sub">ช่างแอร์ ไฟฟ้า ประปา ก่อสร้าง ทำความสะอาด MG Verified ทุกคนค่ะ</p>
+      <p class="sec-sub">ช่างแอร์ ไฟฟ้า ประปา ก่อสร้าง ทำความสะอาด AERA Verified ทุกคนค่ะ</p>
     </div>
     <div style="max-width:1100px;margin:0 auto">
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px"><button class="listing-tab" onclick="filterListing('all',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #C9785A;background:#C9785A;color:white;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s">ทั้งหมด</button><button class="listing-tab" onclick="filterListing('aircon',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">ช่างแอร์</button><button class="listing-tab" onclick="filterListing('electric',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">ไฟฟ้า</button><button class="listing-tab" onclick="filterListing('plumbing',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">ประปา</button><button class="listing-tab" onclick="filterListing('construction',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">ก่อสร้าง</button><button class="listing-tab" onclick="filterListing('locksmith',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">กุญแจ</button><button class="listing-tab" onclick="filterListing('cleaning',this)" style="padding:9px 22px;border-radius:50px;border:2px solid #8B5E52;background:transparent;color:#5A2E28;font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s">ทำความสะอาด</button></div>
@@ -1918,10 +1932,10 @@ nav.scrolled .aera-name{color:var(--charcoal)}
               <div style="display:flex;align-items:baseline;gap:2px;margin-top:10px;line-height:1"><span style="font-family:'Sarabun',sans-serif;font-size:13px;color:#C9785A">฿</span><span style="font-family:'Sarabun',sans-serif;font-size:26px;font-weight:700;color:#C9785A">300</span><span style="font-family:'Sarabun',sans-serif;font-size:12px;color:rgba(255,255,255,0.5)">/งาน เริ่มต้น</span></div>
             </div>
             <div style="padding:16px;display:flex;flex-direction:column;flex:1">
-              <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:4px">ช่างแอร์ MG Verified</div>
+              <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:4px">ช่างแอร์ AERA Verified</div>
               <div style="color:#C9785A;font-size:13px;margin-bottom:6px">★★★★★</div>
               <div style="font-size:12px;color:#C9785A;font-weight:600;margin-bottom:8px">📍 กทม และปริมณฑล</div>
-              <div style="font-size:13px;color:#8B5E52;margin-bottom:14px;line-height:1.6;flex:1">ล้างแอร์ ซ่อมแอร์ ติดตั้ง มีใบรับรอง MG Verified ค่ะ</div>
+              <div style="font-size:13px;color:#8B5E52;margin-bottom:14px;line-height:1.6;flex:1">ล้างแอร์ ซ่อมแอร์ ติดตั้ง มีใบรับรอง AERA Verified ค่ะ</div>
               <button onclick="showPage('register')" style="width:100%;padding:10px;background:linear-gradient(135deg,#C9785A,#d4886a);border:none;border-radius:8px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-top:auto">จองช่าง</button>
             </div>
           </div>
@@ -1983,7 +1997,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
               <div style="display:flex;align-items:baseline;gap:2px;margin-top:10px;line-height:1"><span style="font-family:'Sarabun',sans-serif;font-size:13px;color:#8B5E52">฿</span><span style="font-family:'Sarabun',sans-serif;font-size:26px;font-weight:700;color:#8B5E52">800</span><span style="font-family:'Sarabun',sans-serif;font-size:12px;color:rgba(139,115,85,0.6)">/ครั้ง เริ่มต้น</span></div>
             </div>
             <div style="padding:16px;display:flex;flex-direction:column;flex:1">
-              <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:4px">แม่บ้าน MG Verified</div>
+              <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:4px">แม่บ้าน AERA Verified</div>
               <div style="color:#C9785A;font-size:13px;margin-bottom:6px">★★★★☆</div>
               <div style="font-size:12px;color:#C9785A;font-weight:600;margin-bottom:8px">📍 กทม และปริมณฑล</div>
               <div style="font-size:13px;color:#8B5E52;margin-bottom:14px;line-height:1.6;flex:1">ทำความสะอาดบ้าน ออฟฟิศ รายครั้ง/รายเดือน ทีมงานเชื่อถือได้ค่ะ</div>
@@ -1991,7 +2005,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นช่างหรือผู้รับเหมากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นช่างหรือผู้รับเหมากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -2140,7 +2154,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Healthcare Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Healthcare Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -2247,7 +2261,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Travel Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็น Travel Provider กับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -2759,7 +2773,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
             </div>
           </div>
       </div>
-      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นคลินิก/ร้านยากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงลูกค้ากว่า 30,000 คน สมัครฟรีค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
+      <div style="background:var(--hero-bg);border-radius:16px;padding:32px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:8px">เป็นคลินิก/ร้านยากับ AERA ไหมคะ?</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px">เข้าถึงฐานข้อมูลลูกค้า 100K+ ลง profile ฟรีเลยค่ะ</div><button class="btn-gold" onclick="showPage('provider')">สมัครเป็น Partner →</button></div>
     </div>
   </section>
     <footer style="background:#1a0f0f;padding:28px 48px">
@@ -3121,7 +3135,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
       <div style="display:flex;gap:16px;margin-bottom:40px">
         <div style="flex:1;background:#4A1F1F;border-radius:16px;padding:28px 20px;text-align:center">
           <div style="font-size:36px;margin-bottom:12px">👥</div>
-          <div style="font-weight:700;color:white;font-size:15px;margin-bottom:6px">ฐานลูกค้า 30,000 คน</div>
+          <div style="font-weight:700;color:white;font-size:15px;margin-bottom:6px">ฐานข้อมูลลูกค้า 100K+</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.5)">AERA ส่งงานให้คุณค่ะ</div>
         </div>
         <div style="flex:1;background:white;border-radius:16px;padding:28px 20px;text-align:center;border:1px solid rgba(139,115,85,0.15)">
@@ -3292,7 +3306,627 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
     </div>
   </section>
+
+  <!-- PRICING SECTION -->
+  <section style="background:#F7F0EC;padding:72px 48px">
+    <div style="max-width:960px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:52px">
+        <div style="font-size:10px;color:#C9785A;letter-spacing:3px;margin-bottom:12px">AERA PARTNERSHIP</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#2D2D2D;margin-bottom:12px">แพ็กเกจพาร์ทเนอร์</div>
+        <div style="font-size:14px;color:#8B5E52;line-height:1.7">ช่วง Beta เปิดตัว — <strong style="color:#C9785A">ฟรีทุกแพ็กเกจค่ะ</strong> ทดลองใช้งานจริงก่อน แล้วค่อยเริ่มเก็บค่าบริการค่ะ</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px">
+
+        <!-- บุคคล -->
+        <div style="background:white;border-radius:20px;border:2px solid rgba(139,115,85,0.2);overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:#F0E8E0;padding:28px 32px;border-bottom:1px solid rgba(139,115,85,0.15)">
+            <div style="font-size:11px;color:#8B5E52;letter-spacing:3px;margin-bottom:8px">INDIVIDUAL</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#2D2D2D;margin-bottom:4px">บุคคลทั่วไป</div>
+            <div style="font-size:13px;color:#8B5E52">หมอดู ช่าง Freelance นักบำบัด ฯลฯ</div>
+            <div style="margin-top:20px;display:flex;align-items:baseline;gap:4px">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#C9785A">ติดต่อสอบถามค่ะ</span>
+            </div>
+            <div style="display:inline-block;margin-top:8px;background:#C9785A;color:white;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:1px">ฟรี 3 เดือนแรกค่ะ</div>
+          </div>
+          <div style="padding:28px 32px;flex:1;display:flex;flex-direction:column">
+            <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="display:flex;gap:10px;font-size:13px;color:#2D2D2D"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>โปรไฟล์ส่วนตัว 1 โปรไฟล์</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#2D2D2D"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>แสดงในหน้า Listing ของหมวดที่เลือก</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#2D2D2D"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>ลิงก์ช่องทางติดต่อ (LINE / โทร / เว็บ)</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#2D2D2D"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>แสดงรีวิวจากลูกค้า สูงสุด 3 รีวิว</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#2D2D2D"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>Badge ยืนยันตัวตนแล้ว</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#8B5E52"><span style="color:rgba(139,115,85,0.35);flex-shrink:0">–</span>Featured / Priority listing</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:#8B5E52"><span style="color:rgba(139,115,85,0.35);flex-shrink:0">–</span>หลายโปรไฟล์ในองค์กร</div>
+            </div>
+            <button onclick="showPage('register')" style="margin-top:24px;width:100%;padding:12px;background:linear-gradient(135deg,#C9785A,#d4886a);border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer">สมัครฟรีเลยค่ะ →</button>
+          </div>
+        </div>
+
+        <!-- บริษัท -->
+        <div style="background:#4A1F1F;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;position:relative">
+          <div style="position:absolute;top:16px;right:16px;background:#C9785A;color:white;font-size:9px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px">แนะนำค่ะ</div>
+          <div style="padding:28px 32px;border-bottom:1px solid rgba(255,255,255,0.1)">
+            <div style="font-size:11px;color:rgba(201,120,90,0.8);letter-spacing:3px;margin-bottom:8px">BUSINESS</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:white;margin-bottom:4px">ธุรกิจ / บริษัท</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5)">คลินิก สปา โรงแรม ร้านอาหาร ฯลฯ</div>
+            <div style="margin-top:20px;display:flex;align-items:baseline;gap:4px">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#C9785A">ติดต่อสอบถามค่ะ</span>
+            </div>
+            <div style="display:inline-block;margin-top:8px;background:rgba(201,120,90,0.2);color:#C9785A;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:1px;border:1px solid rgba(201,120,90,0.4)">ฟรี 3 เดือนแรกค่ะ</div>
+          </div>
+          <div style="padding:28px 32px;flex:1;display:flex;flex-direction:column">
+            <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>ทุกอย่างใน Individual</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>โปรไฟล์ได้สูงสุด 5 คน / สาขา</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>Logo บริษัท + ข้อมูลองค์กร</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>Featured listing — ขึ้นก่อนค่ะ</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>รีวิวไม่จำกัดจำนวน</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>Badge Partner ยืนยันแล้ว สีทอง</div>
+              <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.85)"><span style="color:#C9785A;font-weight:700;flex-shrink:0">✓</span>รายงานสถิติรายเดือน</div>
+            </div>
+            <button onclick="showPage('contact')" style="margin-top:24px;width:100%;padding:12px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer">ติดต่อทีมงาน AERA →</button>
+          </div>
+        </div>
+
+      </div>
+      <div style="background:white;border-radius:14px;border:1px solid rgba(139,115,85,0.15);padding:20px 28px;text-align:center">
+        <div style="font-size:13px;color:#8B5E52;line-height:1.8">💡 <strong style="color:#2D2D2D">ช่วง Beta ฟรี 3 เดือนแรกค่ะ</strong> หลังจากนั้นมีแพ็กเกจรายเดือนและรายปี<br>ติดต่อทีมงานเพื่อดูรายละเอียดและรับข้อเสนอพิเศษได้เลยค่ะ
+        </div>
+      </div>
+    </div>
+  </section>
+
     <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+  </footer>
+</div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+  </footer>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="page-faq" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">มีคำถาม?</span>
+      <h2 class="sec-title">คำถามที่พบบ่อย</h2>
+      <p class="sec-sub">รวมคำถามที่สมาชิกถามบ่อยค่ะ หากไม่พบคำตอบ ติดต่อเราได้เลยค่ะ</p>
+    </div>
+    <div style="max-width:760px;margin:0 auto">
+
+      <!-- หมวด 1 -->
+      <div style="margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:28px;height:1px;background:#C9785A"></div>
+          <div style="font-size:11px;color:#C9785A;letter-spacing:3px;font-weight:600">สมัครสมาชิก / ใช้งาน</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">AERA คืออะไรคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              AERA คือ Lifestyle Platform Connector ค่ะ เราเชื่อมต่อลูกค้ากับ Service Provider คุณภาพกว่า 50 ร้านค้าพาร์ทเนอร์ ครอบคลุมทุกไลฟ์สไตล์ ตั้งแต่คูปองส่วนลด ที่พัก บริการถึงบ้าน ไปจนถึง Spiritual และ Healthcare ค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">สมัครสมาชิกฟรีจริงไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ฟรี 100% ค่ะ ไม่มีค่าสมัคร ไม่มีค่ารายเดือน สมัครครั้งเดียว รับสิทธิ์คูปองและส่วนลดได้ทันทีค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">หลังสมัครแล้วได้รับอะไรบ้างคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              รับสิทธิ์คูปองส่วนลดจากพาร์ทเนอร์ทั้งหมด รับโปรโมชั่นพิเศษก่อนใคร และเข้าถึงบริการทุกหมวดหมู่บนแพลตฟอร์มได้เลยค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">AERA มีแอปพลิเคชั่นไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ตอนนี้ใช้งานผ่านเว็บไซต์ได้เลยค่ะ รองรับทั้งมือถือและคอมพิวเตอร์ ในอนาคตมีแผนพัฒนาแอปค่ะ ติดตามได้ทาง LINE OA ของเราค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">AERA ให้บริการพื้นที่ไหนบ้างคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ตอนนี้เน้นกรุงเทพฯ และปริมณฑลเป็นหลักค่ะ บางบริการให้บริการทั่วประเทศและออนไลน์ด้วยค่ะ โดยเฉพาะหมวด Spiritual และ Education ค่ะ
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- หมวด 2 -->
+      <div style="margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:28px;height:1px;background:#C9785A"></div>
+          <div style="font-size:11px;color:#C9785A;letter-spacing:3px;font-weight:600">คูปองและส่วนลด</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">คูปองใช้ได้กี่ครั้งคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              แต่ละคูปองมีเงื่อนไขต่างกันค่ะ บางใบใช้ได้ 1 ครั้ง บางใบใช้ได้หลายครั้งตลอดช่วงโปรโมชั่น ดูรายละเอียดในหน้าคูปองนั้นๆ ได้เลยค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">วิธีใช้คูปองทำอย่างไรคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              สมัครสมาชิกแล้วแจ้งกับร้านพาร์ทเนอร์ว่าเป็นสมาชิก AERA ได้เลยค่ะ ร้านค้าจะให้ส่วนลดตามที่ระบุไว้ในคูปองนั้นๆ ค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">คูปองหมดอายุแล้วยังใช้ได้ไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              คูปองที่หมดอายุแล้วไม่สามารถใช้ได้ค่ะ แต่เราอัปเดตคูปองใหม่สม่ำเสมอ ติดตามได้ทาง LINE OA หรือหน้าคูปองในเว็บได้เลยค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">ใช้คูปองหลายใบพร้อมกันได้ไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ขึ้นอยู่กับเงื่อนไขของร้านค้าพาร์ทเนอร์แต่ละแห่งค่ะ กรุณาตรวจสอบเงื่อนไขในหน้าคูปองก่อนใช้งานนะคะ
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- หมวด 3 -->
+      <div style="margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:28px;height:1px;background:#C9785A"></div>
+          <div style="font-size:11px;color:#C9785A;letter-spacing:3px;font-weight:600">สมัคร Provider</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">ใครสมัครเป็น Provider ได้บ้างคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ร้านค้า ธุรกิจ หรือ Freelancer ในทุกหมวดหมู่ที่เราให้บริการค่ะ ไม่ว่าจะเป็นความงาม สุขภาพ บริการถึงบ้าน อาหาร ที่พัก การศึกษา และอื่นๆ สมัครได้เลยค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">ค่าสมัคร Provider เท่าไหร่คะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              มีแพ็กเกจให้เลือกหลายระดับค่ะ ตั้งแต่แพ็กเกจ Starter ฟรี ไปจนถึงแพ็กเกจ Premium ดูรายละเอียดได้ในหน้า สมัคร Provider ค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">สมัครแล้วรอนานไหมกว่าจะได้ขึ้นหน้าเว็บ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ทีมงานจะตรวจสอบข้อมูลและติดต่อกลับภายใน 1-3 วันทำการค่ะ หลังอนุมัติจะขึ้นหน้าเว็บทันทีค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">AERA คิด Commission เท่าไหร่คะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              AERA เป็น Platform Connector ค่ะ ไม่มีการเก็บ Commission ต่อ Transaction ค่ะ ค่าใช้จ่ายเป็นแบบแพ็กเกจรายเดือนหรือรายปีค่ะ ช่วง Beta 3 เดือนแรกฟรีทั้งหมด ติดต่อทีมงานเพื่อดูรายละเอียดค่ะ
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- หมวด 4 -->
+      <div style="margin-bottom:48px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:28px;height:1px;background:#C9785A"></div>
+          <div style="font-size:11px;color:#C9785A;letter-spacing:3px;font-weight:600">ค่าบริการ / การชำระเงิน</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">ชำระเงินผ่าน AERA ได้ไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              AERA เป็น Platform Connector ค่ะ การชำระเงินทำโดยตรงกับร้านค้าหรือ Provider แต่ละแห่งค่ะ AERA ไม่รับเงินแทนค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">มีปัญหากับ Provider ติดต่อใครคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ติดต่อ AERA ผ่าน LINE OA ได้เลยค่ะ ทีมงานจะช่วยประสานงานให้ค่ะ อย่างไรก็ตาม AERA เป็นตัวกลางค่ะ การตกลงขั้นสุดท้ายเป็นระหว่างลูกค้ากับ Provider โดยตรงค่ะ
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="background:white;border-radius:12px;border:1px solid rgba(139,115,85,0.15);overflow:hidden;cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
+              <div style="font-weight:600;color:#2D2D2D;font-size:14px">ข้อมูลส่วนตัวปลอดภัยไหมคะ?</div>
+              <div class="faq-arrow" style="color:#C9785A;font-size:18px;transition:transform .25s;flex-shrink:0">＋</div>
+            </div>
+            <div class="faq-body" style="display:none;padding:0 20px 18px;font-size:13px;color:#8B5E52;line-height:1.8">
+              ข้อมูลของสมาชิกปลอดภัยค่ะ เราไม่นำข้อมูลส่วนตัวไปขายหรือแชร์กับบุคคลภายนอกโดยไม่ได้รับอนุญาตค่ะ เป็นไปตามนโยบาย PDPA ค่ะ
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="background:#4A1F1F;border-radius:16px;padding:32px;text-align:center">
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px">ยังมีคำถามอีกไหมคะ?</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:white;margin-bottom:20px">ติดต่อทีมงาน AERA ได้เลยค่ะ</div>
+        <button onclick="showPage('contact')" style="padding:12px 28px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer">ติดต่อเรา →</button>
+      </div>
+
+    </div>
+  </section>
+  <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+  </footer>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div id="page-contact" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+  <section class="section section-alt">
+    <div class="sec-header">
+      <span class="sec-tag">พูดคุยกับเราได้เลยค่ะ</span>
+      <h2 class="sec-title">ติดต่อ AERA</h2>
+      <p class="sec-sub">มีคำถาม ข้อเสนอแนะ หรืออยากเป็น Partner? ทีมงานยินดีตอบค่ะ</p>
+    </div>
+    <div style="max-width:900px;margin:0 auto">
+
+      <!-- Channel Cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;align-items:stretch">
+
+        <div style="background:white;border-radius:16px;border:1px solid rgba(139,115,85,0.15);padding:28px 24px;text-align:center;display:flex;flex-direction:column">
+          <div style="width:52px;height:52px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">💬</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:6px">LINE OA</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7;margin-bottom:16px;flex:1">ช่องทางหลักค่ะ ตอบไวที่สุด ทุกวัน 9:00 – 21:00 น.</div>
+          <a href="https://line.me/ti/p/@aeralifestyle" target="_blank" style="display:block;padding:10px;background:#C9785A;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;text-decoration:none">@aeralifestyle</a>
+        </div>
+
+        <div style="background:white;border-radius:16px;border:1px solid rgba(139,115,85,0.15);padding:28px 24px;text-align:center;display:flex;flex-direction:column">
+          <div style="width:52px;height:52px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">📘</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:6px">Facebook</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7;margin-bottom:16px;flex:1">ติดตามโปรโมชั่นและข่าวสารใหม่ๆ ค่ะ</div>
+          <a href="https://facebook.com/aeralifestyle" target="_blank" style="display:block;padding:10px;background:#C9785A;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;text-decoration:none">AERA Lifestyle</a>
+        </div>
+
+        <div style="background:white;border-radius:16px;border:1px solid rgba(139,115,85,0.15);padding:28px 24px;text-align:center;display:flex;flex-direction:column">
+          <div style="width:52px;height:52px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">✉️</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:6px">Email</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7;margin-bottom:16px;flex:1">สำหรับเรื่องธุรกิจและ Partnership ค่ะ</div>
+          <a href="mailto:hello@aeralifestyle.com" style="display:block;padding:10px;background:#C9785A;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;text-decoration:none">hello@aeralifestyle.com</a>
+        </div>
+
+      </div>
+
+      <!-- Contact Form -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#2D2D2D;margin-bottom:8px">ส่งข้อความหาเราค่ะ</div>
+          <div style="font-size:13px;color:#8B5E52;line-height:1.7;margin-bottom:24px">กรอกฟอร์มด้านขวา ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมงค่ะ</div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:36px;height:36px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">🕐</div>
+              <div>
+                <div style="font-weight:600;color:#2D2D2D;font-size:14px;margin-bottom:2px">เวลาทำการ</div>
+                <div style="font-size:13px;color:#8B5E52">จันทร์ – อาทิตย์ 9:00 – 21:00 น.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:36px;height:36px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">📍</div>
+              <div>
+                <div style="font-weight:600;color:#2D2D2D;font-size:14px;margin-bottom:2px">ที่ตั้ง</div>
+                <div style="font-size:13px;color:#8B5E52">กรุงเทพมหานคร ประเทศไทย</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:36px;height:36px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">⚡</div>
+              <div>
+                <div style="font-weight:600;color:#2D2D2D;font-size:14px;margin-bottom:2px">Response Time</div>
+                <div style="font-size:13px;color:#8B5E52">LINE ตอบใน 30 นาที · Email ตอบใน 24 ชม.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:white;border-radius:16px;border:1px solid rgba(139,115,85,0.15);padding:28px">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div>
+              <label style="display:block;font-size:11px;color:#8B5E52;letter-spacing:1px;margin-bottom:6px;font-weight:600">ชื่อ-นามสกุล *</label>
+              <input id="ct-name" type="text" placeholder="ชื่อของคุณ" style="width:100%;padding:10px 14px;border:1px solid rgba(139,115,85,0.25);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#2D2D2D;outline:none;background:#FDFAF8">
+            </div>
+            <div>
+              <label style="display:block;font-size:11px;color:#8B5E52;letter-spacing:1px;margin-bottom:6px;font-weight:600">เบอร์โทร / LINE ID *</label>
+              <input id="ct-tel" type="text" placeholder="0812345678 หรือ LINE ID" style="width:100%;padding:10px 14px;border:1px solid rgba(139,115,85,0.25);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#2D2D2D;outline:none;background:#FDFAF8">
+            </div>
+            <div>
+              <label style="display:block;font-size:11px;color:#8B5E52;letter-spacing:1px;margin-bottom:6px;font-weight:600">เรื่องที่ติดต่อ</label>
+              <select id="ct-topic" style="width:100%;padding:10px 14px;border:1px solid rgba(139,115,85,0.25);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#2D2D2D;outline:none;background:#FDFAF8">
+                <option value="">เลือกหัวข้อค่ะ</option>
+                <option>สอบถามทั่วไป</option>
+                <option>สมัครสมาชิก</option>
+                <option>สมัครเป็น Provider / Partner</option>
+                <option>ปัญหาการใช้งาน</option>
+                <option>ข้อเสนอแนะ</option>
+                <option>อื่นๆ</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block;font-size:11px;color:#8B5E52;letter-spacing:1px;margin-bottom:6px;font-weight:600">ข้อความ</label>
+              <textarea id="ct-msg" placeholder="บอกเราได้เลยค่ะ..." rows="4" style="width:100%;padding:10px 14px;border:1px solid rgba(139,115,85,0.25);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#2D2D2D;outline:none;resize:vertical;background:#FDFAF8"></textarea>
+            </div>
+            <button onclick="submitContact()" style="width:100%;padding:12px;background:linear-gradient(135deg,#C9785A,#d4886a);border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer">ส่งข้อความ →</button>
+            <div id="ct-result" style="text-align:center;font-size:13px;color:#C9785A;display:none"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <footer style="background:#1a0f0f;padding:28px 48px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Facebook</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Instagram</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">TikTok</a>
+        <a href="#" style="padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;text-decoration:none">Line OA</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
+  </footer>
+</div>
+
+<!-- ===== WHY JOIN AERA ===== -->
+<div id="page-whyjoin" class="page">
+  <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
+
+  <!-- HERO -->
+  <section style="background:#4A1F1F;padding:72px 48px;text-align:center">
+    <div style="font-size:10px;color:#C9785A;letter-spacing:3px;margin-bottom:16px">AERA ECOSYSTEM</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:white;margin-bottom:16px;line-height:1.2">ทำไมต้องมาร่วมกับ AERA?</div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto;line-height:1.8">ไม่ใช่แค่ลงโปรไฟล์ค่ะ — คุณได้เข้าร่วม ecosystem ที่ทุกคนช่วยกันดึงลูกค้าให้กันและกันค่ะ</div>
+  </section>
+
+  <!-- ECOSYSTEM LOOP -->
+  <section style="background:#F7F0EC;padding:72px 48px">
+    <div style="max-width:960px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:52px">
+        <div style="font-size:10px;color:#C9785A;letter-spacing:3px;margin-bottom:12px">HOW IT WORKS</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#2D2D2D">วงจรที่ทุกคนได้ประโยชน์ค่ะ</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:white;border-radius:20px;overflow:hidden;border:1px solid rgba(139,115,85,0.15)">
+        <div style="padding:32px 24px;text-align:center;border-right:1px solid rgba(139,115,85,0.12)">
+          <div style="width:48px;height:48px;background:#4A1F1F;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:white;font-family:'Cormorant Garamond',serif;font-weight:700">1</div>
+          <div style="font-size:28px;margin-bottom:12px">📋</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:14px;margin-bottom:8px">คุณลงโปรไฟล์</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7">ฐานข้อมูลลูกค้ากว่า 100K+เห็นคุณค่ะ</div>
+        </div>
+        <div style="padding:32px 24px;text-align:center;border-right:1px solid rgba(139,115,85,0.12)">
+          <div style="width:48px;height:48px;background:#4A1F1F;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:white;font-family:'Cormorant Garamond',serif;font-weight:700">2</div>
+          <div style="font-size:28px;margin-bottom:12px">🤝</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:14px;margin-bottom:8px">ลูกค้ามาจ้างคุณ</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7">ติดต่อโดยตรง ไม่ผ่านตัวกลางค่ะ</div>
+        </div>
+        <div style="padding:32px 24px;text-align:center;border-right:1px solid rgba(139,115,85,0.12)">
+          <div style="width:48px;height:48px;background:#4A1F1F;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:white;font-family:'Cormorant Garamond',serif;font-weight:700">3</div>
+          <div style="font-size:28px;margin-bottom:12px">⭐</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:14px;margin-bottom:8px">ลูกค้าให้รีวิว</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7">รีวิวจริง เพิ่ม credibility ให้คุณค่ะ</div>
+        </div>
+        <div style="padding:32px 24px;text-align:center">
+          <div style="width:48px;height:48px;background:#C9785A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:white;font-family:'Cormorant Garamond',serif;font-weight:700">4</div>
+          <div style="font-size:28px;margin-bottom:12px">🎁</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:14px;margin-bottom:8px">ลูกค้าได้ Reward</div>
+          <div style="font-size:12px;color:#8B5E52;line-height:1.7">คูปองส่วนลดจาก Partner อื่นในวงค่ะ</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;font-size:13px;color:#C9785A;font-weight:600">↺ ลูกค้าไปใช้คูปองที่ร้านอื่น → ร้านนั้นได้ลูกค้าใหม่ → วนซ้ำค่ะ</div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section style="background:white;padding:72px 48px">
+    <div style="max-width:960px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:52px">
+        <div style="font-size:10px;color:#C9785A;letter-spacing:3px;margin-bottom:12px">PROVIDER BENEFITS</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#2D2D2D">คุณได้อะไรจาก AERA ค่ะ?</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+        <div style="background:#F7F0EC;border-radius:16px;padding:28px 24px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="font-size:32px;margin-bottom:16px">👥</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:8px">เข้าถึงฐานข้อมูล 100K+</div>
+          <div style="font-size:13px;color:#8B5E52;line-height:1.7">ฐานข้อมูลที่มีอยู่แล้ว ไม่ต้องสร้างเองจากศูนย์ค่ะ รายละเอียดเพิ่มเติมเมื่อซื้อแพ็กเกจค่ะ</div>
+        </div>
+
+        <div style="background:#F7F0EC;border-radius:16px;padding:28px 24px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="font-size:32px;margin-bottom:16px">🎯</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:8px">ยิง Targeted Marketing</div>
+          <div style="font-size:13px;color:#8B5E52;line-height:1.7">AERA ช่วยส่ง offer ตรงถึงกลุ่มเป้าหมายที่คุณต้องการผ่าน LINE และ Email ค่ะ</div>
+        </div>
+
+        <div style="background:#F7F0EC;border-radius:16px;padding:28px 24px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="font-size:32px;margin-bottom:16px">⭐</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:8px">รีวิวจริง สร้างความน่าเชื่อถือ</div>
+          <div style="font-size:13px;color:#8B5E52;line-height:1.7">ระบบรีวิวจากลูกค้าจริง ช่วยให้คนใหม่ตัดสินใจได้ง่ายขึ้นค่ะ</div>
+        </div>
+
+        <div style="background:#4A1F1F;border-radius:16px;padding:28px 24px">
+          <div style="font-size:32px;margin-bottom:16px">🎫</div>
+          <div style="font-weight:700;color:#C9A87A;font-size:15px;margin-bottom:8px">คุณก็ได้สิทธิ์สมาชิกด้วยค่ะ</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7">Provider ทุกคนได้รับสิทธิ์คูปองและส่วนลดจาก Partner อื่นในวงเหมือนสมาชิกทั่วไปค่ะ</div>
+        </div>
+
+        <div style="background:#4A1F1F;border-radius:16px;padding:28px 24px">
+          <div style="font-size:32px;margin-bottom:16px">📊</div>
+          <div style="font-weight:700;color:#C9A87A;font-size:15px;margin-bottom:8px">ข้อมูล & Analytics</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7">ดูได้ว่ามีคนเห็นโปรไฟล์คุณกี่คน กดติดต่อกี่ครั้ง ต่อเดือนค่ะ (แพ็กเกจ Business)</div>
+        </div>
+
+        <div style="background:#F0E8E0;border-radius:16px;padding:28px 24px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="font-size:32px;margin-bottom:16px">🆓</div>
+          <div style="font-weight:700;color:#2D2D2D;font-size:15px;margin-bottom:8px">ฟรี 3 เดือนแรกค่ะ</div>
+          <div style="font-size:13px;color:#8B5E52;line-height:1.7">ช่วง Beta ทดลองใช้ฟรีก่อน ไม่ต้องตัดสินใจเร็ว เห็นผลจริงแล้วค่อยคิดค่ะ</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REWARD STRUCTURE -->
+  <section style="background:#F7F0EC;padding:72px 48px">
+    <div style="max-width:960px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:52px">
+        <div style="font-size:10px;color:#C9785A;letter-spacing:3px;margin-bottom:12px">REWARD SYSTEM</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#2D2D2D">ระบบ Reward ทำงานยังไงค่ะ?</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+
+        <div style="background:white;border-radius:16px;padding:32px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="font-size:28px">🧑‍💼</div>
+            <div style="font-weight:700;color:#2D2D2D;font-size:16px">สำหรับลูกค้าสมาชิกค่ะ</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#C9785A;flex-shrink:0">1</div>
+              <div style="font-size:13px;color:#2D2D2D;line-height:1.7">จ้างงาน Provider ใน AERA</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#C9785A;flex-shrink:0">2</div>
+              <div style="font-size:13px;color:#2D2D2D;line-height:1.7">ให้รีวิวหลังใช้บริการ</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#C9785A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0">✓</div>
+              <div style="font-size:13px;color:#C9785A;font-weight:600;line-height:1.7">รับคูปองส่วนลดจาก Partner อื่นในวงค่ะ เช่น ส่วนลดร้านอาหาร ส่วนลดที่พัก ฯลฯ</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:white;border-radius:16px;padding:32px;border:1px solid rgba(139,115,85,0.15)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="font-size:28px">🏪</div>
+            <div style="font-weight:700;color:#2D2D2D;font-size:16px">สำหรับ Provider ค่ะ</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#C9785A;flex-shrink:0">1</div>
+              <div style="font-size:13px;color:#2D2D2D;line-height:1.7">ลงโปรไฟล์ใน AERA</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#F0E8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#C9785A;flex-shrink:0">2</div>
+              <div style="font-size:13px;color:#2D2D2D;line-height:1.7">รับลูกค้าจาก platform</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;background:#C9785A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0">✓</div>
+              <div style="font-size:13px;color:#C9785A;font-weight:600;line-height:1.7">ได้สิทธิ์สมาชิก AERA ด้วยค่ะ ใช้คูปองจาก Partner อื่นได้เหมือนกันเลยค่ะ</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ตัวอย่างจริง -->
+      <div style="margin-top:24px;background:#4A1F1F;border-radius:16px;padding:28px 32px">
+        <div style="font-size:11px;color:#C9785A;letter-spacing:2px;margin-bottom:12px">ตัวอย่างจริงค่ะ</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+          <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8">🔮 ลูกค้าจ้างหมอดูใน AERA → ให้รีวิว → <span style="color:#C9785A;font-weight:600">รับคูปองลด 15% ร้านอาหารพาร์ทเนอร์ค่ะ</span></div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8">💪 ลูกค้าจ้าง Personal Trainer → ให้รีวิว → <span style="color:#C9785A;font-weight:600">รับคูปองที่พักส่วนลด 20% ค่ะ</span></div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8">💇 ลูกค้าทำผมร้านพาร์ทเนอร์ → ให้รีวิว → <span style="color:#C9785A;font-weight:600">รับคูปองนวดสปาส่วนลดค่ะ</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#4A1F1F;padding:72px 48px;text-align:center">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:white;margin-bottom:16px">พร้อมเข้าร่วมวงแล้วไหมคะ?</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:12px">ช่วง Beta — ฟรี 3 เดือนแรกค่ะ ไม่มีความเสี่ยงค่ะ</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:36px">หลังจากนั้นมีแพ็กเกจรายเดือนและรายปี ติดต่อทีมงานเพื่อดูรายละเอียดค่ะ</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button onclick="showPage('provider')" style="padding:14px 32px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer">สมัครเป็น Provider →</button>
+      <button onclick="showPage('contact')" style="padding:14px 32px;background:transparent;border:1px solid rgba(255,255,255,0.3);border-radius:50px;color:rgba(255,255,255,0.8);font-family:'Sarabun',sans-serif;font-size:14px;cursor:pointer">ถามก่อนได้เลยค่ะ</button>
+    </div>
+  </section>
+
+  <footer style="background:#1a0f0f;padding:28px 48px">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
       <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -3391,6 +4025,68 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 </div>
 
 <script>
+function toggleFaq(el) {
+  const body = el.querySelector('.faq-body');
+  const arrow = el.querySelector('.faq-arrow');
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  arrow.textContent = isOpen ? '＋' : '－';
+  arrow.style.transform = isOpen ? '' : 'rotate(0deg)';
+}
+
+function submitContact() {
+  const name    = document.getElementById('ct-name').value.trim();
+  const tel     = document.getElementById('ct-tel').value.trim();
+  const topic   = document.getElementById('ct-topic').value;
+  const message = document.getElementById('ct-msg').value.trim();
+  const result  = document.getElementById('ct-result');
+  const btn     = document.querySelector('#page-contact button[onclick="submitContact()"]');
+
+  if (!name || !tel) {
+    result.style.display = 'block';
+    result.style.color = '#e07070';
+    result.textContent = 'กรุณากรอกชื่อและเบอร์โทรค่ะ';
+    return;
+  }
+
+  // แสดง loading
+  result.style.display = 'block';
+  result.style.color = '#8B5E52';
+  result.textContent = 'กำลังส่งข้อความค่ะ...';
+  if (btn) btn.disabled = true;
+
+  if (SHEET_URL_MEMBER === 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec') {
+    // Demo mode — ยังไม่มี URL จริง
+    setTimeout(() => {
+      result.style.color = '#C9785A';
+      result.textContent = '✓ ส่งข้อความเรียบร้อยแล้วค่ะ ทีมงานจะติดต่อกลับเร็วๆ นี้ค่ะ';
+      ['ct-name','ct-tel','ct-msg'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+      document.getElementById('ct-topic').value = '';
+      if (btn) btn.disabled = false;
+    }, 800);
+    return;
+  }
+
+  fetch(SHEET_URL_MEMBER, {
+    method: 'POST',
+    body: JSON.stringify({ type: 'contact', name, tel, topic, message })
+  })
+  .then(r => r.json())
+  .then(data => {
+    result.style.color = '#C9785A';
+    result.textContent = '✓ ส่งข้อความเรียบร้อยแล้วค่ะ ทีมงานจะติดต่อกลับเร็วๆ นี้ค่ะ';
+    ['ct-name','ct-tel','ct-msg'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+    document.getElementById('ct-topic').value = '';
+  })
+  .catch(() => {
+    result.style.color = '#e07070';
+    result.textContent = 'เกิดข้อผิดพลาดค่ะ ลองใหม่อีกครั้งหรือติดต่อทาง LINE ได้เลยค่ะ';
+  })
+  .finally(() => {
+    if (btn) btn.disabled = false;
+  });
+}
+
 function showPage(id) {
   try {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -3414,8 +4110,8 @@ function filterCat(cat, btn) {
 }
 
 // ===== ตั้งค่า URL ของ Google Apps Script ตรงนี้ =====
-const SHEET_URL_MEMBER = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
-const SHEET_URL_B2B    = 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE';
+const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec';
+const SHEET_URL_B2B    = 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec';
 
 function handleRegister() {
   const name     = document.getElementById('reg-name').value.trim();
@@ -3441,7 +4137,7 @@ function handleRegister() {
     pdpa: pdpa ? pdpa.value : 'ไม่ระบุ'
   };
 
-  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -3482,7 +4178,7 @@ function handleProvider() {
     status: 'รอตรวจสอบ'
   };
 
-  if (SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+  if (SHEET_URL_MEMBER !== 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec') {
     fetch(SHEET_URL_MEMBER, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -3523,7 +4219,7 @@ function handleB2B() {
     date: new Date().toLocaleString('th-TH')
   };
 
-  if (SHEET_URL_B2B !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_B2B_HERE') {
+  if (SHEET_URL_B2B !== 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec') {
     fetch(SHEET_URL_B2B, {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
@@ -3597,7 +4293,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
     <div class="sec-header">
       <span class="sec-tag">สำหรับ Provider และธุรกิจ</span>
       <h2 class="sec-title">Database Marketing Package</h2>
-      <p class="sec-sub">ส่ง Email/Line ถึงฐานลูกค้า 30,000+ คนของ AERA โดยตรงค่ะ ประหยัดกว่า Facebook Ads มากค่ะ</p>
+      <p class="sec-sub">ส่ง Email/LINE ถึงฐานข้อมูล 100K+ โดยตรงค่ะ ประหยัดกว่า Facebook Ads มากค่ะ</p>
     </div>
     <div style="max-width:960px;margin:0 auto">
 
@@ -3651,7 +4347,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
           
           <div style="font-weight:700;font-size:15px;color:#2D2D2D;margin-bottom:8px">Premium</div>
           <div style="font-family:'Sarabun',sans-serif;font-size:28px;font-weight:700;color:#C9785A;line-height:1">฿15,000</div>
-          <div style="font-size:11px;color:#8B5E52;margin:4px 0 16px">ส่ง 30,000 คน</div>
+          <div style="font-size:11px;color:#8B5E52;margin:4px 0 16px">ฐานข้อมูล100K+</div>
           <div style="font-size:12px;color:#8B5E52;margin-bottom:16px">฿0.00/คน</div>
           <button onclick="showPage('b2b')" style="width:100%;padding:10px;background:linear-gradient(135deg,#C9785A,#d4886a);border:none;border-radius:8px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;cursor:pointer">เลือก Package นี้</button>
         </div>
@@ -4064,7 +4760,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
               </div>
               <div class="email-field"><label>ไอคอน (Emoji)</label><input type="text" id="coupon-icon" placeholder="เช่น 🍽️ หรือ 💅"></div>
               <div class="email-field"><label>วันหมดอายุ</label><input type="date" id="coupon-exp"></div>
-              <div class="email-field"><label>เงื่อนไข</label><input type="text" id="coupon-condition" placeholder="เช่น สำหรับสมาชิก MG เท่านั้น"></div>
+              <div class="email-field"><label>เงื่อนไข</label><input type="text" id="coupon-condition" placeholder="เช่น สำหรับสมาชิก AERA เท่านั้น"></div>
             </div>
             <div style="padding:0 20px 20px;display:flex;gap:8px">
               <button class="admin-btn" style="width:auto;padding:8px 20px;font-size:13px" onclick="saveCoupon()">บันทึกคูปอง</button>
@@ -4292,7 +4988,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
                   </div>
                   <div style="text-align:center;min-width:80px">
                     <div style="font-size:20px;font-weight:700;color:#4ade80" id="uprev-mg">฿0</div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.4)">MG ได้ค่ะ</div>
+                    <div style="font-size:10px;color:rgba(255,255,255,0.4)">AERA ได้ค่ะ</div>
                   </div>
                   <div style="text-align:center;min-width:80px">
                     <div style="font-size:20px;font-weight:700;color:white" id="uprev-provider">฿0</div>
@@ -4339,7 +5035,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
                 <tr>
                   <th>#</th><th>Provider</th><th>ประเภท</th><th>Package</th>
                   <th>ราคา</th><th>เวลา</th><th>รับ/วัน</th>
-                  <th>MG ได้</th><th>ช่องทาง</th><th>Status</th><th>Action</th>
+                  <th>AERA ได้</th><th>ช่องทาง</th><th>Status</th><th>Action</th>
                 </tr>
               </thead>
               <tbody id="universal-pkg-table">
@@ -4757,12 +5453,12 @@ let adminData = {
     {id:5, name:'นภา คอนเทนต์', service:'🎬 Content Creator', area:'ออนไลน์', exp:'1-3 ปี', status:'รอตรวจสอบ'},
   ],
   coupons: [
-    {icon:'🍽️', name:'ร้านอาหาร', discount:'20%', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
-    {icon:'☕', name:'ร้านกาแฟ', discount:'10%', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
-    {icon:'✨', name:'คลินิกศัลยกรรม', discount:'15%', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
-    {icon:'💅', name:'ร้านทำเล็บ', discount:'฿200', cat:'ความงาม', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก MG'},
-    {icon:'✂️', name:'ร้านตัดผม', discount:'10%', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
-    {icon:'🔮', name:'ดูหมอไพ่ทาโรต์', discount:'10%', cat:'ไลฟ์สไตล์', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก MG'},
+    {icon:'🍽️', name:'ร้านอาหาร', discount:'20%', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก AERA'},
+    {icon:'☕', name:'ร้านกาแฟ', discount:'10%', cat:'อาหาร', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก AERA'},
+    {icon:'✨', name:'คลินิกศัลยกรรม', discount:'15%', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก AERA'},
+    {icon:'💅', name:'ร้านทำเล็บ', discount:'฿200', cat:'ความงาม', exp:'31 มี.ค. 2026', condition:'สำหรับสมาชิก AERA'},
+    {icon:'✂️', name:'ร้านตัดผม', discount:'10%', cat:'ความงาม', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก AERA'},
+    {icon:'🔮', name:'ดูหมอไพ่ทาโรต์', discount:'10%', cat:'ไลฟ์สไตล์', exp:'30 เม.ย. 2026', condition:'สำหรับสมาชิก AERA'},
   ]
 };
 
@@ -5018,7 +5714,7 @@ function saveCoupon() {
 
   if (!name || !discount) { alert('กรุณากรอกชื่อและส่วนลดค่ะ'); return; }
 
-  adminData.coupons.push({icon, name, discount, cat, exp: exp || '-', condition: condition || 'สำหรับสมาชิก MG'});
+  adminData.coupons.push({icon, name, discount, cat, exp: exp || '-', condition: condition || 'สำหรับสมาชิก AERA'});
   renderCoupons();
   document.getElementById('add-coupon-form').style.display = 'none';
   document.getElementById('coupon-name').value = '';
