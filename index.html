@@ -6054,6 +6054,44 @@ function adminNav(section, el) {
 
 // ===== LOAD DATA =====
 function loadAdminData() {
+  // ดึงจาก Sheet จริงถ้ามี URL ค่ะ
+  const url = typeof SHEET_URL_MEMBER !== 'undefined' ? SHEET_URL_MEMBER : '';
+  if (url && !url.includes('YOUR_')) {
+    // fetch providers จาก Sheet
+    fetch(url, { method: 'POST', body: JSON.stringify({ type: 'get_all_providers' }) })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success && res.providers && res.providers.length > 0) {
+          adminData.providers = res.providers;
+        }
+        _renderAdminStats();
+        renderProviders();
+      })
+      .catch(() => { _renderAdminStats(); renderProviders(); });
+
+    // fetch portfolios จาก Sheet
+    fetch(url, { method: 'POST', body: JSON.stringify({ type: 'get_all_portfolios' }) })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success && res.portfolios) {
+          allPortfolios = res.portfolios;
+          renderPortfolioTable();
+        }
+      }).catch(() => {});
+
+    // fetch members count
+    fetch(url, { method: 'POST', body: JSON.stringify({ type: 'get_stats' }) })
+      .then(r => r.json())
+      .then(res => {
+        if (res.memberCount) document.getElementById('stat-members') && (document.getElementById('stat-members').textContent = res.memberCount);
+      }).catch(() => {});
+  } else {
+    _renderAdminStats();
+    renderProviders();
+  }
+}
+
+function _renderAdminStats() {
   // Stats
   const pending = adminData.providers.filter(p => p.status === 'รอตรวจสอบ').length;
   document.getElementById('stat-members').textContent = adminData.members.length;
