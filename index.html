@@ -40,8 +40,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:var(-
 .nav-cta:hover{background:#9a7a3a}
 
 /* PAGES */
-.page{display:none;padding-top:64px;min-height:100vh}
-.page.active{display:block}
+.page{display:none;padding-top:64px;min-height:100vh;visibility:hidden;height:0;overflow:hidden}
+.page.active{display:block;visibility:visible;height:auto;overflow:visible}
 
 /* HERO (HOME) */
 .hero{background:var(--hero-bg);padding:48px 40px;display:flex;align-items:center;gap:40px;min-height:340px}
@@ -250,11 +250,15 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   .hamburger{display:flex}
   .nav-logo{font-size:18px}
 
-  /* HERO */
-  .hero{grid-template-columns:1fr;padding:40px 20px 32px}
+  /* HERO — single column */
+  .hero{flex-direction:column;padding:40px 20px 32px;gap:24px;min-height:auto}
   .hero-right{display:none}
-  .hero-title{font-size:36px}
-  .hero-sub{font-size:15px;gap:12px}
+
+  /* SEARCH + RECOMMENDED */
+  #page-home section[style*="F7F0EC"]{padding:24px 20px 20px}
+  #aera-search{font-size:15px}
+
+  /* STATS BAR */
   .mkt-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .partners-grid{grid-template-columns:1fr}
   .stay-grid{grid-template-columns:1fr}
@@ -267,15 +271,50 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   .partner-card{padding:20px 16px}
   .mkt-card{padding:20px 16px}
 
+  /* BENTO GRID — stack to 2 cols */
+  #page-home .bento-grid,
+  div[style*="grid-template-columns:repeat(4"]{
+    grid-template-columns:repeat(2,1fr) !important;
+    grid-template-rows:auto !important
+  }
+  div[style*="grid-column:1;grid-row:1"],
+  div[style*="grid-column:2 / 4"],
+  div[style*="grid-column:4;grid-row:1"]{
+    grid-column:auto !important;
+    grid-row:auto !important
+  }
+
+  /* WHY AERA 3-col → 1-col */
+  div[style*="grid-template-columns:repeat(3,1fr)"][style*="gap:20px"]{
+    grid-template-columns:1fr !important
+  }
+
   /* FORMS */
   .b2b-grid,.reg-inner{grid-template-columns:1fr}
-  .b2b-field input,.b2b-field select,.r-field input,.r-field select,
-  .lock-input{font-size:16px !important} /* prevent iOS zoom */
+  .b2b-field input,.b2b-field select,.r-field input,.r-field select{font-size:16px !important}
   .btn-submit{padding:16px;font-size:15px}
 
   /* PROVIDER PAGE */
   #page-provider .section > div > div:first-of-type{grid-template-columns:1fr !important}
   #page-provider > section > div > div:nth-child(3){grid-template-columns:1fr !important}
+
+  /* CONTACT CARDS */
+  #page-contact div[style*="grid-template-columns:repeat(3"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* WHY JOIN — ecosystem 4 steps */
+  #page-whyjoin div[style*="grid-template-columns:repeat(4"]{
+    grid-template-columns:repeat(2,1fr) !important
+  }
+  #page-whyjoin div[style*="grid-template-columns:repeat(3"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* PORTFOLIO */
+  div[style*="max-width:900px"][style*="display:grid"]{
+    grid-template-columns:1fr !important
+  }
 
   /* TRAVEL & PHOTO GRIDS */
   #page-travel .section div[style*="grid-template-columns: repeat(3"]{
@@ -287,38 +326,63 @@ footer{background:var(--navy-deep);padding:36px 48px;display:flex;justify-conten
   .back-bar{padding:8px 16px}
   .back-btn{font-size:12px;padding:6px 14px}
 
-  /* LOCK SCREEN */
-  .lock-box{width:calc(100% - 40px);padding:36px 24px}
-  .lock-logo{font-size:24px}
-
   /* FOOTER */
   footer{flex-direction:column;gap:10px;padding:28px 20px;text-align:center}
 }
 
 @media(max-width:480px){
+  /* HERO */
+  h1[style*="52px"]{font-size:32px !important;line-height:1.2 !important}
+  p[style*="padding:72px 48px"]{padding:40px 20px !important}
+  section[style*="padding:72px 48px"]{padding:40px 20px !important}
+  section[style*="padding:64px 48px"]{padding:40px 20px !important}
+  section[style*="padding:32px 48px"]{padding:20px 16px !important}
+
+  /* GRIDS → 1 col */
   .svc-grid{grid-template-columns:1fr}
   .mkt-grid{grid-template-columns:1fr}
   .pet-grid{grid-template-columns:1fr}
   .niche-grid{grid-template-columns:1fr}
-  .hero-title{font-size:30px}
+  div[style*="grid-template-columns:repeat(2,1fr)"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* STATS */
   .hero-stats{grid-template-columns:repeat(2,1fr)}
+
+  /* POPUP */
+  .coupon-popup-box{border-radius:16px}
+
+  /* PORTFOLIO BUTTONS */
+  .pf-btns{flex-direction:column;gap:8px}
+  .pf-btn-call,.pf-btn-line{width:100%}
+
+  /* NAV LOGO */
+  .nav-logo span[style*="letter-spacing:8px"]{letter-spacing:4px !important}
+
+  /* SEARCH */
+  #aera-search{padding:14px 16px 14px 48px !important;font-size:14px !important}
+
+  /* RECOMMENDED PILLS */
+  #page-home div[style*="display:flex;gap:8px;flex-wrap:wrap"] button{
+    font-size:12px;padding:6px 12px
+  }
+
+  /* PRICING CARDS */
+  div[style*="grid-template-columns:1fr 1fr"][style*="gap:24px"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* B2B HOW IT WORKS */
+  #page-b2b div[style*="grid-template-columns:repeat(3"]{
+    grid-template-columns:1fr !important
+  }
+
+  /* ADMIN */
+  .admin-stats{grid-template-columns:1fr !important}
 }
 
-/* LOCK SCREEN */
-#lockScreen{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center}
-#lockScreen.hide{display:none}
-.lock-box{background:rgba(255,255,255,0.04);border:1px solid rgba(184,150,78,0.3);border-radius:16px;padding:48px 40px;width:360px;text-align:center}
-.lock-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:white;letter-spacing:2px;margin-bottom:4px}
-.lock-logo span{color:var(--gold)}
-.lock-sub{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:36px}
-.lock-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:left;display:block;margin-bottom:8px}
-.lock-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:'Sarabun',sans-serif;font-size:15px;color:white;outline:none;text-align:center;letter-spacing:3px;transition:border-color 0.2s;box-sizing:border-box}
-.lock-input:focus{border-color:var(--gold)}
-.lock-input::placeholder{letter-spacing:1px;color:rgba(255,255,255,0.2)}
-.lock-btn{width:100%;margin-top:16px;padding:14px;background:var(--gold);border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;color:white;cursor:pointer;transition:all 0.2s}
-.lock-btn:hover{background:#9a7a3a;transform:translateY(-1px)}
-.lock-err{font-size:12px;color:#ff6b6b;margin-top:12px;min-height:18px;transition:opacity 0.2s}
-.lock-hint{font-size:11px;color:rgba(255,255,255,0.15);margin-top:24px;line-height:1.6}
+
 
 /* PDPA */
 .pdpa-wrap{margin-top:16px;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px}
@@ -637,17 +701,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
 
 <!-- NAV -->
 
-<div id="lockScreen">
-  <div class="lock-box">
-    <div class="lock-logo" style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;letter-spacing:10px;color:white">A E R A</div>
-    <div class="lock-sub">Private Preview</div>
-    <label class="lock-label">Password</label>
-    <input class="lock-input" type="password" id="lockInput" placeholder="กรอก Password" onkeydown="if(event.key==='Enter')checkLock()">
-    <button class="lock-btn" onclick="checkLock()">เข้าสู่ระบบ →</button>
-    <div class="lock-err" id="lockErr"></div>
-    <div class="lock-hint">🔒 สำหรับทีมงาน AERA เท่านั้นค่ะ</div>
-  </div>
-</div>
+
 
 <nav>
   <div onclick="showPage('home');secretClick()" style="cursor:pointer;white-space:nowrap">
@@ -749,6 +803,7 @@ nav.scrolled .aera-name{color:var(--charcoal)}
         <div style="height:1px;background:rgba(255,255,255,0.2);margin:10px 0"></div>
         <div style="font-size:10px;color:rgba(255,255,255,0.6)">หมดอายุ 31 มี.ค. 2026</div>
       </div>
+    </div>
     </div>
 
   </section>
@@ -3475,10 +3530,6 @@ nav.scrolled .aera-name{color:var(--charcoal)}
   </footer>
 </div>
 
-    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">© 2026 AERA Lifestyle Services · ชีวิตเดียว ต้องใช้ให้คุ้ม</div>
-  </footer>
-</div>
-
 <!-- ===== FAQ ===== -->
 <div id="page-faq" class="page">
   <div class="back-bar"><button class="back-btn" onclick="showPage('home')">กลับหน้าแรก</button></div>
@@ -4236,6 +4287,101 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// ===== PENDING PROVIDERS (รอ Portfolio) =====
+function loadPendingProviders() {
+  const list = document.getElementById('pending-pf-list');
+  const count = document.getElementById('pending-pf-count');
+  if (!list) return;
+
+  // ดึงจาก allPortfolios ที่มีอยู่แล้ว + เปรียบกับ adminData.providers
+  const hasPf = new Set(allPortfolios.map(p => p.name?.toLowerCase()));
+  const pending = (adminData?.providers || []).filter(p =>
+    !hasPf.has(p.name?.toLowerCase()) && p.status !== 'cancelled'
+  );
+
+  count.textContent = pending.length + ' คนรอค่ะ';
+
+  if (!pending.length) {
+    list.innerHTML = '<div style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;padding:12px">✅ Provider ทุกคนมี Portfolio แล้วค่ะ</div>';
+    return;
+  }
+
+  list.innerHTML = pending.map(p => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:white">${p.name}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4)">${p.service || '-'} · ${p.phone || '-'}</div>
+      </div>
+      <button onclick="prefillPortfolioForm('${p.name}','${p.phone||''}','${p.email||''}','${p.service||''}')"
+        style="padding:6px 14px;background:#C9785A;border:none;border-radius:20px;color:white;font-family:'Sarabun',sans-serif;font-size:12px;cursor:pointer">
+        + สร้าง Portfolio
+      </button>
+    </div>`).join('');
+}
+
+function prefillPortfolioForm(name, phone, email, service) {
+  // เปิดฟอร์มและ prefill ข้อมูลจาก Provider ค่ะ
+  document.getElementById('portfolio-form').style.display = 'block';
+  document.getElementById('pf-name').value = name;
+  document.getElementById('pf-phone').value = phone;
+  if (document.getElementById('pf-email')) {
+    document.getElementById('pf-email').value = email;
+  }
+  // scroll ไปที่ฟอร์มค่ะ
+  document.getElementById('portfolio-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== PORTFOLIO FETCH FROM SHEET =====
+function showPortfolioById(portfolioId) {
+  // หาใน local memory ก่อนค่ะ
+  const local = allPortfolios.find(p => String(p.id) === String(portfolioId));
+  if (local) {
+    renderPortfolioPage(local);
+    showPage('portfolio');
+    return;
+  }
+
+  // ถ้าไม่มีใน memory → fetch จาก Sheet ค่ะ
+  if (!SHEET_URL_MEMBER || SHEET_URL_MEMBER === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    showPage('portfolio');
+    return;
+  }
+
+  // แสดง loading ก่อนค่ะ
+  document.getElementById('portfolio-content').innerHTML = `
+    <div style="text-align:center;padding:80px 20px">
+      <div style="font-size:32px;margin-bottom:16px">⏳</div>
+      <div style="font-size:14px;color:#8B5E52">กำลังโหลดข้อมูลค่ะ...</div>
+    </div>`;
+  showPage('portfolio');
+
+  fetch(SHEET_URL_MEMBER, {
+    method: 'POST',
+    body: JSON.stringify({ type: 'get_portfolio', id: portfolioId })
+  })
+  .then(r => r.json())
+  .then(res => {
+    if (res.success && res.portfolio) {
+      renderPortfolioPage(res.portfolio);
+    } else {
+      document.getElementById('portfolio-content').innerHTML = `
+        <div style="text-align:center;padding:80px 20px">
+          <div style="font-size:32px;margin-bottom:16px">🔍</div>
+          <div style="font-size:14px;color:#8B5E52">ไม่พบข้อมูล Provider ค่ะ</div>
+          <button onclick="showPage('home')" style="margin-top:20px;padding:10px 24px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;cursor:pointer">กลับหน้าแรก</button>
+        </div>`;
+    }
+  })
+  .catch(() => {
+    document.getElementById('portfolio-content').innerHTML = `
+      <div style="text-align:center;padding:80px 20px">
+        <div style="font-size:32px;margin-bottom:16px">⚠️</div>
+        <div style="font-size:14px;color:#8B5E52">โหลดไม่สำเร็จ ลองใหม่อีกครั้งค่ะ</div>
+        <button onclick="showPage('home')" style="margin-top:20px;padding:10px 24px;background:#C9785A;border:none;border-radius:50px;color:white;font-family:'Sarabun',sans-serif;cursor:pointer">กลับหน้าแรก</button>
+      </div>`;
+  });
+}
+
 function toggleFaq(el) {
   const body = el.querySelector('.faq-body');
   const arrow = el.querySelector('.faq-arrow');
@@ -4474,27 +4620,8 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// ===== LOCK SCREEN =====
-const SITE_PASSWORD = 'mg2026'; // เปลี่ยน Password ได้ที่นี่ค่ะ
-
-function checkLock() {
-  const input = document.getElementById('lockInput').value;
-  const err = document.getElementById('lockErr');
-  if (input === SITE_PASSWORD) {
-    document.getElementById('lockScreen').classList.add('hide');
-    sessionStorage.setItem('mg_unlocked', '1');
-    err.textContent = '';
-  } else {
-    err.textContent = '❌  Password ไม่ถูกต้องค่ะ ลองใหม่อีกครั้ง';
-    document.getElementById('lockInput').value = '';
-    document.getElementById('lockInput').focus();
-  }
-}
-
-// ตรวจสอบว่าเคย unlock ในSession นี้แล้วไหม
-if (sessionStorage.getItem('mg_unlocked') === '1') {
-  document.getElementById('lockScreen').classList.add('hide');
-}
+// ===== LOCK SCREEN REMOVED =====
+// เว็บเปิดให้ทุกคนเข้าถึงได้แล้วค่ะ
 
 </script>
 
@@ -4853,8 +4980,7 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
       </div>
 
     </div>
-  </div>
-    <footer style="background:#1a0f0f;padding:28px 48px">
+  <footer style="background:#1a0f0f;padding:28px 48px">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
       <span style="font-family:'Raleway',sans-serif;font-size:16px;font-weight:300;color:#C9785A;letter-spacing:8px">A E R A</span>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -5621,6 +5747,18 @@ if (sessionStorage.getItem('mg_unlocked') === '1') {
             </div>
           </div>
 
+
+          <!-- Provider รอ Portfolio — workflow helper -->
+          <div class="admin-card" style="margin-bottom:16px">
+            <div class="admin-card-header">
+              <div class="admin-card-title">⏳ Provider รอสร้าง Portfolio ค่ะ</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)" id="pending-pf-count">กำลังโหลดค่ะ...</div>
+            </div>
+            <div id="pending-pf-list" style="padding:12px 16px">
+              <div style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;padding:12px">กำลังโหลดรายชื่อจาก Sheet ค่ะ...</div>
+            </div>
+          </div>
+
           <!-- Portfolio List -->
           <div class="admin-card">
             <div class="admin-card-header">
@@ -5822,7 +5960,7 @@ function adminNav(section, el) {
   if (section === 'members') { try { renderMembers(); } catch(e){} }
   if (section === 'report') { try { renderReport(); } catch(e){} }
   if (section === 'packages') { try { renderUniversalTable('all'); } catch(e){} }
-  if (section === 'portfolio_mgmt') { try { renderPortfolioTable(); } catch(e){} }
+  if (section === 'portfolio_mgmt') { try { renderPortfolioTable(); loadPendingProviders(); } catch(e){} }
   if (section === 'providers') renderProviders();
   if (section === 'coupons') renderCoupons();
 }
@@ -6764,6 +6902,7 @@ function savePortfolio() {
     ].filter(r => r.name && r.text)
   };
 
+  // ── บันทึกลง memory (local preview) ──
   if (editingPortfolioId) {
     const idx = allPortfolios.findIndex(p => p.id === editingPortfolioId);
     if (idx >= 0) allPortfolios[idx] = portfolio;
@@ -6771,11 +6910,30 @@ function savePortfolio() {
   } else {
     allPortfolios.push(portfolio);
   }
-
   renderPortfolioTable();
   document.getElementById('portfolio-form').style.display = 'none';
   resetPortfolioForm();
-  alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template + (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ'));
+
+  // ── POST ไป Google Sheet ด้วยค่ะ ──
+  if (SHEET_URL_MEMBER && SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    const payload = { ...portfolio, type: 'save_portfolio', line_id: portfolio.lineId };
+    fetch(SHEET_URL_MEMBER, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+      alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template +
+        (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ') +
+        '\nID: ' + (res.id || portfolio.id));
+    })
+    .catch(() => {
+      alert('✅ บันทึกใน memory แล้วค่ะ (ยังไม่ sync Sheet — ตรวจ URL ด้วยนะคะ)');
+    });
+  } else {
+    alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template +
+      (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ'));
+  }
 }
 
 function resetPortfolioForm() {
@@ -7205,6 +7363,7 @@ function savePortfolio() {
     ].filter(r => r.name && r.text)
   };
 
+  // ── บันทึกลง memory (local preview) ──
   if (editingPortfolioId) {
     const idx = allPortfolios.findIndex(p => p.id === editingPortfolioId);
     if (idx >= 0) allPortfolios[idx] = portfolio;
@@ -7212,11 +7371,30 @@ function savePortfolio() {
   } else {
     allPortfolios.push(portfolio);
   }
-
   renderPortfolioTable();
   document.getElementById('portfolio-form').style.display = 'none';
   resetPortfolioForm();
-  alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template + (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ'));
+
+  // ── POST ไป Google Sheet ด้วยค่ะ ──
+  if (SHEET_URL_MEMBER && SHEET_URL_MEMBER !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    const payload = { ...portfolio, type: 'save_portfolio', line_id: portfolio.lineId };
+    fetch(SHEET_URL_MEMBER, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+      alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template +
+        (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ') +
+        '\nID: ' + (res.id || portfolio.id));
+    })
+    .catch(() => {
+      alert('✅ บันทึกใน memory แล้วค่ะ (ยังไม่ sync Sheet — ตรวจ URL ด้วยนะคะ)');
+    });
+  } else {
+    alert('✅ บันทึก Portfolio แล้วค่ะ!\nTemplate ' + portfolio.template +
+      (portfolio.template === 'A' ? ' — มีผลงานค่ะ' : ' — ไม่มีผลงานค่ะ'));
+  }
 }
 
 function resetPortfolioForm() {
