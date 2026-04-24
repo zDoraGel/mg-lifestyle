@@ -120,6 +120,32 @@
 }
 
 
+  
+    /* Portfolio CSS */
+    .pf-header{background:#4A1F1F;padding:28px 24px;text-align:center}
+    .pf-avatar{width:60px;height:60px;background:rgba(201,120,90,0.2);border:2px solid rgba(201,120,90,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px}
+    .pf-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:white;margin-bottom:4px}
+    .pf-type{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px}
+    .pf-badge{display:inline-block;padding:4px 14px;background:rgba(201,120,90,0.2);border:1px solid rgba(201,120,90,0.4);border-radius:20px;font-size:11px;color:#C9A87A;margin-bottom:8px}
+    .pf-stars{font-size:16px;color:#C9785A;margin-bottom:12px}
+    .pf-btns{display:flex;gap:8px;justify-content:center}
+    .pf-btn-call,.pf-btn-line{padding:10px 16px;border:none;border-radius:50px;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;flex:1}
+    .pf-btn-call{background:rgba(255,255,255,0.08);color:white}
+    .pf-btn-line{background:#3A2020;color:#C9A87A}
+    .pf-stats{display:grid;grid-template-columns:repeat(3,1fr);background:white}
+    .pf-stat{padding:16px 8px;text-align:center;border-right:1px solid rgba(139,115,85,0.1)}
+    .pf-stat:last-child{border-right:none}
+    .pf-stat-num{font-size:18px;font-weight:700;color:#2D2D2D}
+    .pf-stat-label{font-size:10px;color:#8B5E52;margin-top:2px}
+    .pf-body{background:white;padding:20px}
+    .pf-section-title{font-size:15px;font-weight:700;color:#2D2D2D;margin-bottom:12px}
+    .pf-info-box{background:#F7F0EC;border-radius:10px;padding:14px;margin-bottom:16px}
+    .pf-info-row{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#2D2D2D;margin-bottom:8px}
+    .pf-tag{display:inline-block;padding:5px 12px;background:#F0E8E0;border-radius:20px;font-size:12px;color:#4A1F1F;margin:0 4px 6px 0}
+    .pf-work-link{display:flex;justify-content:space-between;align-items:center;padding:12px;background:#F7F0EC;border-radius:10px;border:1px solid rgba(139,115,85,0.1);margin-bottom:8px;text-decoration:none}
+    .pf-review-card{background:#4A1F1F;border-radius:10px;padding:14px;margin-bottom:8px}
+    .pf-review-card-light{background:#F7F0EC;border-radius:10px;padding:14px;margin-bottom:8px}
+    
   </style>
 </head>
 <body>
@@ -2184,11 +2210,17 @@ function previewPortfolio() {
 }
 
 function previewPortfolioById(id) {
-  const p = allPortfolios.find(p => p.id === id);
+  const p = allPortfolios.find(p => String(p.id) === String(id));
   if (p) {
     renderPortfolioPage(p);
-    showPage('portfolio');
+    document.getElementById('pf-preview-modal').style.display = 'block';
+  } else {
+    alert('ไม่พบ Portfolio ค่ะ ID: ' + id);
   }
+}
+
+function closePfModal() {
+  document.getElementById('pf-preview-modal').style.display = 'none';
 }
 
 function renderPortfolioPage(p) {
@@ -2646,90 +2678,7 @@ function previewPortfolio() {
 
 
 
-function renderPortfolioPage(p) {
-  const starsHtml = '★'.repeat(Math.floor(p.rating)) + (p.rating % 1 ? '½' : '');
-  const socialLinks = p.socials.map(s => `
-    <a href="${s.url}" target="_blank" class="pf-work-link">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:32px;height:32px;background:#F0E8E0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px">${s.icon}</div>
-        <div><div style="font-size:13px;font-weight:600;color:#2D2D2D">${s.name}</div><div style="font-size:11px;color:#8B5E52">${s.url}</div></div>
-      </div>
-      <span style="color:#C9785A;font-size:16px">→</span>
-    </a>`).join('');
 
-  const noWork = `
-    <div class="pf-work-box">
-      <div style="font-size:28px;margin-bottom:8px">🗂️</div>
-      <div style="font-weight:600;color:#2D2D2D;font-size:13px;margin-bottom:4px">ยังไม่มีรูปผลงานค่ะ</div>
-      <div style="font-size:12px;color:#8B5E52">สอบถามได้โดยตรงค่ะ</div>
-    </div>
-    <div style="background:white;border-radius:10px;padding:14px;border:1px solid rgba(139,115,85,0.1);display:flex;align-items:center;gap:10px;margin-bottom:16px">
-      <div style="font-size:20px">💬</div>
-      <div>
-        <div style="font-size:13px;font-weight:600;color:#2D2D2D">ถามเรื่องผลงานโดยตรง</div>
-        <div style="font-size:11px;color:#8B5E52">ติดต่อผ่าน LINE หรือโทร</div>
-      </div>
-    </div>`;
-
-  const reviewsHtml = p.reviews_data.map((r, i) => i === 0 ? `
-    <div class="pf-review-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div style="font-weight:600;color:white;font-size:13px">${r.name}</div>
-        <div style="color:#C9785A;font-size:13px">★★★★★</div>
-      </div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.6)">${r.text}</div>
-    </div>` : `
-    <div class="pf-review-card-light">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div style="font-weight:600;color:#2D2D2D;font-size:13px">${r.name}</div>
-        <div style="color:#C9785A;font-size:13px">★★★★★</div>
-      </div>
-      <div style="font-size:12px;color:#8B5E52">${r.text}</div>
-    </div>`).join('');
-
-  const serviceTags = p.services.map(s => `<span class="pf-tag">${s}</span>`).join('');
-
-  document.getElementById('portfolio-content').innerHTML = `
-    <div style="max-width:480px;margin:0 auto;padding:20px">
-      <div style="background:#F7F0EC;border-radius:16px;overflow:hidden;border:1px solid rgba(139,115,85,0.15)">
-        <div class="pf-header">
-          <div class="pf-avatar">${p.emoji}</div>
-          <div class="pf-name">${p.name}</div>
-          <div class="pf-type">${p.type}</div>
-          ${p.hook ? `<div style="font-size:12px;color:rgba(255,255,255,0.5);margin:4px 0 8px;font-style:italic">${p.hook}</div>` : ''}
-          <div class="pf-badge">✓ ยืนยันตัวตนแล้ว</div>
-          <div class="pf-stars">${starsHtml} <span style="font-size:12px;color:rgba(255,255,255,0.6)">${p.rating} · (${p.reviews} รีวิว)</span></div>
-          <div class="pf-btns">
-            <button class="pf-btn-call" onclick="window.location='tel:${p.phone}'">📞 โทรนัดคิว</button>
-            <button class="pf-btn-line" onclick="window.location='https://line.me/ti/p/${p.lineId}'">💬 คุยผ่าน LINE</button>
-          </div>
-        </div>
-        <div class="pf-stats">
-          <div class="pf-stat"><div class="pf-stat-num">${p.jobs == 0 ? '🌱' : p.jobs+'+'}</div><div class="pf-stat-label">${p.jobs == 0 ? 'กำลังรับงานแรก' : 'งานที่ทำ'}</div></div>
-          <div class="pf-stat"><div class="pf-stat-num">${p.exp}</div><div class="pf-stat-label">ประสบการณ์</div></div>
-          <div class="pf-stat"><div class="pf-stat-num">${p.stat3}</div><div class="pf-stat-label">&nbsp;</div></div>
-        </div>
-        <div class="pf-body">
-          <div class="pf-section-title">ข้อมูลทั่วไป</div>
-          <div class="pf-info-box">
-            <div class="pf-info-row">📍 <div><div style="font-size:11px;color:#8B5E52">พื้นที่</div><div>${p.area}</div></div></div>
-            <div class="pf-info-row">💰 <div><div style="font-size:11px;color:#8B5E52">ราคาเริ่มต้น</div><div>${p.price}</div></div></div>
-          </div>
-          ${serviceTags ? `<div class="pf-section-title">บริการ</div><div style="margin-bottom:16px">${serviceTags}</div>` : ''}
-          <div class="pf-section-title">ผลงาน</div>
-          ${p.template === 'A' ? socialLinks : noWork}
-          ${reviewsHtml ? `<div class="pf-section-title" style="margin-top:16px">รีวิว</div>${reviewsHtml}` : `
-          <div class="pf-section-title" style="margin-top:16px">รีวิว</div>
-          <div class="pf-review-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><div style="font-weight:600;color:white;font-size:13px">คุณนิ ว.</div><div style="color:#C9785A;font-size:13px">★★★★★</div></div><div style="font-size:12px;color:rgba(255,255,255,0.6)">งานเร็ว ตรงเวลา ไว้วางใจได้มากค่ะ</div></div>
-          <div class="pf-review-card-light"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><div style="font-weight:600;color:#2D2D2D;font-size:13px">คุณพิม ก.</div><div style="color:#C9785A;font-size:13px">★★★★★</div></div><div style="font-size:12px;color:#8B5E52">ประทับใจมาก บริการดีเกินคาดค่ะ</div></div>
-          `}
-        </div>
-        <div style="padding:10px;text-align:center;background:#F7F0EC;border-top:1px solid rgba(139,115,85,0.1)">
-          <div style="font-size:10px;color:#8B5E52">Template ${p.template} — ${p.template==='A'?'มีผลงาน':'ไม่มีผลงาน'}</div>
-        </div>
-      </div>
-    </div>`;
-}
 
 
 
@@ -2846,5 +2795,14 @@ function prefillPortfolioForm(name, phone, email, service) {
 }
 
 </script>
+
+<!-- Portfolio Preview Modal -->
+<div id="pf-preview-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9000;overflow-y:auto;padding:20px" onclick="if(event.target===this)closePfModal()">
+  <div style="max-width:520px;margin:40px auto;position:relative">
+    <button onclick="closePfModal()" style="position:absolute;top:-12px;right:-12px;background:#C9785A;border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;z-index:1">✕</button>
+    <div id="portfolio-content"></div>
+  </div>
+</div>
+
 </body>
 </html>
