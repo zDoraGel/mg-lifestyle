@@ -990,6 +990,28 @@
 </div><!-- end page-admin -->
 
 <script>
+// ===== ADMIN LOCK =====
+const ADMIN_PW = 'mg2026admin';
+function checkAdminLock() {
+  const val = document.getElementById('adminLockInput').value;
+  const err = document.getElementById('adminLockErr');
+  if (val === ADMIN_PW) {
+    document.getElementById('adminLock').classList.add('hide');
+    sessionStorage.setItem('aera_admin','1');
+    setTimeout(function(){ try{ loadAdminData(); showAdminSection('dashboard'); }catch(e){ console.log('init err:',e); }}, 100);
+  } else {
+    err.textContent = '❌ Password ไม่ถูกต้องค่ะ';
+    document.getElementById('adminLockInput').value = '';
+    document.getElementById('adminLockInput').focus();
+  }
+}
+window.addEventListener('DOMContentLoaded', function(){
+  if (sessionStorage.getItem('aera_admin') === '1') {
+    document.getElementById('adminLock').classList.add('hide');
+    setTimeout(function(){ try{ loadAdminData(); showAdminSection('dashboard'); }catch(e){} }, 100);
+  }
+});
+
 const SHEET_URL_MEMBER = 'https://script.google.com/macros/s/AKfycby2HWkp1Qc9fcOnyWChsMpy9FE_hsYFcJAjxgRcEQ0XZW-3g0yT2jtyKH6oxPjPt8yt/exec';
 // ===== ADMIN PANEL JAVASCRIPT =====
 
