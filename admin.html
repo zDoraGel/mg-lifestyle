@@ -848,10 +848,7 @@
                   <label>บริการ (คั่นด้วย ,)</label>
                   <input type="text" id="pf-services" placeholder="ทำความสะอาด, ซักรีด">
                 </div>
-                <div class="email-field">
-                  <label>จำนวนรีวิว</label>
-                  <input type="number" id="pf-reviews" placeholder="0" min="0" value="0">
-                </div>
+
                 <div class="email-field">
                   <label>คำอธิบายเพิ่มเติม</label>
                   <input type="text" id="pf-desc" placeholder="รายละเอียดเพิ่มเติมค่ะ">
@@ -2334,39 +2331,53 @@ function renderPortfolioPage(p) {
 }
 
 function editPortfolio(id) {
-  const p = allPortfolios.find(p => p.id === id);
-  if (!p) return;
+  const p = allPortfolios.find(p => String(p.id) === String(id));
+  if (!p) { alert('ไม่พบข้อมูล Portfolio ค่ะ'); return; }
   editingPortfolioId = id;
-  document.getElementById('pf-name').value = p.name;
-  document.getElementById('pf-type').value = p.type;
-  document.getElementById('pf-emoji').value = p.emoji;
-  document.getElementById('pf-jobs').value = p.jobs;
-  document.getElementById('pf-exp').value = p.exp;
-  document.getElementById('pf-hook').value = p.hook || '';
-  document.getElementById('pf-stat3').value = p.stat3;
-  document.getElementById('pf-phone').value = p.phone;
-  document.getElementById('pf-line-id').value = p.lineId;
-  document.getElementById('pf-rating').value = p.rating;
-  document.getElementById('pf-reviews').value = p.reviews || 0;
-  document.getElementById('pf-area').value = p.area;
-  document.getElementById('pf-price').value = p.price;
-  document.getElementById('pf-desc').value = p.desc;
-  document.getElementById('pf-services').value = p.services.join(', ');
-  p.socials.forEach(s => {
-    if (s.name === 'Facebook')  document.getElementById('pf-fb').value  = s.url;
-    if (s.name === 'Instagram') document.getElementById('pf-ig').value  = s.url;
-    if (s.name === 'TikTok')    document.getElementById('pf-tt').value  = s.url;
-    if (s.name === 'Website')   document.getElementById('pf-web').value = s.url;
+
+  // helper: set value + select
+  const set = (elId, val) => {
+    const el = document.getElementById(elId);
+    if (el) el.value = val ?? '';
+  };
+
+  set('pf-name',    p.name);
+  set('pf-type',    p.type);     // select dropdown
+  set('pf-emoji',   p.emoji);
+  set('pf-jobs',    p.jobs);
+  set('pf-exp',     p.exp);      // select dropdown
+  set('pf-hook',    p.hook || '');
+  set('pf-stat3',   p.stat3 || '100% ตรงเวลา');  // select dropdown
+  set('pf-phone',   p.phone);    // เก็บเป็น string ไม่ตัด 0 ค่ะ
+  set('pf-line-id', p.lineId || p.line_id);
+  set('pf-rating',  p.rating);   // select dropdown
+  set('pf-area',    p.area);
+  set('pf-price',   p.price);
+  set('pf-desc',    p.desc || '');
+  set('pf-services', Array.isArray(p.services) ? p.services.join(', ') : (p.services || ''));
+
+  // clear socials ก่อนค่ะ
+  ['pf-fb','pf-ig','pf-tt','pf-web'].forEach(id => set(id, ''));
+  (p.socials || []).forEach(s => {
+    if (!s) return;
+    const name = (s.name || '').toLowerCase();
+    if (name.includes('facebook'))  set('pf-fb',  s.url);
+    if (name.includes('instagram')) set('pf-ig',  s.url);
+    if (name.includes('tiktok'))    set('pf-tt',  s.url);
+    if (name.includes('website') || name.includes('เว็บ')) set('pf-web', s.url);
   });
-  if (p.reviews_data[0]) {
-    document.getElementById('pf-r1-name').value = p.reviews_data[0].name;
-    document.getElementById('pf-r1-text').value = p.reviews_data[0].text;
-  }
-  if (p.reviews_data[1]) {
-    document.getElementById('pf-r2-name').value = p.reviews_data[1].name;
-    document.getElementById('pf-r2-text').value = p.reviews_data[1].text;
-  }
+
+  // รีวิวเดิมค่ะ
+  const r1 = (p.reviews_data || [])[0];
+  const r2 = (p.reviews_data || [])[1];
+  set('pf-r1-name', r1 ? r1.name : '');
+  set('pf-r1-text', r1 ? r1.text : '');
+  set('pf-r2-name', r2 ? r2.name : '');
+  set('pf-r2-text', r2 ? r2.text : '');
+
+  const reviewsEl = document.getElementById('pf-reviews'); if(reviewsEl) reviewsEl.value = p.reviews || 0;
   document.getElementById('portfolio-form').style.display = 'block';
+  document.getElementById('portfolio-form').scrollIntoView({behavior:'smooth', block:'start'});
   updateTemplateBadge();
 }
 
