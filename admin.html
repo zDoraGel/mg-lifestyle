@@ -2171,9 +2171,9 @@ function renderPortfolioTable() {
         ${p.socials.map(s => s.icon).join(' ') || '—'}
       </td>
       <td>
-        <button class="admin-action-btn btn-view" onclick="previewPortfolioById(${p.id})">👁️</button>
-        <button class="admin-action-btn btn-edit" onclick="editPortfolio(${p.id})" style="margin-left:4px">✏️</button>
-        <button class="admin-action-btn btn-reject" onclick="deletePortfolio(${p.id})" style="margin-left:4px">🗑️</button>
+        <button class="admin-action-btn btn-view" onclick="previewPortfolioById('${p.id}')">👁️</button>
+        <button class="admin-action-btn btn-edit" onclick="editPortfolio('${p.id}')" style="margin-left:4px">✏️</button>
+        <button class="admin-action-btn btn-reject" onclick="deletePortfolio('${p.id}')" style="margin-left:4px">🗑️</button>
       </td>
     </tr>
   `).join('');
@@ -2632,9 +2632,9 @@ function renderPortfolioTable() {
         ${p.socials.map(s => s.icon).join(' ') || '—'}
       </td>
       <td>
-        <button class="admin-action-btn btn-view" onclick="previewPortfolioById(${p.id})">👁️</button>
-        <button class="admin-action-btn btn-edit" onclick="editPortfolio(${p.id})" style="margin-left:4px">✏️</button>
-        <button class="admin-action-btn btn-reject" onclick="deletePortfolio(${p.id})" style="margin-left:4px">🗑️</button>
+        <button class="admin-action-btn btn-view" onclick="previewPortfolioById('${p.id}')">👁️</button>
+        <button class="admin-action-btn btn-edit" onclick="editPortfolio('${p.id}')" style="margin-left:4px">✏️</button>
+        <button class="admin-action-btn btn-reject" onclick="deletePortfolio('${p.id}')" style="margin-left:4px">🗑️</button>
       </td>
     </tr>
   `).join('');
@@ -2644,13 +2644,7 @@ function previewPortfolio() {
   showPage('portfolio');
 }
 
-function previewPortfolioById(id) {
-  const p = allPortfolios.find(p => p.id === id);
-  if (p) {
-    renderPortfolioPage(p);
-    showPage('portfolio');
-  }
-}
+
 
 function renderPortfolioPage(p) {
   const starsHtml = '★'.repeat(Math.floor(p.rating)) + (p.rating % 1 ? '½' : '');
@@ -2737,50 +2731,9 @@ function renderPortfolioPage(p) {
     </div>`;
 }
 
-function editPortfolio(id) {
-  const p = allPortfolios.find(p => p.id === id);
-  if (!p) return;
-  editingPortfolioId = id;
-  document.getElementById('pf-name').value = p.name;
-  document.getElementById('pf-type').value = p.type;
-  document.getElementById('pf-emoji').value = p.emoji;
-  document.getElementById('pf-jobs').value = p.jobs;
-  document.getElementById('pf-exp').value = p.exp;
-  document.getElementById('pf-hook').value = p.hook || '';
-  document.getElementById('pf-stat3').value = p.stat3;
-  document.getElementById('pf-phone').value = p.phone;
-  document.getElementById('pf-line-id').value = p.lineId;
-  document.getElementById('pf-rating').value = p.rating;
-  document.getElementById('pf-reviews').value = p.reviews || 0;
-  document.getElementById('pf-area').value = p.area;
-  document.getElementById('pf-price').value = p.price;
-  document.getElementById('pf-desc').value = p.desc;
-  document.getElementById('pf-services').value = p.services.join(', ');
-  p.socials.forEach(s => {
-    if (s.name === 'Facebook')  document.getElementById('pf-fb').value  = s.url;
-    if (s.name === 'Instagram') document.getElementById('pf-ig').value  = s.url;
-    if (s.name === 'TikTok')    document.getElementById('pf-tt').value  = s.url;
-    if (s.name === 'Website')   document.getElementById('pf-web').value = s.url;
-  });
-  if (p.reviews_data[0]) {
-    document.getElementById('pf-r1-name').value = p.reviews_data[0].name;
-    document.getElementById('pf-r1-text').value = p.reviews_data[0].text;
-  }
-  if (p.reviews_data[1]) {
-    document.getElementById('pf-r2-name').value = p.reviews_data[1].name;
-    document.getElementById('pf-r2-text').value = p.reviews_data[1].text;
-  }
-  document.getElementById('portfolio-form').style.display = 'block';
-  updateTemplateBadge();
-}
 
-function deletePortfolio(id) {
-  const p = allPortfolios.find(p => p.id === id);
-  if (p && confirm('ลบ Portfolio ของ ' + p.name + ' ไหมคะ?')) {
-    allPortfolios = allPortfolios.filter(p => p.id !== id);
-    renderPortfolioTable();
-  }
-}
+
+
 
 // ===== INIT =====
 window.addEventListener('DOMContentLoaded', function() {
